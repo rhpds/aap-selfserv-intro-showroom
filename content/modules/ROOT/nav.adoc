@@ -1,7 +1,7 @@
-* xref:module-01.adoc[1. Configure RBAC and validate]
+* xref:module-01.adoc[1. Configure Ansible Automation Platform for Self Service Portal]
 ** xref:module-01.adoc#repositories[Configuring RBAC in AAP 2.6 that will be used for Self Service portal]
 ** xref:module-01.adoc#software[Configure RBAC in Self Service portal]
-** xref:module-01.adoc#software[Administrator validates content synchronization]
+** xref:module-01.adoc#software[Validate content synchronization to Self Service portal]
 
 * xref:module-02.adoc[2. User persona testing]
 ** xref:module-02.adoc#prerequisites[Test as user clouduser1]
