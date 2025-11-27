@@ -28,6 +28,7 @@ Red Hat wants to give control back to the automation team to provide a self-serv
 === Lab Access
 
 Each attendee will receive access to their own instance of the lab environment.  This will include links to the following:
+
 * OpenShift Container Platform where they have 2 OCP projects (one for AAP, and the second for self-service portal).
 * Ansible Automation Platform.
 * Self-service automation portal.
