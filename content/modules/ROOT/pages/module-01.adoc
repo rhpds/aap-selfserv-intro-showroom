@@ -2,62 +2,91 @@
 
 == Environment background
 
-In this lab, you will be installing software into the container 
-image running as an interactive application. To do this you will
-need `yum`, but do not need `systemd` for managing services within the
-container environment.  For that reason, you will be using the *Standard*
-UBI image (as opposed to the Minimal or Multi-service images).
+In your environment you will have access to the following:
 
-Using the "buildah from" command will download and meld the container image. This particular image we are using is the Red Hat Universal Base Image or UBI. From the ourput of the command, you will notice that we are pulling down the latest one, which is for RHEL 9. 
+=== `Ansible Automaiton Platform.` It is set up with users, inventories, credentials, a project, and a number of job templates, all of which will be used in this lab.
 
-. Execute the  download the Standard UBI
-image from Red Hat's registry.
+=== `Self-service automation portal.` You will perform the setup in AAP, and in Self-service portal to enable different user personas to leverage automation.
 
-+
-[source,sh,role=execute]
-----
-buildah from registry.access.redhat.com/ubi9/ubi
-----
+=== `OpenShift Container Platform.` You will have access but you will not need to use it.
 
 [#aaprbac]
 == Configuring RBAC in AAP 2.6 that will be used for Self Service portal
 
-In this lab, you are going to containerize a software package that is already
-packaged in RPM format and stored in the Extra Packages for Enterprise Linux
-(EPEL) repository.
-
-Software often has requirements for prerequisite software that must be installed
-on the machine for it to work properly.  `yum` will resolve those
-dependencies for you, as long as it can locate the required packages in
-repositories defined on the machine.  The Red Hat Universal Base Image (UBI)
-downloaded in the previous step has access to some Red Hat Enterprise Linux
-repositories.  However, the target package for the lab is from EPEL.  
-
-. In the command below, `buildah` is going to run a command on the
-`ubi-working-container` image.  The `--` indicates that the command should be
-executed from within the container, which means the results will be applied into
-the container image.  Lastly, you are providing the `yum` command to install a
-package that defines all of the repositories from EPEL, `epel-release-latest-9`.
-
-+
-[source,bash]
-----
-buildah run ubi-working-container -- yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-----
+=== Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
 
 
-. You can verify that the above command did not install the RPM on the host system.
+=== Create 3 teams in AAP:
 
-+
-[source,bash]
-----
-rpm -q epel-release
-----
+Expand the `Access Management` menu on the left.
 
-NOTE: If your repository configurations are not distributed as an RPM, but instead as
-individual `.repo` files, you could use the `buildah copy` command to copy
-files from the host operating system into the container image.  You will see
-an example of using `buildah copy` later in this lab.
+`Access Management` -> `Teams` -> `+Create Team`.
+
+* `cloud-team`
+* `network-team`
+* `rhel-team`
+
+Create each team as follows and click `Create team` to save the team(s).
+
+image::createteam.png[]
+
+Now that you have created the teams, you will assign roles and users to the teams.
+
+Starting with the `cloud-team`:
+`Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles`
+
+image::assignrole.png[]
+
+. In the `Assign roles` step one, select `Job Template` as the resource type, and click `Next`.
+. In step 2, select all the job templates that begin with `Cloud/AWS`, and click `Next`.
+. In step 3, select the role to apply, please select `Job Template Execute`, and click `Next`.
+. In step 4, review your work, and click `Finish`.
+
+image::selectjobtemplates.png[]
+image::finish1strole.png[]
+
+Repeat the same process for assiging roles by adding the following roles:
+* Resource Type: `Inventory` -> `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+* Resource Type: `Credential` -> `Next` -> select `Credential Use` as the role to apply -> Review your work and click `Finish`
+
+For `Inventory Use`, select the follwoing 3 inventories and click `Next`.
+
+* `AWS Inventory`
+* `Azure Inventory`
+* `GCP Inventory`
+
+For `Credential Use`, select the following 3 credentials and click `Next`.
+
+* `AWS Credential`
+* `Azure Credential`
+* `RHEL - SSH Credentials`
+
+While still on the `cloud-team` page, assign the following `Users` to the `cloud-team`:
+* Click on the `Users` tab, and select `+Assign users` -> select the `clouduser1`, and click `Assign users`.
+
+Repeat the same process for role and user assignmens to the `network-team` and `rhel-team`teams.
+
+`For `network-team`, assign the following:`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Network/`, and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+
+* For Resource Type: `Inventory`, select the `Network Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+
+* For Resource Type: `Credential`, select the `Network Credential` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+
+While still on the `network-team` page, assign the following `Users` to the `network-team`:
+* Click on the `Users` tab, and select `+Assign users` -> select the `networkuser1`, and click `Assign users`.
+
+`For `rhel-team`, assign the following:`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+
+* For Resource Type: `Inventory`, select the `RHEL Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+
+* For Resource Type: `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+
+While still on the `rhel-team` page, assign the following `Users` to the `rhel-team`:
+* Click on the `Users` tab, and select `+Assign users` -> select the `rheluser1`, and click `Assign users`.
+
+Awesome! You have now configured RBAC in Ansible Automation Platform.
 
 [#ssprbac]
 == Configure RBAC in Self Service portal
