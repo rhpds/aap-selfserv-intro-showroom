@@ -35,7 +35,7 @@ Now that you have created the teams, you will assign roles and users to the team
 Starting with the `cloud-team`:
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles`
 
-image::assignrole.png[]
+image::assignroles.png[]
 
 . In the `Assign roles` step one, select `Job Template` as the resource type, and click `Next`.
 . In step 2, select all the job templates that begin with `Cloud/AWS`, and click `Next`.
