@@ -1,6 +1,6 @@
-= Building an Application with rpms
+= Configure Ansible Automation Platform for Self Service Portal
 
-== Downloading the UBI
+== Environment background
 
 In this lab, you will be installing software into the container 
 image running as an interactive application. To do this you will
@@ -19,8 +19,9 @@ image from Red Hat's registry.
 buildah from registry.access.redhat.com/ubi9/ubi
 ----
 
-[#repositories]
-== Installing Repositories
+[#aaprbac]
+== Configuring RBAC in AAP 2.6 that will be used for Self Service portal
+
 In this lab, you are going to containerize a software package that is already
 packaged in RPM format and stored in the Extra Packages for Enterprise Linux
 (EPEL) repository.
@@ -58,8 +59,8 @@ individual `.repo` files, you could use the `buildah copy` command to copy
 files from the host operating system into the container image.  You will see
 an example of using `buildah copy` later in this lab.
 
-[#software]
-== Installing Software
+[#ssprbac]
+== Configure RBAC in Self Service portal
 
 
 . Now that the yum repositories are defined within the container, execute 
@@ -73,30 +74,16 @@ buildah run ubi-working-container -- yum -y install moon-buggy
 ----
 
 
-== Committing the Container Image
+=== Committing the Container Image
 
 . At this point, the container is configured.  It is time to transition from a
 working container into a committed image.  In the command below, you will use
 the `buildah` command to commit the working container to an image called:
 `moon-buggy`.
 
-+
-[source,bash]
-----
-buildah commit ubi-working-container moon-buggy
-----
-
-+
-. The output of `podman image list` should confirm the image was created.
-
-+
-[source,bash]
-----
-podman image list
-----
 
 
-== Deploy the Container
+=== Deploy the Container
 
 Now the software has been installed and a new container image created.  It is
 time to spawn a runtime of the container image and validate the software.  The
@@ -106,44 +93,23 @@ software we are using is a command line command.
 it will be in interactive (`-it`) mode, based on the `moon-buggy` container
 image and the command run interactively will be `/usr/bin/moon-buggy`.
 
-+
-[source,bash]
-----
-podman run -it moon-buggy /usr/bin/moon-buggy
-----
 
-+
-[source,textinfo]
-----
 
-<<< OUTPUT ABRIDGED >>>
-               MM     MM   OOOOO    OOOOO   NN     N
-               M M   M M  O     O  O     O  N N    N
-               M  M M  M  O     O  O     O  N  N   N
-               M   M   M  O     O  O     O  N   N  N
-               M       M  O     O  O     O  N    N N
-               M       M   OOOOO    OOOOO   N     NN
 
-                     BBBBBB   U     U   GGGGG    GGGGG   Y     Y
-                     B     B  U     U  G     G  G     G   Y   Y
-                     BBBBBB   U     U  G        G          Y Y
-                     B     B  U     U  G   GGG  G   GGG     Y
-                     B     B  U     U  G     G  G     G    Y
-                     BBBBBB    UUUUU    GGGGG    GGGGG   YY
+[#validate]
+== Validate content synchronization to Self Service portal
 
-<<< OUTPUT ABRIDGED >>>
-----
 
-. You can now play the Moon Buggy game, which is a text-based version of the
-popular Moon Patrol.  When you are finished, use the `q` command to quit the
-game, which will terminate the container.
+. Now that the yum repositories are defined within the container, execute 
+another `yum install`, within the container, to install the target
+software: `moon-buggy`.
 
-+
-Alternatively, you can use `podman` to kill the running container from
-*Terminal 2*.
 
-+
-[source,bash]
-----
-podman kill $(podman ps | grep -v CONTAINER | cut -f1 -d" " )
-----
+
+
+=== Committing the Container Image
+
+. At this point, the container is configured.  It is time to transition from a
+working container into a committed image.  In the command below, you will use
+the `buildah` command to commit the working container to an image called:
+`moon-buggy`.
