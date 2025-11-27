@@ -1,43 +1,33 @@
 = {lab_name}
 
-The `lab_name` var, known as an asciidoc attribute, above was set in `./content/antora.yml` and can be used to set the lab_name or title of your content.
-You are both free to change its value and if you prefer to use a different var name, you can change the value of `lab_name`, for example to `title` in `./content/antora.yml` and then reference it in your content as `\{title}`. +
+The {lab_name} lab will explain the challenges that organizations face when adopting Ansible Automation Platform, and how to overcome them with Self Service Automation Portal.
 
-image::rhel-logo-black.jpg[rhel-logo-black,55%,55%]
+image::aap-logo.png[aap-logo,55%,55%]
 
-== Variables
+== The challenge!!
+Ansible Automation Platform owners are challened to improve the onboarding and adoption of Automation. They need to make it easier to onboard and get more people involved in automation. 
 
-Other vars can also be set there, such as `ssh_user` and `ssh_password`, and referenced inline in the lab content by using the `\{foo}` syntax.
+Organizstion have subject matter experts (SME) in many different IT domains.  Not all of them are automation savvy. Think of a network administrator SME, they are not familiar with automation and don't know or understand what an Ansible playbook is. All they want to do is trigger automation from a simple to use UI that includes guard rails.  They want to run some automation as part of their day to day task. This is extremely important for organizations and the platform administrators to be able to address and help these users.
+Some organizations have tried to either integrate to a third-party system to do this type of thing or they've tried to create their own bespoke system - with variying degrees of success.
+To address this challenge, Red Hat has released the Self-Service Automation Portal!
 
-This is another var, or asciidoc attribute, from `./content/antora.yml` {my_var}
+== The solution!!
 
-== Writing your lab
+The Self-Service Automation Portal!
+It is an simple interface that is focused on one thing, to run automation! The credentials a user would use to sign into Ansible Automation Platform are the same credentials that they would use to sign into the self-service automation portal. We synchronize organizational identities like users and teams etc. 
 
-Whatever type of content you are writing we'll refer to your *content* as "your lab" in this document.
+Red Hat wants to give control back to the automation team to provide a self-service experience to those SME's, business users, and non-automation savvy people to help broaden who can automate and the usage of the platform itself. 
 
 === Lab structure
 
-Wether you are writing a lab
-
-* First, we will build a monolithic application already compiled as RPM packages and put it into a container. This will allow us to deploy the application, copy it between machines, and update it separately from the operating system. This process affords us a portable and easily maintained component instead of tightly coupling the application with your operating system maintenance.
-
-* In closing we will build a second container on a different operating system version that makes an application not packaged into RPMs. This will be similar to a web application deployment, positioning the correct files at the right locations. To do this, we will pull a project from GitHub and position the component files within our container image. The purpose of this is to achieve a portable application container that can deploy on several different versions of Red Hat Enterprise Linux. This also provides the benefit of decoupling your application maintenance, which would all happen by building new containers versus operating system maintenance. The container is no longer reliant on the operating system installed on the machine where the application is deployed.
-
-. Now let's examine this cluster a bit more by describing the cluster (the `$GUID` environment variable is already set for you so you can immediately describe your individual cluster):
-+
-[source,sh,role=execute]
-----
-podman ps
-----
-+
-.Sample Output
-[source,texinfo,subs="attributes"]
-----
-CONTAINER ID  IMAGE                        COMMAND           CREATED      STATUS      PORTS                 NAMES
-2dcfee9e50c4  docker.io/library/httpd:2.4  httpd-foreground  3 hours ago  Up 3 hours  0.0.0.0:8080->80/tcp  showroom-httpd
-----
+* First, you will log into the Ansible Automation Platform and perform the tasks to configure Role-Based Access Control (RBAC) and validate the configuration.
+* Second, you will synchronize/configure the Self-Service Automation Portal to use the Ansible Automation Platform.
+* Third, you will test the Self-Service Automation Portal.
+* Fourth, you will modify the Self-Service Automation Portal to use a custom dynamic template.
 
 === Lab Access
 
-The terminal window to your right is *already* logged into the lab environment as the `{ssh_user}` user via `ssh`.
-All steps of this lab are to be completed as the `{ssh_user}` user.
+Each attendee will receive access to their own instance of the lab environment.  This will include links to the following:
+* OpenShift Container Platform where they have 2 OCP projects (one for AAP, and the second for self-service portal).
+* Ansible Automation Platform.
+* Self-service automation portal.
