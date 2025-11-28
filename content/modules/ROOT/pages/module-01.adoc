@@ -46,6 +46,7 @@ image::selectjobtemplates.png[]
 image::finish1strole.png[]
 
 Repeat the same process for assiging roles by adding the following roles:
+
 * Resource Type: `Inventory` -> `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 * Resource Type: `Credential` -> `Next` -> select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
@@ -62,11 +63,13 @@ For `Credential Use`, select the following 3 credentials and click `Next`.
 * `RHEL - SSH Credentials`
 
 While still on the `cloud-team` page, assign the following `Users` to the `cloud-team`:
+
 * Click on the `Users` tab, and select `+Assign users` -> select the `clouduser1`, and click `Assign users`.
 
 Repeat the same process for role and user assignmens to the `network-team` and `rhel-team`teams.
 
-`For `network-team`, assign the following:`
+For `network-team`, assign the following:
+
 * For Resource Type: `Job Template`, select all the job templates that begin with `Network/`, and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: `Inventory`, select the `Network Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
@@ -74,9 +77,11 @@ Repeat the same process for role and user assignmens to the `network-team` and `
 * For Resource Type: `Credential`, select the `Network Credential` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `network-team` page, assign the following `Users` to the `network-team`:
+
 * Click on the `Users` tab, and select `+Assign users` -> select the `networkuser1`, and click `Assign users`.
 
-`For `rhel-team`, assign the following:`
+For `rhel-team`, assign the following:
+
 * For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: `Inventory`, select the `RHEL Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
@@ -84,6 +89,7 @@ While still on the `network-team` page, assign the following `Users` to the `net
 * For Resource Type: `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `rhel-team` page, assign the following `Users` to the `rhel-team`:
+
 * Click on the `Users` tab, and select `+Assign users` -> select the `rheluser1`, and click `Assign users`.
 
 Awesome! You have now configured RBAC in Ansible Automation Platform.
