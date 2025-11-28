@@ -1,7 +1,7 @@
 ---
 site:
   title: Introduction to Ansible Automation Platform Self-Service Automation portal
-  url: https://redhat-scholars.github.io/course-template
+  url: https://rhpds.github.io/aap-selfserv-intro-showroom
   start_page: modules::index.adoc
 
 content:
