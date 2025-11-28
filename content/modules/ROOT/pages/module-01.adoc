@@ -93,57 +93,19 @@ While still on the `rhel-team` page, assign the following `Users` to the `rhel-t
 
 Awesome! You have now configured RBAC in Ansible Automation Platform.
 
-[#ssprbac]
-== Configure RBAC in Self Service portal
-
-
-. Now that the yum repositories are defined within the container, execute 
-another `yum install`, within the container, to install the target
-software: `moon-buggy`.
-
-+
-[source,bash]
-----
-buildah run ubi-working-container -- yum -y install moon-buggy
-----
-
-
-=== Committing the Container Image
-
-. At this point, the container is configured.  It is time to transition from a
-working container into a committed image.  In the command below, you will use
-the `buildah` command to commit the working container to an image called:
-`moon-buggy`.
-
-
-
-=== Deploy the Container
-
-Now the software has been installed and a new container image created.  It is
-time to spawn a runtime of the container image and validate the software.  The
-software we are using is a command line command.  
-
-. When you `run` the container,
-it will be in interactive (`-it`) mode, based on the `moon-buggy` container
-image and the command run interactively will be `/usr/bin/moon-buggy`.
-
-
-
-
 [#validate]
 == Validate content synchronization to Self Service portal
 
+Now that you have configured RBAC in Ansible Automation Platform, you will configure RBAC in Self Service portal.
+At this point if you log in to the Self Service portal as any of the users you created, you will not be able to see any job templates.  But as an administrator you will be able to see all the job templates.
 
-. Now that the yum repositories are defined within the container, execute 
-another `yum install`, within the container, to install the target
-software: `moon-buggy`.
+What you need to do is configure RBAC in Self Service portal to allow the Portal users to see the automation templates they are authorized to execute.
 
+== Configuring RBAC in the Self Service Automation Portal
 
+=== Log in to the `Self-Service portal` with the `admin` user, and the password provided for your AAP instance. When asked to `Authorize Self Service Portal?` click `Authorize`.
 
+image::ssapadmin.png[]
 
-=== Committing the Container Image
-
-. At this point, the container is configured.  It is time to transition from a
-working container into a committed image.  In the command below, you will use
-the `buildah` command to commit the working container to an image called:
-`moon-buggy`.
+[#ssprbac]
+== Configure RBAC in the Self Service Automation Portal
