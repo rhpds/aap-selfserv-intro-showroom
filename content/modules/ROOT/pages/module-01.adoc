@@ -152,4 +152,8 @@ image::ssa-portal-users-role.png[Self Service portal administrator RBAC role for
 image::rolecondition.png[Adding a condition to the RBAC role]
 image::saa-portal-rhel-team-role.png[Self Service portal administrator RBAC role for RHEL team]
 
+The final view of this section should look like this:
+
+image::final-rbac-roles.png[Final view of the RBAC roles]
+
 Let's move on to the next section where you will test the Self-Service Automation Portal.
