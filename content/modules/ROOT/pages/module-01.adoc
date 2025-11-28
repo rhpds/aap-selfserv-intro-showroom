@@ -147,8 +147,7 @@ image::ssa-portal-users-role.png[Self Service portal administrator RBAC role for
 . Just below expand the `Scaffolder` plugin and select ALL the permissions but NOT `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
-  
-  You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directy from a Git repository. (more on this later)
-  
+.. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directy from a Git repository. (more on this later)
+
 image::rolecondition.png[Adding a condition to the RBAC role]
 image::saa-portal-rhel-team-role.png[Self Service portal administrator RBAC role for RHEL team]
