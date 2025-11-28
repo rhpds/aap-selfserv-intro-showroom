@@ -4,17 +4,16 @@
 
 In your environment you will have access to the following:
 
-=== `Ansible Automaiton Platform.` It is set up with users, inventories, credentials, a project, and a number of job templates, all of which will be used in this lab.
+* `Ansible Automaiton Platform.` It is set up with users, inventories, credentials, a project, and a number of job templates, all of which will be used in this lab.
 
-=== `Self-service automation portal.` You will perform the setup in AAP, and in Self-service portal to enable different user personas to leverage automation.
+* `Self-service automation portal.` You will perform the setup in AAP, and in Self-service portal to enable different user personas to leverage automation.
 
-=== `OpenShift Container Platform.` You will have access but you will not need to use it.
+* `OpenShift Container Platform.` You will have access but you will not need to use it.
 
 [#aaprbac]
 == Configuring RBAC in AAP 2.6 that will be used for Self Service portal
 
 === Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
-
 
 === Create 3 teams in AAP:
 
@@ -66,7 +65,7 @@ While still on the `cloud-team` page, assign the following `Users` to the `cloud
 
 * Click on the `Users` tab, and select `+Assign users` -> select the `clouduser1`, and click `Assign users`.
 
-Repeat the same process for role and user assignmens to the `network-team` and `rhel-team`teams.
+**Repeat the same process for role and user assignmens to the `network-team` and `rhel-team` teams.**
 
 For `network-team`, assign the following:
 
@@ -82,7 +81,7 @@ While still on the `network-team` page, assign the following `Users` to the `net
 
 For `rhel-team`, assign the following:
 
-* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, AND add 2 other job templates named `Cloud/AWS Create RHEL10 instance` and `Cloud/AWS Create RHEL9 instance` and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: `Inventory`, select the `RHEL Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
