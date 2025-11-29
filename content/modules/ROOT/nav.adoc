@@ -3,7 +3,7 @@
 ** xref:module-01.adoc#validate[Validate content synchronization to Self-Service Portal]
 ** xref:module-01.adoc#ssprbac[Configure RBAC in Self-Service Portal]
 
-* xref:module-02.adoc[2. User Persona Testing]
+* xref:module-02.adoc[2. Persona Testing in Self-Service Automation Portal]
 ** xref:module-02.adoc#clouduser1[Test as user clouduser1]
 ** xref:module-02.adoc#networkuser1[Test as user networkuser1]
 ** xref:module-02.adoc#rhehuser1[Test as user rheluser1]
