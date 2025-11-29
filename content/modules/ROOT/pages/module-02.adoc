@@ -15,10 +15,11 @@ The 3 users personas we will test for are, a Cloud Administrator, a Network Admi
 [#clouduser1]
 == Test as user **clouduser1**
 
-Log in to the `Self-Service portal` as `clouduser1`
+Log in to the `Self-Service portal` as `clouduser1`. You should see the Cloud job templates.
 
 image::clouduser1.png[Self Service portal clouduser1 user can see the Cloud job templates]
 
+Take a moment and run some of the cloud job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
 [#networkuser1]
 == Test as user **networkuser1**
@@ -27,7 +28,14 @@ Log in to the `Self-Service portal` as `networkuser1`
 
 image::networkuser1.png[Self Service portal networkuser1 user can see the Network job templates]
 
+Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+
 [#rheluser1]
 == Test as user **rheluser1**
 
-Log in to the `Self-Service portal` as `rheluser1`
+Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates but not the custom job template that will later be backed by a custom template imported directy from a Git repository.
+
+image::rheluser1.png[Self Service portal rheluser1 user can see the RHEL job templates but not the custom job template that will later be backed by a custom template imported directy from a Git repository.]
+
+Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+
