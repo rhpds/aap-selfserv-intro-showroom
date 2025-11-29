@@ -112,7 +112,7 @@ What you need to do is configure RBAC in Self Service portal to allow the Portal
 
 === Log in to the `Self-Service portal` as`admin`
 
-Log in with the `admin` user, and the password provided for your AAP instance. When asked to `Authorize Self Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates.
+Log in with the `admin` user, and the password provided for your AAP instance. When asked to `Authorize Self Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. At any time as an administrator you can use the `Sync now` button to synchronize Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self Service portal.
 
 image::ssapadmin.png[Self Service portal administrator user can see all the job templates]
 
