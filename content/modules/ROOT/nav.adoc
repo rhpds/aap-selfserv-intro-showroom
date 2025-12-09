@@ -10,6 +10,6 @@
 
 * xref:module-03.adoc[3. Surveys and Custom Templates]
 ** xref:module-03.adoc#surveys [Modify surveys on some job templates. See the results in Self-Service portal (auto synchronization)]
-** xref:module-03.adoc#import[Import a custom dynamictemplate]
+** xref:module-03.adoc#import[Import a custom dynamic template]
 ** xref:module-03.adoc#configure[Configure the RBAC policy in Self service]
 ** xref:module-03.adoc#launch[Launch the custom dynamic template]

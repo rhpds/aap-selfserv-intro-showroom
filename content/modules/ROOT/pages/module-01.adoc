@@ -46,7 +46,7 @@ image::finish1strole.png[Finish assigning roles to the team in Ansible Automatio
 
 Repeat the same process for assiging roles by adding the following roles:
 
-* `+Assign roles` -> Resource Type: `Inventory`
+`Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Inventory`
 
 For `Inventory`, select the follwoing 3 inventories and click `Next`.
 
@@ -57,7 +57,7 @@ For `Inventory`, select the follwoing 3 inventories and click `Next`.
 * `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
 
-* `+Assign roles` -> Resource Type: `Credential`
+`Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Credential`
 
 For `Credential`, select the following 3 credentials and click `Next`.
 
@@ -89,7 +89,7 @@ For `rhel-team`, assign the following:
 
 * For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, AND add 2 other job templates named `Cloud/AWS Create RHEL10 instance` and `Cloud/AWS Create RHEL9 instance` and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: `Inventory`, select the `RHEL Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Inventory`, select the `RHEL Inventory` AND the `AWS Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
@@ -133,7 +133,7 @@ image::ssaprbac.png[Self Service portal administrator RBAC policy]
 . For the `Add users and groups` field, from the dropdown select `cloud-team` and `network-team`, scroll down and click on `Next`.
 . For the `Add permistion policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
 . Just below expand the `Catalog` plugin and select the `catalog.entity.read` permission.
-. Just below expand the `Scaffolder` plugin and select ALL the permissions but NOT `scaffolder.template.management` permission.
+. Just below expand the `Scaffolder` plugin and select **ALL** the permissions **but NOT** `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
 
@@ -152,7 +152,7 @@ image::ssa-portal-users-role.png[Self Service portal administrator RBAC role for
 .. In the `Value` field, enter `custom`, and click on `Save`.
 .. You should see the condition added to the row with a green checkmark at the end.
 
-. Just below expand the `Scaffolder` plugin and select ALL the permissions but NOT `scaffolder.template.management` permission.
+. Just below expand the `Scaffolder` plugin and select **ALL** the permissions **but NOT** `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
 .. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directy from a Git repository. (more on this later)
