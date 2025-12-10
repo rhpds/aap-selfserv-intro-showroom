@@ -12,7 +12,7 @@ The 3 users personas we will test for are, a Cloud Administrator, a Network Admi
 |**rheluser1**|passowrd provided part of your lab environment (will be same as AAP password)
 |===
 
-NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform and Self-Service portal as different users, please close and re-open your browser in private mode to ensure you are logged in / logged out as the correct user.**
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Self-Service portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
 
 [#clouduser1]
 == Test as user **clouduser1**
