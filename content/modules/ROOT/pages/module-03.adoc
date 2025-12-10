@@ -1,45 +1,130 @@
 = Surveys and Custom Templates
 
-In the first part of this workshop, we configured Ansible Automation Platform for Self-Service Portal and configured RBAC in AAP 2.6 that will be used for Self-Service Portal.
-In this part of the workshop, we will test the Self-Service Automation Portal with the different user personas we created in the previous section.
+In the previous section, you experienced the Self-Service Automation Portal with the different user personas. In this section, you will modify surveys on some job templates. See the results in Self-Service portal. Then you will import a custom dynamic template.
 
-The 3 users personas we will test for are, a Cloud Administrator, a Network Administrator, and a RHEL Administrator, all with different experties, but with limited knowledge of automation and Ansible Automation Platform. They just need to be able to run automation jobs thare are relevant to their IT domains.
-
-|===
-|**User**|**Password**
-|**clouduser1**|passowrd provided part of your lab environment (will be same as AAP password)
-|**networkuser1**|passowrd provided part of your lab environment (will be same as AAP password)
-|**rheluser1**|passowrd provided part of your lab environment (will be same as AAP password)
-|===
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform and Self-Service portal as different users, please close and re-open your browser in private mode to ensure you are logged in / logged out as the correct user.**
 
 [#surveys]
-== Modify surveys on some job templates. See the results in Self-Service portal (auto synchronization)
+== Modify the survey on a job templates. Then see the results in Self-Service portal (auto synchronization)
 
-Log in to the `Self-Service portal` as `clouduser1`. You should see the Cloud job templates.
+Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
 
-image::clouduser1.png[Self Service portal clouduser1 user can see the Cloud job templates]
+=== Modify the surveys on a job template for the RHEL team
 
-Take a moment and run some of the cloud job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+. Expand the `Automation Execution` menu on the left.
+
+.. `Automation Execution` -> `Job Templates`.
+
+. Select the job template `Linux/RHEL START Service on RHEL`.
+
+image::survey1.png[Add survey question to the job template]
+
+. Click on the `Surveys` tab.
+
+.. Click on the `+Create survey question` button.
+
+.. In the `Question` field type  `Do you want to ENABLE the service (starts after a reboot)?` in the `Question` field.
+
+.. In the `Answer viriable name` field type `enable_service`.
+
+.. Change the `Answer type` to `Multiple Choice (single select)`.
+
+.. Scroll down and click on `Create survey question` to save the survey question.
+
+image::survey2.png[Add survey question details]
+
+.. You will now see the 3 survey question in the job template.
+
+Modifications to the job template are automatically synchronized to the Self-Service portal.  This is done on a regular configurable interval in the HELM chart for the Self-Service portal. However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `admin` user in the Self-Service portal.
+
+. Log in to the `Self-Service portal` as `admin`. You wil see all the job templates.
+
+.. Use the `Sync now` button to synchronize the Job Templates from Ansible Automation Platform to the Self Service automation portal. This will take a few seconds to complete.
+
+.. When prompted for the AAP synchronization options, select `Job Templates` and click on `Ok`.
+
+image::jtsync.png[Self Service portal administrator user - sync now button]
+
+. Log out of the `Self-Service portal` as `admin`.
+
+. Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates.
+
+.. Run the job template `Linux/RHEL START Service on RHEL` by cliking `Start` on that job template tile.
+
+image::survey3.png[Survey question added to the job template]
+
+.. You will see the survey question `Do you want to ENABLE the service (starts after a reboot)?` in the job template.
+
+.. Select `Next` and click on `Create` to run the automation job.
+
+That was a quick look at how survey modifications to a job template are automatically synchronized to the Self-Service portal. Now let's move on to the next section where you will import a custom dynamic template.
 
 [#import]
 == Import a custom dynamic template
 
-Log in to the `Self-Service portal` as `networkuser1`. You should see the Network job templates.
+Custom dynamic templates are templates that are stored in a Git repository and are imported into the Self-Service portal by an administrator. They are used to create new sophisticated, enterprise-ready templates that provide more advanced options than what surveys can offer.
 
-image::networkuser1.png[Self Service portal networkuser1 user can see the Network job templates]
+Let's go ahead and import a custom dynamic template.
 
-Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+. Log in to the `Self-Service portal` as `admin`.
 
-[#configure]
-== Configure the RBAC policy in Self service
+. In the top right corner, click on the `Add Template`.
 
-Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates.
+. You will be prompted to `Select URL`. This will upload the custom dynamic template from a URL.
+.. Copy and paste the following URL into the `SelectURL` field.
 
-image::rheluser1.png[Self Service portal rheluser1 user can see the RHEL job templates]
+[source,bash,role=execute]
+----
+https://github.com/ansible-tmm/ssap-lab/blob/main/customtemplate/rhel_dynamic.yml
+----
 
-Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+image::custom1.png[Select URL for custom dynamic template]
 
-Let's move on to the next section where you will modify surveys in AAP, and see the results in Self-service automation portal.  Then later in the Self-Service Automation Portal import import a custom dynamic template.
+.. Select `Analyze` to analyze the custom dynamic template.
+
+.. You will see the `Review` details.
+
+.. Click on `Import` to import the custom dynamic template.
+
+image::custom2.png[Review custom dynamic template]
+
+.. When you see `Step 4 Finish` the custom dynamic template will be imported successfully.
+
+image::custom3.png[Custom dynamic template imported successfully]
+
+.. You will now see the custom dynamic template in the `Templates` list with a title of `⏰ Manage RHEL Time Servers`
 
 [#launch]
-== Launch the custom dynamic template
+== Launch the custom dynamic template from the Self-Service portal
+
+Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates and the new custom dynamic template you imported. `⏰ Manage RHEL Time Servers`
+
+image::custom4.png[The new custom dynamic template]
+
+This custom template, is backed by another job template in Ansible Automation Platform. If you look at the URL of the yaml template you imported you will see the job template it is launching. In that yaml template there's a section that looks like this:
+
+[source,yaml]
+----
+    - id: launch-job
+      name: Update Time Servers
+      action: rhaap:launch-job-template
+      input:
+        token: ${{ parameters.token }}
+        values:
+          template: RHEL / Update RHEL Time Servers
+          inventory: ${{ parameters.inventory }}
+----
+So this custom template is launching the job template `RHEL / Update RHEL Time Servers`. However the user will see many more options to choose from when they launch the custom template!
+
+. Launch the custom template (as the rheluser1 user) by clicking on the `Start` button. 
+. Examine the options available to the user.
+. Enable the `Show Advanced Options?` checkbox. Notice this provides many more options to the user.
+. Select the options you like. Then advance to the last step and click on `Create` to run the custom dynamic template automation job.
+
+image::custom5.png[Launch the custom dynamic template from the Self-Service portal]
+
+As you can see, custom dynamic templates provide a lot of flexibility to the user.
+
+You have now completed this module. You have learned how to modify surveys on a job template and see the results in the Self-Service portal. You have also learned how to import a custom dynamic template and launch it from the Self-Service portal.
+
+Thank you for attending this workshop! We hope you enjoyed it and learned a lot!

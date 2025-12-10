@@ -10,6 +10,8 @@ In your environment you will have access to the following:
 
 * `OpenShift Container Platform.` You will have access but you will not need to use it.
 
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform and Self-Service portal as different users, please close and re-open your browser in private mode to ensure you are logged in / logged out as the correct user.**
+
 [#aaprbac]
 == Configuring RBAC in AAP 2.6 that will be used for Self Service portal
 
@@ -87,7 +89,7 @@ While still on the `network-team` page, assign the following `Users` to the `net
 
 For `rhel-team`, assign the following:
 
-* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, AND add 2 other job templates named `Cloud/AWS Create RHEL10 instance` and `Cloud/AWS Create RHEL9 instance` and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, AND add 2 other job templates named `Cloud/AWS Create RHEL10 instance` **AND** `Cloud/AWS Create RHEL9 instance` **AND** `RHEL / Update RHEL Time Servers` and click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: `Inventory`, select the `RHEL Inventory` AND the `AWS Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
