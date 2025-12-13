@@ -5,7 +5,7 @@ In the previous section, you experienced the Self-Service Automation Portal with
 NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Self-Service portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
 
 [#surveys]
-==== What are surveys in Ansible Automation Platform?
+== What are surveys in Ansible Automation Platform?
 
 In Ansible Automation Platform (AAP), surveys are interactive forms within Job/Workflow Templates that prompt users for input (like text, choices, passwords, etc.) at launch, capturing these answers as extra variables to dynamically customize automation playbook runs. Surveys are a powerful way to make automation more user-friendly and adaptable without editing code.
 
