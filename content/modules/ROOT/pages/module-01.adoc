@@ -15,9 +15,24 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 [#aaprbac]
 == Configuring RBAC in AAP 2.6 that will be used for Self Service portal
 
-Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
+=== What is Role-Based Access Control (RBAC) in AAP
+Ansible Automation Platform (AAP) uses Role-Based Access Control (RBAC) to manage user access to automation resources, ensuring governance, security, and compliance across an enterprise. RBAC is primarily configured within the Automation Controller, the platform's control plane and web UI. 
+
+==== **Key Concepts of AAP RBAC**
+
+RBAC in AAP operates on the principle of least privilege, meaning users are granted only the permissions necessary to perform their specific job functions. This is managed through a hierarchy of users, teams, and organizations, which are assigned specific roles and permissions to various automation objects. 
+
+* **Users**: Individuals who log into the platform. They can be normal users, auditors (read-only access to all objects), or administrators (full system privileges).
+
+* **Teams**: Logical groupings of users within an organization. Users inherit permissions from the teams they belong to.
+
+* **Organizations**: Collections of users, teams, projects, and credentials, serving as a primary container for managing and delegating automation resources.
+
+* **Roles and Permissions**: Define what a user or team can do with specific objects (e.g., read, write, or execute job templates, view inventories, manage credentials). 
 
 === Create 3 teams in AAP:
+
+Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
 
 Expand the `Access Management` menu on the left.
 
@@ -58,6 +73,7 @@ For `Inventory`, select the follwoing 3 inventories and click `Next`.
 
 * `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
+image::assigninventoryrole.png[Assign inventory use role to the cloud-team]
 
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Credential`
 
@@ -69,9 +85,13 @@ For `Credential`, select the following 3 credentials and click `Next`.
 
 * `Next` -> select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
+image::assigncredentialrole.png[Assign credential use role to the cloud-team]
+
 While still on the `cloud-team` page, assign the following `Users` to the `cloud-team`:
 
 * Click on the `Users` tab, and select `+Assign users` -> select the `clouduser1`, and click `Assign users`.
+
+image::assignuserrole.png[Assign users to the cloud-team]
 
 **Repeat the same process for role and user assignmens to the `network-team` and `rhel-team` teams.**
 
