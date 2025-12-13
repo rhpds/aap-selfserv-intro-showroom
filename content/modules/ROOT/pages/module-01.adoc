@@ -127,10 +127,24 @@ Awesome! You have now configured RBAC in Ansible Automation Platform.
 Now that you have configured RBAC in Ansible Automation Platform, you will configure RBAC in Self Service portal.
 At this point if you log in to the Self Service portal as any of the users you created, you will NOT be able to see any job templates - yet.  But as an administrator you will be able to see all the job templates.
 
-What you need to do is configure RBAC in Self Service portal to allow the Portal users to see the automation templates they are authorized to execute.  Let's get to this next
+What you need to do is configure RBAC in Self-Service portal to allow the Portal users to see the automation templates they are authorized to execute.  Let's get to this next
 
 [#ssprbac]
-== Configuring RBAC in the Self Service Automation Portal
+== Configuring RBAC in the Self-Service Automation Portal
+
+=== What is Role-Based Access Control (RBAC) in Self-Service Automation Portal
+
+Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage user authorizations and permissions within the portal. It is built on top of the Red Hat Developer Hub Permissions framework and uses an administrator role to control who can perform actions and access specific resources.
+
+==== **Supported Permissions**
+
+* **The RBAC system defines permissions across different functional areas:** 
+
+* **Catalog Permissions:** **Control actions related to the software catalog**, such as catalog.entity.read, catalog.entity.create, catalog.entity.delete, and more...
+
+* **Scaffolder Permissions:** **Manage access to software templates and actions**, such as scaffolder.action.execute and scaffolder.template.parameter.read and more...
+
+* **RBAC Permissions:** **Delegate administrative tasks** with policies like policy.entity.create, policy.entity.update, and policy.entity.delete. (The cloud / network / rhel team users will NOT need this permission.)
 
 === Log in to the `Self-Service portal` as`admin`
 
