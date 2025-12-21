@@ -181,7 +181,7 @@ image::ssa-portal-users-role.png[Self Service portal administrator RBAC role for
 . For the `Description` field, enter `Role for RHEL team`, and click on `Next`.
 . For the `Add users and groups` field, from the dropdown select `rhel-team`, scroll down and click on `Next`.
 . For the `Add permistion policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
-.. Just below expand the `Catalog` plugin and select the `catalog.entity.read` permission. At the very end of that row, click the 2 checkmarks in the `Actions` column to add a condition.
+.. Just below expand the `Catalog` plugin and select the `catalog.entity.read` permission. At the very end of that row, click the 2 checkmarks in the `Actions` column to add a condition **at the very end of the row**.
 .. In the `Condition` field, select `Not`, The `Add rule` option will be selected automatically.
 .. In the `Rule` dropdown, select `HAS_METADATA`.
 .. In the `key` field, enter `tags`.

@@ -7,14 +7,15 @@ image::aap-logo.png[aap-logo,55%,55%]
 == The challenge
 Ansible Automation Platform owners are challened to improve the onboarding and adoption of Automation. They need to make it easier to onboard and get more people involved in automation. 
 
-Organizations have subject matter experts (SME) in many different IT domains.  Not all of them are automation savvy. Think of a network administrator SME, they are not familiar with automation and don't know or understand what an Ansible playbook is. All they want to do is trigger automation from a simple to use UI that includes guard rails.  They want to run some automation as part of their day to day task. This is extremely important for organizations and the platform administrators to be able to address and help these users.
+Organizations have subject matter experts (SME) in many different IT domains.  Not all of them are automation savvy. All they want to do is trigger automation from a simple to use UI that includes guard rails. They want to run some automation as part of their day to day task. This is extremely important for organizations and the platform administrators to be able to address and help anyone who wants to automate across the organization.
+
 Some organizations have tried to either integrate to a third-party system to do this type of thing or they've tried to create their own bespoke system - with variying degrees of success.
 To address this challenge, Red Hat has released the Self-Service Automation Portal!
 
 == The solution - Self-Service Automation Portal
 
-The Self-Service Automation Portal!
-It is an simple interface that is focused on one thing, to run automation! The credentials a user would use to sign into Ansible Automation Platform are the same credentials that they would use to sign into the self-service automation portal. We synchronize organizational identities like users and teams etc. 
+The Self-Service Automation Portal
+It is a simple interface that is focused on one thing, to run automation! The credentials a user would use to sign into Ansible Automation Platform are the same credentials that they would use to sign into the self-service automation portal. We synchronize organizational identities like users and teams etc. 
 
 Red Hat wants to give control back to the automation team to provide a self-service experience to those SME's, business users, and non-automation savvy people to help broaden who can automate and the usage of the platform itself. 
 
