@@ -10,65 +10,6 @@ This workshop requires access to the following components:
 
 All components are pre-deployed in your workshop environment. You will receive access credentials and URLs to each system.
 
-== Module Breakdown
-
-=== Module 1: Configure Ansible Automation Platform for Self-Service Portal
-
-**Duration**: 35 minutes
-
-**Topics covered**:
-
-* Understanding RBAC in Ansible Automation Platform 2.6
-* Creating teams for different IT domains (cloud, network, RHEL)
-* Assigning roles and permissions to job templates, inventories, and credentials
-* Assigning users to teams
-* Understanding RBAC in Self-Service Automation Portal
-* Configuring portal permissions for catalog and scaffolder plugins
-* Creating conditional RBAC rules for advanced access control
-* Validating content synchronization between AAP and Self-Service Portal
-
-**What you'll build**:
-
-* 3 teams: `cloud-team`, `network-team`, `rhel-team`
-* Role assignments for each team to specific job templates, inventories, and credentials
-* 2 RBAC policies in Self-Service Portal: `ssa-portal-users` and `saa-portal-rhel-team`
-
-=== Module 2: User Persona Testing in Self-Service Automation Portal
-
-**Duration**: 30 minutes
-
-**Topics covered**:
-
-* Testing the portal as different user personas
-* Validating that users only see authorized automation templates
-* Understanding the user experience for non-automation experts
-* Running automation jobs from the Self-Service Portal
-* Observing how RBAC controls access to credentials and inventories
-
-**User personas**:
-
-* **Cloud Administrator** (`clouduser1`) - Access to AWS, Azure, GCP job templates
-* **Network Administrator** (`networkuser1`) - Access to network automation templates
-* **RHEL Administrator** (`rheluser1`) - Access to Linux/RHEL and select cloud provisioning templates
-
-=== Module 3: Surveys and Custom Templates
-
-**Duration**: 40 minutes
-
-**Topics covered**:
-
-* Understanding surveys in Ansible Automation Platform
-* Modifying surveys on job templates in AAP
-* Automatic synchronization of survey changes to Self-Service Portal
-* Importing custom dynamic templates from Git repositories
-* Advanced automation experiences with custom templates
-* Launching and using custom dynamic templates
-
-**What you'll build**:
-
-* Enhanced survey on `Linux/RHEL START Service on RHEL` job template
-* Custom dynamic template: `⏰ Manage RHEL Time Servers`
-
 == Environment Details
 
 === Ansible Automation Platform
