@@ -1,0 +1,171 @@
+= Workshop Conclusion
+
+Congratulations! You've successfully completed the Introduction to Ansible Automation Platform Self-Service Automation Portal workshop.
+
+== What You Accomplished
+
+Over the past two hours, you've built a complete self-service automation solution that enables non-automation experts across your organization to run automation safely and effectively.
+
+**Module 1: Configure Ansible Automation Platform for Self-Service Portal**
+
+You configured role-based access control across both Ansible Automation Platform and Self-Service Portal:
+
+* Created three teams representing different IT domains (cloud, network, RHEL)
+* Assigned granular permissions to job templates, inventories, and credentials
+* Built RBAC policies in the Self-Service Portal with catalog and scaffolder permissions
+* Implemented conditional access rules for advanced scenarios
+
+**Module 2: User Persona Testing in Self-Service Automation Portal**
+
+You validated your RBAC configuration by testing as three different user personas:
+
+* Experienced the portal as a cloud administrator with access to AWS, Azure, and GCP automation
+* Tested as a network administrator with access to network-specific job templates
+* Validated the RHEL administrator experience with Linux automation and select cloud provisioning capabilities
+
+**Module 3: Surveys and Custom Templates**
+
+You enhanced the self-service experience with dynamic content:
+
+* Modified job template surveys in AAP and observed automatic synchronization to the portal
+* Imported a custom dynamic template from a Git repository
+* Launched sophisticated automation with advanced options beyond standard surveys
+
+== Key Takeaways
+
+=== Technical Skills Gained
+
+* **RBAC Configuration Expertise** - You now understand how to implement least-privilege access control across AAP and Self-Service Portal, ensuring users see only the automation they're authorized to execute
+
+* **Synchronization Understanding** - You know how AAP content (organizations, users, teams, job templates) automatically syncs to the Self-Service Portal and how to trigger manual synchronization when needed
+
+* **User Experience Customization** - You can enhance automation with surveys for simple input collection and custom dynamic templates for sophisticated enterprise experiences
+
+* **Team-Based Permissions** - You understand how to organize users into teams and grant permissions based on IT domain expertise, not automation knowledge
+
+=== Business Value Delivered
+
+By implementing Self-Service Automation Portal, you've addressed critical organizational challenges:
+
+* **Broadened Automation Adoption** - Subject matter experts can now run automation without becoming Ansible experts, increasing platform usage and ROI
+
+* **Reduced Automation Team Burden** - Self-service capabilities mean fewer manual requests for the automation team, freeing them to build more valuable automation
+
+* **Maintained Governance and Security** - RBAC ensures users can only access and execute automation appropriate to their role, maintaining compliance and security standards
+
+* **Improved Time to Value** - Domain experts can trigger automation as part of their daily work, reducing delays and manual processes
+
+* **Scalable Access Model** - The team-based permission structure scales as your organization grows, making it easy to onboard new users
+
+== Architecture Summary
+
+Your Self-Service Automation Portal deployment consists of:
+
+* **Ansible Automation Platform 2.6** - The automation control plane managing credentials, inventories, projects, and job templates
+* **Self-Service Portal** - The user-facing application running on OpenShift, providing a simplified interface for automation execution
+* **RBAC Integration** - Synchronized permissions between AAP and the portal ensuring consistent access control
+* **Dynamic Content** - Job templates with surveys and custom templates from Git repositories for flexible user experiences
+
+All of this is deployed on **Red Hat OpenShift Container Platform**, providing a secure, scalable, enterprise-ready foundation.
+
+== Next Steps
+
+=== Immediate Actions
+
+**1. Plan Your Production Deployment**
+
+Consider your organization's needs:
+
+* How many teams and domains will use self-service automation?
+* What job templates should be exposed through the portal?
+* What governance and approval workflows are required?
+* How will you organize teams and permissions?
+
+**2. Identify Pilot Users**
+
+Select a small group of subject matter experts to pilot the portal:
+
+* Choose users from different domains (cloud, network, Linux, etc.)
+* Include users with varying levels of automation experience
+* Gather feedback on the user experience and automation needs
+
+**3. Build Your Automation Library**
+
+Expand the automation available through the portal:
+
+* Identify common manual tasks that could be automated
+* Create job templates with appropriate surveys for user input
+* Develop custom dynamic templates for complex workflows
+* Document automation use cases and expected outcomes
+
+**4. Establish Governance**
+
+Define policies for automation access:
+
+* Who approves new automation being added to the portal?
+* How are permissions reviewed and updated?
+* What monitoring and auditing is required?
+* How are incidents and issues handled?
+
+=== Learning Resources
+
+**Red Hat Documentation**
+
+* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/[Ansible Automation Platform Documentation]
+* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.5/html/using_automation_controller/[Using Automation Controller]
+* link:https://docs.redhat.com/en/documentation/red_hat_openshift_container_platform/[Red Hat OpenShift Container Platform Documentation]
+
+**Community Resources**
+
+* link:https://www.ansible.com/community[Ansible Community]
+* link:https://www.redhat.com/en/technologies/management/ansible[Red Hat Ansible Automation Platform Product Page]
+
+**Continue Your Learning**
+
+Explore related workshops:
+
+* Advanced Ansible Automation Platform Administration
+* Building Automation Content Collections
+* OpenShift for Platform Administrators
+* GitOps and Continuous Delivery on OpenShift
+
+=== Connect with Red Hat
+
+**Get Support**
+
+* link:https://access.redhat.com/support[Red Hat Support Portal]
+* Your Red Hat account team
+
+**Explore More**
+
+* link:https://www.redhat.com/en/technologies/management/ansible/trial[Try Ansible Automation Platform]
+* link:https://developers.redhat.com/[Red Hat Developer Program]
+* link:https://demo.redhat.com/[Red Hat Demo Platform] - Access more workshops and demos
+
+== Final Thoughts
+
+You've successfully built a self-service automation solution that empowers subject matter experts across your organization. By combining Ansible Automation Platform's powerful automation capabilities with Self-Service Portal's intuitive interface, you've created a system that:
+
+* **Scales automation adoption** beyond the automation team
+* **Maintains governance** through proper RBAC
+* **Reduces manual processes** across IT domains
+* **Delivers value faster** by enabling self-service
+
+The skills you've learned in this workshop provide the foundation for transforming how your organization approaches automation. Whether you're supporting a small team or an enterprise-wide deployment, the principles of team-based permissions, self-service interfaces, and dynamic content apply.
+
+**Thank you for attending this workshop!** We hope you found it valuable and are excited to bring Self-Service Automation Portal to your organization.
+
+== Workshop Feedback
+
+Your feedback helps us improve this workshop for future participants. Please share your thoughts on:
+
+* What worked well in the workshop?
+* What could be improved?
+* What additional topics would you like to see covered?
+* How likely are you to implement Self-Service Portal in your environment?
+
+Please provide your feedback to your workshop facilitator or through the workshop evaluation form.
+
+---
+
+**Congratulations again, and happy automating!** 🎉

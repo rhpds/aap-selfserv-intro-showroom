@@ -11,7 +11,7 @@ In Ansible Automation Platform (AAP), surveys are interactive forms within Job/W
 
 == Modify the survey on a job templates. Then see the results in Self-Service portal (auto synchronization)
 
-Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
+Log in to the link:{aap_controller_url}[Ansible Automation Platform,window=_blank] with the `{aap_admin_username}` user and password `{aap_admin_password}`.
 
 === Modify the surveys on a job template for the RHEL team
 
@@ -39,9 +39,9 @@ image::survey2.png[Add survey question details]
 
 ** You will now see the 3 survey question in the job template.
 
-Modifications to the job template are automatically synchronized to the Self-Service portal.  This is done on a regular configurable interval in the HELM chart for the Self-Service portal. However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `admin` user in the Self-Service portal.
+Modifications to the job template are automatically synchronized to the Self-Service portal.  This is done on a regular configurable interval in the HELM chart for the Self-Service portal. However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `{aap_admin_username}` user in the Self-Service portal.
 
-* Log in to the `Self-Service portal` as `admin`. You wil see all the job templates.
+* Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `{aap_admin_username}` with password `{aap_admin_password}`. You will see all the job templates.
 
 ** Use the `Sync now` button to synchronize the Job Templates from Ansible Automation Platform to the Self Service automation portal. This will take a few seconds to complete.
 
@@ -49,9 +49,9 @@ Modifications to the job template are automatically synchronized to the Self-Ser
 
 image::jtsync.png[Self Service portal administrator user - sync now button]
 
-* Log out of the `Self-Service portal` as `admin`.
+* Log out of the `Self-Service portal` as `{aap_admin_username}`.
 
-* Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates.
+* Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
 ** Run the job template `Linux/RHEL START Service on RHEL` by cliking `Start` on that job template tile.
 
@@ -70,7 +70,7 @@ Custom dynamic templates are templates that are stored in a Git repository and a
 
 Let's go ahead and import a custom dynamic template.
 
-* Log in to the `Self-Service portal` as `admin`.
+* Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `{aap_admin_username}` with password `{aap_admin_password}`.
 
 * In the top right corner, click on the `Add Template`.
 
@@ -101,7 +101,7 @@ image::custom3.png[Custom dynamic template imported successfully]
 [#launch]
 == Launch the custom dynamic template from the Self-Service portal
 
-Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates and the new custom dynamic template you imported. `⏰ Manage RHEL Time Servers`
+Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates and the new custom dynamic template you imported. `⏰ Manage RHEL Time Servers`
 
 image::custom4.png[The new custom dynamic template]
 
@@ -129,6 +129,14 @@ image::custom5.png[Launch the custom dynamic template from the Self-Service port
 
 As you can see, custom dynamic templates provide a lot of flexibility to the user.
 
-You have now completed this module. You have learned how to modify surveys on a job template and see the results in the Self-Service portal. You have also learned how to import a custom dynamic template and launch it from the Self-Service portal.
+== Learning Outcomes
 
-Thank you for attending this workshop! We hope you enjoyed it and learned a lot!
+By completing this module, you should now understand:
+
+* **How surveys work in Ansible Automation Platform** - Surveys are interactive forms that prompt users for input at job launch time, making automation more user-friendly without requiring code changes
+* **The synchronization workflow between AAP and Self-Service Portal** - Changes to job templates and surveys in AAP automatically sync to the portal at regular intervals, or can be triggered manually
+* **How to enhance the user experience with surveys** - Adding survey questions provides dynamic input options while maintaining simplicity for end users
+* **What custom dynamic templates are** - Git-backed templates that provide sophisticated, enterprise-ready automation experiences beyond what surveys can offer
+* **How to import and use custom templates** - Custom templates can be imported from Git repositories and provide advanced options, conditional logic, and rich user interfaces
+
+You have now completed this module. You've learned how to modify surveys on a job template, synchronize changes to the Self-Service Portal, and import and launch custom dynamic templates from Git repositories.

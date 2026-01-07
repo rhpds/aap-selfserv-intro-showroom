@@ -1,14 +1,22 @@
-* xref:module-01.adoc[1. Configure Ansible Automation Platform for Self-Service Portal]
-** xref:module-01.adoc#aaprbac[Configuring RBAC in AAP 2.6 that will be used for Self-Service Portal]
-** xref:module-01.adoc#validate[Validate content synchronization to Self-Service Portal]
+* xref:index.adoc[Workshop Home]
+
+* xref:01-overview.adoc[Workshop Overview]
+
+* xref:02-details.adoc[Workshop Details]
+
+* xref:module-01.adoc[Module 1: Configure Ansible Automation Platform for Self-Service Portal]
+** xref:module-01.adoc#aaprbac[Configuring RBAC in AAP 2.6]
+** xref:module-01.adoc#validate[Validate content synchronization]
 ** xref:module-01.adoc#ssprbac[Configure RBAC in Self-Service Portal]
 
-* xref:module-02.adoc[2. Persona Testing in Self-Service Automation Portal]
-** xref:module-02.adoc#clouduser1[Test as user clouduser1]
-** xref:module-02.adoc#networkuser1[Test as user networkuser1]
-** xref:module-02.adoc#rheluser1[Test as user rheluser1]
+* xref:module-02.adoc[Module 2: User Persona Testing]
+** xref:module-02.adoc#clouduser1[Test as clouduser1]
+** xref:module-02.adoc#networkuser1[Test as networkuser1]
+** xref:module-02.adoc#rheluser1[Test as rheluser1]
 
-* xref:module-03.adoc[3. Surveys and Custom Templates]
-** xref:module-03.adoc#surveys [Modify surveys on some job templates. See the results in Self-Service portal (auto synchronization)]
+* xref:module-03.adoc[Module 3: Surveys and Custom Templates]
+** xref:module-03.adoc#surveys[Modify surveys and see synchronization]
 ** xref:module-03.adoc#import[Import a custom dynamic template]
-** xref:module-03.adoc#launch[Launch the custom dynamic template from the Self-Service portal]
+** xref:module-03.adoc#launch[Launch the custom template]
+
+* xref:conclusion.adoc[Workshop Conclusion]

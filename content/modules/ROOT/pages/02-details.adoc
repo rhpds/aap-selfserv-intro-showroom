@@ -1,0 +1,131 @@
+= Workshop Details
+
+== Technical Requirements
+
+This workshop requires access to the following components:
+
+* **Ansible Automation Platform 2.6** - Pre-configured with users, inventories, credentials, projects, and job templates
+* **Self-Service Automation Portal** - Deployed and ready for configuration
+* **Red Hat OpenShift Container Platform** - Available for reference (not actively used in exercises)
+
+All components are pre-deployed in your workshop environment. You will receive access credentials and URLs to each system.
+
+== Module Breakdown
+
+=== Module 1: Configure Ansible Automation Platform for Self-Service Portal
+
+**Duration**: 35 minutes
+
+**Topics covered**:
+
+* Understanding RBAC in Ansible Automation Platform 2.6
+* Creating teams for different IT domains (cloud, network, RHEL)
+* Assigning roles and permissions to job templates, inventories, and credentials
+* Assigning users to teams
+* Understanding RBAC in Self-Service Automation Portal
+* Configuring portal permissions for catalog and scaffolder plugins
+* Creating conditional RBAC rules for advanced access control
+* Validating content synchronization between AAP and Self-Service Portal
+
+**What you'll build**:
+
+* 3 teams: `cloud-team`, `network-team`, `rhel-team`
+* Role assignments for each team to specific job templates, inventories, and credentials
+* 2 RBAC policies in Self-Service Portal: `ssa-portal-users` and `saa-portal-rhel-team`
+
+=== Module 2: User Persona Testing in Self-Service Automation Portal
+
+**Duration**: 30 minutes
+
+**Topics covered**:
+
+* Testing the portal as different user personas
+* Validating that users only see authorized automation templates
+* Understanding the user experience for non-automation experts
+* Running automation jobs from the Self-Service Portal
+* Observing how RBAC controls access to credentials and inventories
+
+**User personas**:
+
+* **Cloud Administrator** (`clouduser1`) - Access to AWS, Azure, GCP job templates
+* **Network Administrator** (`networkuser1`) - Access to network automation templates
+* **RHEL Administrator** (`rheluser1`) - Access to Linux/RHEL and select cloud provisioning templates
+
+=== Module 3: Surveys and Custom Templates
+
+**Duration**: 40 minutes
+
+**Topics covered**:
+
+* Understanding surveys in Ansible Automation Platform
+* Modifying surveys on job templates in AAP
+* Automatic synchronization of survey changes to Self-Service Portal
+* Importing custom dynamic templates from Git repositories
+* Advanced automation experiences with custom templates
+* Launching and using custom dynamic templates
+
+**What you'll build**:
+
+* Enhanced survey on `Linux/RHEL START Service on RHEL` job template
+* Custom dynamic template: `⏰ Manage RHEL Time Servers`
+
+== Environment Details
+
+=== Ansible Automation Platform
+
+Your AAP instance is pre-configured with:
+
+* **Organizations**: Default organization structure
+* **Users**: Admin user plus team users (clouduser1, networkuser1, rheluser1)
+* **Inventories**: AWS, Azure, GCP, Network, RHEL inventories
+* **Credentials**: Cloud credentials, network credentials, SSH credentials
+* **Projects**: Pre-synced automation projects
+* **Job Templates**: Cloud, Network, and RHEL automation templates ready to use
+
+=== Self-Service Automation Portal
+
+Your Self-Service Portal instance is deployed on OpenShift and connected to your AAP instance. It synchronizes:
+
+* Organizations
+* Users and teams
+* Job templates
+
+Synchronization happens automatically at regular intervals, and administrators can trigger manual sync as needed.
+
+=== OpenShift Container Platform
+
+Your OpenShift cluster hosts:
+
+* **AAP namespace**: `{aap_namespace}` - Ansible Automation Platform deployment
+* **Self-Service Portal namespace**: Contains the portal and its components
+
+You have access to the OpenShift console but won't need to interact with it directly in this workshop.
+
+== Important Notes
+
+=== Browser Best Practices
+
+[IMPORTANT]
+====
+**For best results when logging in and out of Ansible Automation Platform AND Self-Service Portal as different users:**
+
+* **Close and re-open your browser in private mode (incognito window)** between user sessions
+* This ensures you're properly logged in/logged out as the correct user
+* This prevents browser session conflicts
+====
+
+=== Access Information
+
+You will receive the following access details for your environment:
+
+* **Ansible Automation Platform URL**: `{aap_controller_url}`
+* **Self-Service Portal URL**: `{self_service_portal_url}`
+* **OpenShift Console URL**: `{openshift_console_url}`
+* **Admin username**: `{aap_admin_username}`
+* **Admin password**: `{aap_admin_password}`
+
+== Authors and Contributors
+
+This workshop was developed by the Red Hat Technical Marketing team to demonstrate Self-Service Automation Portal capabilities and best practices for broadening automation adoption.
+
+For questions or feedback about this workshop, please contact your workshop facilitator.

@@ -1,0 +1,92 @@
+= Workshop Overview
+
+== Business Scenario
+
+You're a platform administrator at a growing organization that has invested in Ansible Automation Platform (AAP). Your team has built powerful automation workflows, but you're facing a critical challenge: adoption is slow, and onboarding new users to automation is difficult.
+
+Your organization has subject matter experts (SMEs) across many IT domains—cloud administrators, network engineers, and Linux system administrators. They're experts in their fields, but not all of them are automation savvy. They don't want to learn Ansible playbooks or navigate complex automation interfaces. They just want a simple, secure way to run automation as part of their day-to-day tasks.
+
+Your manager has asked you to solve this problem. The organization needs to:
+
+* **Broaden automation adoption** across teams without requiring everyone to become Ansible experts
+* **Provide self-service capabilities** to domain experts with appropriate guardrails
+* **Maintain security and governance** through role-based access control
+* **Reduce the burden on the automation team** by enabling users to help themselves
+
+Some organizations have tried integrating third-party systems or building custom portals—with varying degrees of success. You need a better solution that's native to Red Hat's automation ecosystem.
+
+The answer: **Self-Service Automation Portal**.
+
+== What is Self-Service Automation Portal?
+
+Self-Service Automation Portal is a simple, focused interface built for one purpose: **to run automation**. It provides:
+
+* **Single sign-on** using the same AAP credentials
+* **Automatic synchronization** of organizations, users, teams, and job templates from AAP
+* **Role-based access** so users only see the automation they're authorized to execute
+* **Custom dynamic templates** for sophisticated, enterprise-ready automation experiences
+* **Business user-friendly interface** that hides automation complexity
+
+Red Hat Self-Service Automation Portal gives control back to the automation team to provide a self-service experience that broadens who can automate and increases platform usage.
+
+== Learning Objectives
+
+By the end of this workshop, you will be able to:
+
+* **Configure role-based access control (RBAC) in Ansible Automation Platform** to define permissions for different user teams
+* **Set up RBAC in Self-Service Automation Portal** to control which users can access and execute specific automation templates
+* **Validate the synchronization** between AAP and Self-Service Portal to ensure users see appropriate automation content
+* **Test the user experience** from multiple persona perspectives (cloud admin, network admin, RHEL admin)
+* **Modify job template surveys** in AAP and see the changes automatically reflected in the Self-Service Portal
+* **Import and launch custom dynamic templates** to provide advanced automation experiences beyond standard surveys
+
+== Learning Journey
+
+This workshop guides you through the complete setup and configuration of Self-Service Automation Portal:
+
+**Module 1: Configure Ansible Automation Platform for Self-Service Portal** (35 minutes)
+
+You'll configure RBAC in AAP 2.6, creating teams and assigning permissions to job templates, inventories, and credentials. Then you'll configure RBAC in the Self-Service Portal to allow portal users to see and execute authorized automation.
+
+**Module 2: User Persona Testing in Self-Service Automation Portal** (30 minutes)
+
+You'll test the portal as three different user personas—cloud administrator, network administrator, and RHEL administrator—to experience the self-service automation from each perspective and validate the RBAC configuration.
+
+**Module 3: Surveys and Custom Templates** (40 minutes)
+
+You'll modify surveys on job templates in AAP and see the changes automatically synchronize to the Self-Service Portal. Then you'll import a custom dynamic template from a Git repository to provide sophisticated automation experiences.
+
+== Expected Outcomes
+
+After completing this workshop, you will:
+
+* Understand how to enable self-service automation for non-automation experts
+* Be confident configuring RBAC across AAP and Self-Service Portal
+* Know how to customize the user experience with surveys and dynamic templates
+* Be ready to deploy Self-Service Automation Portal in your own organization
+* Have a proven strategy for broadening automation adoption
+
+== Estimated Duration
+
+**Total workshop time**: 2 hours
+
+* Introduction presentation: 15 minutes
+* Hands-on exercises: 105 minutes
+** Module 1: 35 minutes
+** Module 2: 30 minutes
+** Module 3: 40 minutes
+
+== Target Audience
+
+This workshop is designed for:
+
+* **Ansible Automation Platform administrators** responsible for platform governance
+* **DevOps engineers** enabling self-service automation across teams
+* **Platform architects** designing automation adoption strategies
+* **IT leaders** seeking to broaden automation usage in their organizations
+
+**Prerequisites:**
+
+* Basic familiarity with Ansible Automation Platform concepts (organizations, users, teams, job templates)
+* Understanding of role-based access control (RBAC) principles
+* Access to the workshop environment (AAP 2.6, Self-Service Portal, OpenShift)
