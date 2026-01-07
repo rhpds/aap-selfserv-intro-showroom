@@ -40,22 +40,6 @@ By the end of this workshop, you will be able to:
 * **Modify job template surveys** in AAP and see the changes automatically reflected in the Self-Service Portal
 * **Import and launch custom dynamic templates** to provide advanced automation experiences beyond standard surveys
 
-== Learning Journey
-
-This workshop guides you through the complete setup and configuration of Self-Service Automation Portal:
-
-**Module 1: Configure Ansible Automation Platform for Self-Service Portal** (35 minutes)
-
-You'll configure RBAC in AAP 2.6, creating teams and assigning permissions to job templates, inventories, and credentials. Then you'll configure RBAC in the Self-Service Portal to allow portal users to see and execute authorized automation.
-
-**Module 2: User Persona Testing in Self-Service Automation Portal** (30 minutes)
-
-You'll test the portal as three different user personas—cloud administrator, network administrator, and RHEL administrator—to experience the self-service automation from each perspective and validate the RBAC configuration.
-
-**Module 3: Surveys and Custom Templates** (40 minutes)
-
-You'll modify surveys on job templates in AAP and see the changes automatically synchronize to the Self-Service Portal. Then you'll import a custom dynamic template from a Git repository to provide sophisticated automation experiences.
-
 == Expected Outcomes
 
 After completing this workshop, you will:
