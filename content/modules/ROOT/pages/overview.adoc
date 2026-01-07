@@ -66,17 +66,7 @@ After completing this workshop, you will:
 * Be ready to deploy Self-Service Automation Portal in your own organization
 * Have a proven strategy for broadening automation adoption
 
-== Estimated Duration
-
-**Total workshop time**: 2 hours
-
-* Introduction presentation: 15 minutes
-* Hands-on exercises: 105 minutes
-** Module 1: 35 minutes
-** Module 2: 30 minutes
-** Module 3: 40 minutes
-
-== Target Audience
+== Target Audience and Prerequisites
 
 This workshop is designed for:
 
@@ -89,4 +79,4 @@ This workshop is designed for:
 
 * Basic familiarity with Ansible Automation Platform concepts (organizations, users, teams, job templates)
 * Understanding of role-based access control (RBAC) principles
-* Access to the workshop environment (AAP 2.6, Self-Service Portal, OpenShift)
+* A web browser (Chrome, Firefox, or Edge recommended)

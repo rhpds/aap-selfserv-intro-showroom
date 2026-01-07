@@ -116,13 +116,37 @@ You have access to the OpenShift console but won't need to interact with it dire
 
 === Access Information
 
-You will receive the following access details for your environment:
+**System URLs:**
 
-* **Ansible Automation Platform URL**: `{aap_controller_url}`
-* **Self-Service Portal URL**: `{self_service_portal_url}`
-* **OpenShift Console URL**: `{openshift_console_url}`
-* **Admin username**: `{aap_admin_username}`
-* **Admin password**: `{aap_admin_password}`
+* **Ansible Automation Platform**: {aap_controller_url}
+* **Self-Service Portal**: {self_service_portal_url}
+* **OpenShift Console**: {openshift_console_url}
+
+**Credentials:**
+
+|===
+|**User** |**Username** |**Password** |**Purpose**
+
+|**Administrator**
+|`{aap_admin_username}`
+|`{aap_admin_password}`
+|Full access to AAP and Self-Service Portal
+
+|**Cloud Team User**
+|`clouduser1`
+|`{aap_admin_password}`
+|Testing cloud automation access
+
+|**Network Team User**
+|`networkuser1`
+|`{aap_admin_password}`
+|Testing network automation access
+
+|**RHEL Team User**
+|`rheluser1`
+|`{aap_admin_password}`
+|Testing RHEL automation access
+|===
 
 == Authors and Contributors
 

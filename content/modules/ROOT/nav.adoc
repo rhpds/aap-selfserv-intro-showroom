@@ -1,8 +1,8 @@
 * xref:index.adoc[Workshop Home]
 
-* xref:01-overview.adoc[Workshop Overview]
+* xref:overview.adoc[Workshop Overview]
 
-* xref:02-details.adoc[Workshop Details]
+* xref:details.adoc[Workshop Details]
 
 * xref:module-01.adoc[Module 1: Configure Ansible Automation Platform for Self-Service Portal]
 ** xref:module-01.adoc#aaprbac[Configuring RBAC in AAP 2.6]
