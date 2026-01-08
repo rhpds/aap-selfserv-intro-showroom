@@ -59,9 +59,9 @@ You have access to the OpenShift console but won't need to interact with it dire
 
 **System URLs:**
 
-* **Ansible Automation Platform**: {aap_controller_url}
-* **Self-Service Portal**: {self_service_portal_url}
-* **OpenShift Console**: {openshift_console_url}
+* **Ansible Automation Platform**: link:{aap_controller_url}[{aap_controller_url}^]
+* **Self-Service Portal**: link:{self_service_portal_url}[{self_service_portal_url}^]
+* **OpenShift Console**: link:{openshift_console_url}[{openshift_console_url}^]
 
 **Credentials:**
 

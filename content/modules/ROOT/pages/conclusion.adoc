@@ -111,14 +111,14 @@ Define policies for automation access:
 
 **Red Hat Documentation**
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/[Ansible Automation Platform Documentation]
-* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.5/html/using_automation_controller/[Using Automation Controller]
-* link:https://docs.redhat.com/en/documentation/red_hat_openshift_container_platform/[Red Hat OpenShift Container Platform Documentation]
+* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/[Ansible Automation Platform Documentation^]
+* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.5/html/using_automation_controller/[Using Automation Controller^]
+* link:https://docs.redhat.com/en/documentation/red_hat_openshift_container_platform/[Red Hat OpenShift Container Platform Documentation^]
 
 **Community Resources**
 
-* link:https://www.ansible.com/community[Ansible Community]
-* link:https://www.redhat.com/en/technologies/management/ansible[Red Hat Ansible Automation Platform Product Page]
+* link:https://www.ansible.com/community[Ansible Community^]
+* link:https://www.redhat.com/en/technologies/management/ansible[Red Hat Ansible Automation Platform Product Page^]
 
 **Continue Your Learning**
 
@@ -133,14 +133,14 @@ Explore related workshops:
 
 **Get Support**
 
-* link:https://access.redhat.com/support[Red Hat Support Portal]
+* link:https://access.redhat.com/support[Red Hat Support Portal^]
 * Your Red Hat account team
 
 **Explore More**
 
-* link:https://www.redhat.com/en/technologies/management/ansible/trial[Try Ansible Automation Platform]
-* link:https://developers.redhat.com/[Red Hat Developer Program]
-* link:https://demo.redhat.com/[Red Hat Demo Platform] - Access more workshops and demos
+* link:https://www.redhat.com/en/technologies/management/ansible/trial[Try Ansible Automation Platform^]
+* link:https://developers.redhat.com/[Red Hat Developer Program^]
+* link:https://demo.redhat.com/[Red Hat Demo Platform^] - Access more workshops and demos
 
 == Final Thoughts
 
