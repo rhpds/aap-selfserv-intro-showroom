@@ -11,7 +11,7 @@ In Ansible Automation Platform (AAP), surveys are interactive forms within Job/W
 
 == Modify the survey on a job templates. Then see the results in Self-Service portal (auto synchronization)
 
-Log in to the link:{aap_controller_url}[Ansible Automation Platform,window=_blank] with the `{aap_admin_username}` user and password `{aap_admin_password}`.
+Log in to the link:{aap_controller_url}[Ansible Automation Platform^] with the `{aap_admin_username}` user and password `{aap_admin_password}`.
 
 === Modify the surveys on a job template for the RHEL team
 
@@ -41,7 +41,7 @@ image::survey2.png[Add survey question details]
 
 Modifications to the job template are automatically synchronized to the Self-Service portal.  This is done on a regular configurable interval in the HELM chart for the Self-Service portal. However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `{aap_admin_username}` user in the Self-Service portal.
 
-* Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `{aap_admin_username}` with password `{aap_admin_password}`. You will see all the job templates.
+* Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`. You will see all the job templates.
 
 ** Use the `Sync now` button to synchronize the Job Templates from Ansible Automation Platform to the Self Service automation portal. This will take a few seconds to complete.
 
@@ -51,7 +51,7 @@ image::jtsync.png[Self Service portal administrator user - sync now button]
 
 * Log out of the `Self-Service portal` as `{aap_admin_username}`.
 
-* Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
+* Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
 ** Run the job template `Linux/RHEL START Service on RHEL` by cliking `Start` on that job template tile.
 
@@ -70,7 +70,7 @@ Custom dynamic templates are templates that are stored in a Git repository and a
 
 Let's go ahead and import a custom dynamic template.
 
-* Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `{aap_admin_username}` with password `{aap_admin_password}`.
+* Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`.
 
 * In the top right corner, click on the `Add Template`.
 
@@ -101,7 +101,7 @@ image::custom3.png[Custom dynamic template imported successfully]
 [#launch]
 == Launch the custom dynamic template from the Self-Service portal
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates and the new custom dynamic template you imported. `⏰ Manage RHEL Time Servers`
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates and the new custom dynamic template you imported. `⏰ Manage RHEL Time Servers`
 
 image::custom4.png[The new custom dynamic template]
 

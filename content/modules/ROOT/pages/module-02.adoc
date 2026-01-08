@@ -17,7 +17,7 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 [#clouduser1]
 == Test as user **clouduser1**
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
 
 image::clouduser1.png[Self Service portal clouduser1 user can see the Cloud job templates]
 
@@ -26,7 +26,7 @@ Take a moment and run some of the cloud job templates to see the results. Notice
 [#networkuser1]
 == Test as user **networkuser1**
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
 
 image::networkuser1.png[Self Service portal networkuser1 user can see the Network job templates]
 
@@ -35,7 +35,7 @@ Take a moment and run some of the network job templates to see the results. Noti
 [#rheluser1]
 == Test as user **rheluser1**
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal,window=_blank] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
 image::rheluser1.png[Self Service portal rheluser1 user can see the RHEL job templates]
 
