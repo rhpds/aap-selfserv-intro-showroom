@@ -32,7 +32,7 @@ RBAC in AAP operates on the principle of least privilege, meaning users are gran
 
 === Create 3 teams in AAP:
 
-Log in to the `Ansible Automation Platform` with the `admin` user, and the password provided for your AAP instance.
+Log in to the link:{aap_controller_url}[Ansible Automation Platform^] with the `{aap_admin_username}` user and password `{aap_admin_password}`.
 
 Expand the `Access Management` menu on the left.
 
@@ -146,9 +146,9 @@ Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage u
 
 * **RBAC Permissions:** **Delegate administrative tasks** with policies like policy.entity.create, policy.entity.update, and policy.entity.delete. (The cloud / network / rhel team users will NOT need this permission.)
 
-=== Log in to the `Self-Service portal` as`admin`
+=== Log in to the `Self-Service portal` as `{aap_admin_username}`
 
-Log in with the `admin` user, and the password provided for your AAP instance. When asked to `Authorize Self Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self Service portal on a regular configurable interval. 
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self Service portal on a regular configurable interval. 
 
 At any time as an administrator you can use the `Sync now` button to synchronize Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self Service portal.
 
@@ -158,7 +158,7 @@ image::ssapadmin.png[Self Service portal administrator user can see all the job 
 
 Now let's configure RBAC in the Self Service Automation Portal to allow the Portal users to see the automation templates they are authorized to execute.
 
-Log in to the `Self-Service portal` with the `admin` user, and the password provided for your AAP instance. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `saa-portal-rhel-team`
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `saa-portal-rhel-team`
 
 image::ssaprbac.png[Self Service portal administrator RBAC policy]
 
@@ -200,4 +200,14 @@ The final view of this section should look like this:
 
 image::final-rbac-roles.png[Final view of the RBAC roles]
 
-Let's move on to the next section where you will test the Self-Service Automation Portal.
+== Learning Outcomes
+
+By completing this module, you should now understand:
+
+* **How RBAC works in Ansible Automation Platform 2.6** - The relationship between users, teams, organizations, and permissions, and how to implement least-privilege access control
+* **How to configure team-based access control** - Creating teams and assigning specific roles to job templates, inventories, and credentials for different IT domains
+* **How RBAC works in Self-Service Automation Portal** - The permissions framework built on Red Hat Developer Hub and how it controls catalog and scaffolder access
+* **How to create permission policies in the portal** - Building roles for different user groups and applying conditional rules for advanced access scenarios
+* **The synchronization relationship between AAP and the portal** - How organizations, users, teams, and job templates automatically sync from AAP to the Self-Service Portal
+
+You've successfully configured role-based access control across both Ansible Automation Platform and Self-Service Automation Portal. Your teams now have the proper permissions to access their domain-specific automation. Let's move on to the next module where you will test the Self-Service Automation Portal from different user perspectives.

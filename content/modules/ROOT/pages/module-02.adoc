@@ -7,9 +7,9 @@ The 3 users personas we will test for are, a Cloud Administrator, a Network Admi
 
 |===
 |**User**|**Password**
-|**clouduser1**|passowrd provided part of your lab environment (will be same as AAP password)
-|**networkuser1**|passowrd provided part of your lab environment (will be same as AAP password)
-|**rheluser1**|passowrd provided part of your lab environment (will be same as AAP password)
+|**clouduser1**|`{aap_admin_password}` (same as AAP admin password)
+|**networkuser1**|`{aap_admin_password}` (same as AAP admin password)
+|**rheluser1**|`{aap_admin_password}` (same as AAP admin password)
 |===
 
 NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Self-Service portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
@@ -17,7 +17,7 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 [#clouduser1]
 == Test as user **clouduser1**
 
-Log in to the `Self-Service portal` as `clouduser1`. You should see the Cloud job templates.
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
 
 image::clouduser1.png[Self Service portal clouduser1 user can see the Cloud job templates]
 
@@ -26,7 +26,7 @@ Take a moment and run some of the cloud job templates to see the results. Notice
 [#networkuser1]
 == Test as user **networkuser1**
 
-Log in to the `Self-Service portal` as `networkuser1`. You should see the Network job templates.
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
 
 image::networkuser1.png[Self Service portal networkuser1 user can see the Network job templates]
 
@@ -35,10 +35,20 @@ Take a moment and run some of the network job templates to see the results. Noti
 [#rheluser1]
 == Test as user **rheluser1**
 
-Log in to the `Self-Service portal` as `rheluser1`. You should see the RHEL job templates.
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
 image::rheluser1.png[Self Service portal rheluser1 user can see the RHEL job templates]
 
 Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
-Let's move on to the next section where you will modify surveys in AAP, and see the results in Self-service automation portal.  Then later in the Self-Service Automation Portal import import a custom dynamic template.
+== Learning Outcomes
+
+By completing this module, you should now understand:
+
+* **How RBAC controls the user experience** - Different users see only the automation they're authorized to access based on team membership and permissions
+* **The self-service portal user perspective** - How non-automation experts experience running automation without needing to understand Ansible or complex platform concepts
+* **How permissions affect automation execution** - Users can select and modify resources (credentials, inventories) they have "use" permissions for, but cannot see resources outside their scope
+* **The value of persona-based access control** - Domain experts (cloud, network, RHEL) can focus on their specific automation needs without being overwhelmed by unrelated templates
+* **Validation of RBAC configuration** - Testing as different users confirms that your permission policies work as intended
+
+You've successfully validated that each user persona sees only their authorized automation templates and can execute jobs with appropriate credentials and inventories. The RBAC configuration you created in Module 1 is working correctly. Let's move on to the next module where you will modify surveys in AAP and see the results in Self-Service Automation Portal, then import a custom dynamic template.

@@ -1,35 +1,42 @@
 = {lab_name}
 
-The {lab_name} lab will explain the challenges that organizations face when adopting Ansible Automation Platform, and how to overcome them with Self Service Automation Portal.
+Welcome to the {lab_name} workshop!
 
 image::aap-logo.png[aap-logo,55%,55%]
 
+== What you'll learn
+
+In this hands-on workshop, you will enable self-service automation for teams across your organization using Red Hat's Self-Service Automation Portal. You'll configure role-based access control, test different user personas, and create custom automation templates—all without requiring users to become Ansible experts.
+
 == The challenge
-Ansible Automation Platform owners are challened to improve the onboarding and adoption of Automation. They need to make it easier to onboard and get more people involved in automation. 
 
-Organizations have subject matter experts (SME) in many different IT domains.  Not all of them are automation savvy. All they want to do is trigger automation from a simple to use UI that includes guard rails. They want to run some automation as part of their day to day task. This is extremely important for organizations and the platform administrators to be able to address and help anyone who wants to automate across the organization.
+Your organization has invested in Ansible Automation Platform and built powerful automation, but adoption is slow. Subject matter experts in cloud, network, and Linux domains want to run automation as part of their daily work, but they don't want to learn Ansible or navigate complex interfaces.
 
-Some organizations have tried to either integrate to a third-party system to do this type of thing or they've tried to create their own bespoke system - with variying degrees of success.
-To address this challenge, Red Hat has released the Self-Service Automation Portal!
+**Self-Service Automation Portal** solves this by providing a simple, secure interface that maintains governance through RBAC while broadening who can use automation.
 
-== The solution - Self-Service Automation Portal
+== Workshop structure
 
-The Self-Service Automation Portal
-It is a simple interface that is focused on one thing, to run automation! The credentials a user would use to sign into Ansible Automation Platform are the same credentials that they would use to sign into the self-service automation portal. We synchronize organizational identities like users and teams etc. 
+This is a **2-hour workshop**:
 
-Red Hat wants to give control back to the automation team to provide a self-service experience to those SME's, business users, and non-automation savvy people to help broaden who can automate and the usage of the platform itself. 
+* **15 minutes**: Introduction presentation
+* **105 minutes**: Hands-on exercises across 3 modules
 
-=== Lab structure
+|===
+|Module |Duration |Focus
 
-* First, you will log into the Ansible Automation Platform and perform the tasks to configure Role-Based Access Control (RBAC) and validate the configuration.
-* Second, you will synchronize/configure the Self-Service Automation Portal to use the Ansible Automation Platform.
-* Third, you will test the Self-Service Automation Portal.
-* Fourth, you will modify the Self-Service Automation Portal to use a custom dynamic template.
+|**Module 1**
+|35 minutes
+|Configure RBAC in AAP and Self-Service Portal
 
-=== Lab Access
+|**Module 2**
+|30 minutes
+|Test as different user personas (cloud, network, RHEL)
 
-Each attendee will receive access to their own instance of the lab environment.  This will include links to the following:
+|**Module 3**
+|40 minutes
+|Modify surveys and import custom dynamic templates
+|===
 
-* OpenShift Container Platform where they have 2 OCP projects (one for AAP, and the second for self-service portal).
-* Ansible Automation Platform.
-* Self-service automation portal.
+== Let's get started!
+
+Click on **"Workshop Overview"** in the navigation menu to understand the business scenario and learning objectives, or jump directly to **"Module 1"** to start building.

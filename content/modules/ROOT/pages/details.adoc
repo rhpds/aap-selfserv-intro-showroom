@@ -1,0 +1,96 @@
+= Workshop Details
+
+== Technical Requirements
+
+This workshop requires access to the following components:
+
+* **Ansible Automation Platform 2.6** - Pre-configured with users, inventories, credentials, projects, and job templates
+* **Self-Service Automation Portal** - Deployed and ready for configuration
+* **Red Hat OpenShift Container Platform** - Available for reference (not actively used in exercises)
+
+All components are pre-deployed in your workshop environment. You will receive access credentials and URLs to each system.
+
+== Environment Details
+
+=== Ansible Automation Platform
+
+Your AAP instance is pre-configured with:
+
+* **Organizations**: Default organization structure
+* **Users**: Admin user plus team users (clouduser1, networkuser1, rheluser1)
+* **Inventories**: AWS, Azure, GCP, Network, RHEL inventories
+* **Credentials**: Cloud credentials, network credentials, SSH credentials
+* **Projects**: Pre-synced automation projects
+* **Job Templates**: Cloud, Network, and RHEL automation templates ready to use
+
+=== Self-Service Automation Portal
+
+Your Self-Service Portal instance is deployed on OpenShift and connected to your AAP instance. It synchronizes:
+
+* Organizations
+* Users and teams
+* Job templates
+
+Synchronization happens automatically at regular intervals, and administrators can trigger manual sync as needed.
+
+=== OpenShift Container Platform
+
+Your OpenShift cluster hosts:
+
+* **AAP namespace**: `{aap_namespace}` - Ansible Automation Platform deployment
+* **Self-Service Portal namespace**: Contains the portal and its components
+
+You have access to the OpenShift console but won't need to interact with it directly in this workshop.
+
+== Important Notes
+
+=== Browser Best Practices
+
+[IMPORTANT]
+====
+**For best results when logging in and out of Ansible Automation Platform AND Self-Service Portal as different users:**
+
+* **Close and re-open your browser in private mode (incognito window)** between user sessions
+* This ensures you're properly logged in/logged out as the correct user
+* This prevents browser session conflicts
+====
+
+=== Access Information
+
+**System URLs:**
+
+* **Ansible Automation Platform**: link:{aap_controller_url}[{aap_controller_url}^]
+* **Self-Service Portal**: link:{self_service_portal_url}[{self_service_portal_url}^]
+* **OpenShift Console**: link:{openshift_console_url}[{openshift_console_url}^]
+
+**Credentials:**
+
+|===
+|**User** |**Username** |**Password** |**Purpose**
+
+|**Administrator**
+|`{aap_admin_username}`
+|`{aap_admin_password}`
+|Full access to AAP and Self-Service Portal
+
+|**Cloud Team User**
+|`clouduser1`
+|`{aap_admin_password}`
+|Testing cloud automation access
+
+|**Network Team User**
+|`networkuser1`
+|`{aap_admin_password}`
+|Testing network automation access
+
+|**RHEL Team User**
+|`rheluser1`
+|`{aap_admin_password}`
+|Testing RHEL automation access
+|===
+
+== Authors and Contributors
+
+This workshop was developed by the Red Hat Technical Marketing team to demonstrate Self-Service Automation Portal capabilities and best practices for broadening automation adoption.
+
+For questions or feedback about this workshop, please contact your workshop facilitator.
