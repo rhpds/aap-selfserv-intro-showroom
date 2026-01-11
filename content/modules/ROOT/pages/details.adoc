@@ -10,6 +10,41 @@ This workshop requires access to the following components:
 
 All components are pre-deployed in your workshop environment. You will receive access credentials and URLs to each system.
 
+== Verify Your Environment
+
+Before starting the workshop modules, confirm your environment is ready:
+
+**1. Test AAP Access:**
+
+Navigate to: link:{aap_controller_url}[{aap_controller_url}^]
+
+Login with:
+- Username: `{aap_admin_username}`
+- Password: `{aap_admin_password}`
+
+✅ **Success indicator**: You should see the Ansible Automation Platform dashboard with "Automation Execution" menu visible
+
+**2. Test Self-Service Portal Access:**
+
+Navigate to: link:{self_service_portal_url}[{self_service_portal_url}^]
+
+Login with same credentials above
+
+Click **Authorize** when prompted
+
+✅ **Success indicator**: You should see the Self-Service Portal home page with job templates visible
+
+**3. Confirm Pre-Configured Content:**
+
+In AAP, navigate to: **Automation Execution → Job Templates**
+
+✅ **Success indicator**: You should see 15+ job templates including "Cloud/AWS", "Network/", and "Linux/RHEL" prefixes
+
+[IMPORTANT]
+====
+If any verification fails, contact your workshop facilitator before proceeding to Module 1.
+====
+
 == Environment Details
 
 === Ansible Automation Platform

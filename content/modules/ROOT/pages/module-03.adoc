@@ -40,7 +40,7 @@ image::survey1.png[Add survey question to the job template,link=self,window=blan
 
 ** In the `Question` field type  `Do you want to ENABLE the service (starts after a reboot)?`.
 
-** In the `Answer viriable name` field type `enable_service`.
+** In the `Answer variable name` field type `enable_service`.
 
 ** Change the `Answer type` to `Multiple Choice (single select)`.
 
@@ -58,7 +58,7 @@ Modifications to the job template are automatically synchronized to the Self-Ser
 
 ** When prompted for the AAP synchronization options, select `Job Templates` and click on `Ok`.
 
-image::jtsync.png[Self Service portal administrator user - sync now button,link=self,window=blank]
+image::jtsync.png[Self-Service Portal administrator user - sync now button,link=self,window=blank]
 
 * Log out of the `Self-Service portal` as `{aap_admin_username}`.
 
