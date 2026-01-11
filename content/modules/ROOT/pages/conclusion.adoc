@@ -31,6 +31,21 @@ You enhanced the self-service experience with dynamic content:
 * Imported a custom dynamic template from a Git repository
 * Launched sophisticated automation with advanced options beyond standard surveys
 
+== Learning Outcomes
+
+By completing this workshop, you should now understand:
+
+* **How RBAC works across AAP and Self-Service Portal** - The relationship between users, teams, organizations, and permissions in both systems, and how to implement least-privilege access control
+* **How to configure team-based automation access** - Creating teams and assigning granular permissions to job templates, inventories, and credentials for different IT domains
+* **How to build permission policies in the Self-Service Portal** - Using the Red Hat Developer Hub permissions framework to control catalog and scaffolder access
+* **How to create conditional RBAC rules** - Implementing advanced access control scenarios with metadata-based conditions
+* **How RBAC controls the user experience** - The way different users see only authorized automation based on team membership and permissions
+* **The self-service portal user perspective** - How non-automation experts experience running automation without needing to understand Ansible or complex platform concepts
+* **How synchronization works between AAP and the portal** - Organizations, users, teams, and job templates automatically sync, and how to trigger manual synchronization
+* **How surveys enhance the user experience** - Interactive forms that prompt for input at job launch time, making automation more user-friendly
+* **What custom dynamic templates are** - Git-backed templates that provide sophisticated, enterprise-ready automation experiences beyond what surveys can offer
+* **How to import and use custom templates** - Loading templates from Git repositories and providing advanced options, conditional logic, and rich user interfaces
+
 == Key Takeaways
 
 === Technical Skills Gained
@@ -107,18 +122,24 @@ Define policies for automation access:
 * What monitoring and auditing is required?
 * How are incidents and issues handled?
 
-=== Learning Resources
+== References
 
-**Red Hat Documentation**
+**Product Documentation**
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/[Ansible Automation Platform Documentation^]
-* link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.5/html/using_automation_controller/[Using Automation Controller^]
+* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6[Red Hat Ansible Automation Platform 2.6 Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-role-based-access-control[Ansible Automation Platform RBAC Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-job-templates[Ansible Automation Platform Job Templates Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-surveys[Ansible Automation Platform Surveys Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_self-service_automation_portal[Red Hat Self-Service Automation Portal Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/administration_guide_for_red_hat_developer_hub/rhdh-rbac[Red Hat Developer Hub RBAC Framework Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_openshift_container_platform/[Red Hat OpenShift Container Platform Documentation^]
 
 **Community Resources**
 
 * link:https://www.ansible.com/community[Ansible Community^]
 * link:https://www.redhat.com/en/technologies/management/ansible[Red Hat Ansible Automation Platform Product Page^]
+
+=== Learning Resources
 
 **Continue Your Learning**
 

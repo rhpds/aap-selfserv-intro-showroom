@@ -1,5 +1,15 @@
 = User Persona Testing in Self-Service Automation Portal
 
+== Learning objectives
+
+By the end of this module, you'll be able to:
+
+* Test the Self-Service Automation Portal from different user perspectives
+* Validate that RBAC policies correctly control what each user can see and execute
+* Understand the self-service experience for non-automation experts
+* Run automation jobs as domain-specific users (cloud, network, RHEL administrators)
+* Verify that users can only access credentials and inventories they're authorized to use
+
 In the first part of this workshop, we configured Ansible Automation Platform for Self-Service Portal and configured RBAC in AAP 2.6 that will be used for Self-Service Portal.
 In this part of the workshop, we will test the Self-Service Automation Portal with the different user personas we created in the previous section.
 
@@ -19,7 +29,7 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
 
-image::clouduser1.png[Self Service portal clouduser1 user can see the Cloud job templates]
+image::clouduser1.png[Self Service portal clouduser1 user can see the Cloud job templates,link=self,window=blank]
 
 Take a moment and run some of the cloud job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
@@ -28,7 +38,7 @@ Take a moment and run some of the cloud job templates to see the results. Notice
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
 
-image::networkuser1.png[Self Service portal networkuser1 user can see the Network job templates]
+image::networkuser1.png[Self Service portal networkuser1 user can see the Network job templates,link=self,window=blank]
 
 Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
@@ -37,9 +47,14 @@ Take a moment and run some of the network job templates to see the results. Noti
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
-image::rheluser1.png[Self Service portal rheluser1 user can see the RHEL job templates]
+image::rheluser1.png[Self Service portal rheluser1 user can see the RHEL job templates,link=self,window=blank]
 
 Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+
+== References
+
+* link:https://docs.redhat.com/en/documentation/red_hat_self-service_automation_portal[Red Hat Self-Service Automation Portal Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-role-based-access-control[Ansible Automation Platform RBAC Documentation^]
 
 == Learning Outcomes
 
