@@ -646,14 +646,16 @@ If you provided visual assets or scripts:
 - Use descriptive names showing what presenters will see
 - Reference in Show sections with proper context:
   ```asciidoc
-  image::console-developer-view.png[align="center",width=700,title="Developer Perspective - What Presenters Will See"]
+  image::console-developer-view.png[Developer Perspective - What Presenters Will See,link=self,window=blank,align="center",width=700,title="Developer Perspective - What Presenters Will See"]
   ```
+- **CRITICAL**: **ALWAYS** include `link=self,window=blank` to make images clickable
 
 **For architecture diagrams**:
 - Save to `content/modules/ROOT/assets/images/`
 - Use business-context names: `retail-transformation-architecture.png`
 - Reference in Know sections to show business value
 - Use larger width (700-800px) for visibility during presentations
+- **ALWAYS include `link=self,window=blank`** for clickable images
 
 **For demo scripts or commands**:
 - Format in code blocks with syntax highlighting
@@ -681,6 +683,19 @@ If you provided visual assets or scripts:
 - Results: `deployment-success.png`, `metrics-dashboard.png`
 - Comparisons: `before-state.png`, `after-state.png`
 
+**Clickable Images (Links)**:
+If an image should be clickable and link to external content, use `^` caret to open in new tab:
+
+```asciidoc
+// Using image macro with link attribute
+image::customer-success-story.png[Case Study,600,link=https://www.redhat.com/case-study^]
+
+// Using link macro around image
+link:https://www.redhat.com/case-study^[image:customer-success-story.png[Case Study,600]]
+```
+
+**Critical**: Clickable images linking to external URLs MUST use `^` caret to open in new tab, preventing audience from losing demo context.
+
 ### Step 6: Fetch and Analyze References
 
 Based on your references, I'll:
@@ -691,6 +706,12 @@ Based on your references, I'll:
 - Map technical features to business outcomes
 - Combine with AgnosticV variables (if provided)
 - Integrate provided diagrams and screenshots strategically
+
+**Reference Tracking** (for conclusion generation):
+- Track all references used across all modules
+- Store reference URLs, titles, and which modules used them
+- References will be consolidated in the conclusion module, NOT in individual modules
+- Each module can cite sources inline (e.g., "According to Red Hat's Total Economic Impact study...") but the formal References section will only appear in the conclusion
 
 ### Step 7: Read Templates and Verification Criteria (BEFORE Generating)
 
@@ -716,6 +737,242 @@ Based on your references, I'll:
 ### Step 8: Generate Demo Module (Using Verification Criteria)
 
 I'll create a module with Know/Show structure:
+
+**CRITICAL: Image Syntax Enforcement**:
+When generating ANY image reference in the demo content, you MUST include `link=self,window=blank`:
+
+✅ **CORRECT - Always use this format**:
+```asciidoc
+image::filename.png[Description,link=self,window=blank,width=700]
+image::diagram.png[Architecture,link=self,window=blank,align="center",width=800,title="System Architecture"]
+```
+
+❌ **WRONG - Never generate images without link parameter**:
+```asciidoc
+image::filename.png[Description,width=700]
+image::diagram.png[Architecture,align="center",width=800]
+```
+
+**Why**: This makes images clickable to open full-size in new tab, preventing presenters from losing their place.
+
+**CRITICAL: AsciiDoc List Formatting Enforcement**:
+When generating ANY list in the demo content, you MUST include blank lines before and after the list:
+
+✅ **CORRECT - Always use proper spacing**:
+```asciidoc
+**Prerequisites:**
+
+* OpenShift 4.18 or later
+* Admin access to cluster
+* Terminal with oc CLI
+
+In this module, you will...
+```
+
+❌ **WRONG - Text runs together when rendered**:
+```asciidoc
+**Prerequisites:**
+* OpenShift 4.18 or later
+* Admin access to cluster
+* Terminal with oc CLI
+In this module, you will...
+```
+
+**Required blank lines**:
+1. Blank line after bold heading (`**Text:**`) or colon (`:`)
+2. Blank line before first list item
+3. Blank line after last list item (before next content)
+
+**Why**: Without blank lines, Showroom renders lists as plain text, causing content to run together and become unreadable.
+
+**CRITICAL: Content Originality - No Plagiarism**:
+All generated content MUST be original. Never copy from external sources without proper attribution.
+
+✅ **CORRECT - Original with attribution**:
+```asciidoc
+According to link:https://kubernetes.io/docs/...[Kubernetes documentation^],
+Kubernetes is "an open-source system for automating deployment." Red Hat OpenShift
+extends Kubernetes with enterprise features including integrated CI/CD and security.
+```
+
+❌ **WRONG - Copied without attribution**:
+```asciidoc
+Kubernetes is an open-source system for automating deployment, scaling,
+and management of containerized applications.
+```
+
+**Prohibited**:
+- Copying documentation verbatim from external sources
+- Slightly rewording existing tutorials
+- Presenting others' examples as original work
+
+**Required**:
+- Write original explanations
+- Add Red Hat-specific context
+- Use proper attribution with quotes and links
+
+**CRITICAL: No Em Dashes**:
+Never use em dashes (—). Use commas, periods, or en dashes (–) instead.
+
+✅ **CORRECT**:
+```asciidoc
+OpenShift, Red Hat's platform, simplifies deployments.
+The process is simple. Just follow these steps.
+2020–2025 (en dash for ranges)
+```
+
+❌ **WRONG - Em dash used**:
+```asciidoc
+OpenShift—Red Hat's platform—simplifies deployments.
+The process is simple—just follow these steps.
+```
+
+**Why**: Follows Red Hat Corporate Style Guide and improves readability.
+
+**CRITICAL: External Links Must Open in New Tab**:
+All external links MUST use `^` caret to open in new tab, preventing loss of place.
+
+✅ **CORRECT - External links with caret**:
+```asciidoc
+According to link:https://docs.redhat.com/...[Red Hat Documentation^], OpenShift provides...
+See the link:https://www.redhat.com/case-study[RetailCo case study^] for details.
+```
+
+❌ **WRONG - Missing caret**:
+```asciidoc
+According to link:https://docs.redhat.com/...[Red Hat Documentation], OpenShift provides...
+See the link:https://www.redhat.com/case-study[RetailCo case study] for details.
+```
+
+**Internal links (NO caret)**:
+```asciidoc
+✅ CORRECT - Internal navigation without caret:
+Navigate to xref:03-next-module.adoc[Next Module] to continue.
+See xref:02-overview.adoc#problem[Problem Statement] section.
+```
+
+**Why**: External links without caret replace current tab, causing presenters/learners to lose their place. Internal xrefs should NOT use caret to keep flow within the demo/workshop.
+
+**CRITICAL: Bullets vs Numbers - Know vs Show**:
+Knowledge sections use bullets (*). Task/step sections use numbers (.).
+
+✅ **CORRECT - Bullets for knowledge, numbers for tasks**:
+```asciidoc
+=== Know
+
+**Business Challenge:**
+
+* Manual deployments take 8-10 weeks
+* Security vulnerabilities discovered too late
+* Infrastructure costs are too high
+
+=== Show
+
+**What I do:**
+
+. Log into OpenShift Console at {openshift_console_url}
+. Navigate to Developer perspective
+. Click "+Add" → "Import from Git"
+. Enter repository URL and click Create
+```
+
+❌ **WRONG - Mixed up bullets and numbers**:
+```asciidoc
+=== Know
+
+**Business Challenge:**
+
+. Manual deployments take 8-10 weeks  ← WRONG (should be bullets)
+. Security vulnerabilities discovered too late
+. Infrastructure costs are too high
+
+=== Show
+
+**What I do:**
+
+* Log into OpenShift Console  ← WRONG (should be numbers)
+* Navigate to Developer perspective
+* Click "+Add" → "Import from Git"
+```
+
+**Rule**:
+- Know sections → Use bullets (*) for business points, benefits, challenges
+- Show sections → Use numbers (.) for sequential steps and tasks
+- Verification → Use bullets (*) for success indicators
+
+**Why**: Bullets indicate information to absorb; numbers indicate sequential actions to perform.
+
+**CRITICAL: Demo Language - NO Learner Language**:
+Demos are presenter-led, NOT learner-focused. Use the correct terminology.
+
+**For index.adoc (Navigation Hub - if generating first demo)**:
+
+✅ **CORRECT - Presenter-focused**:
+```asciidoc
+= OpenShift Platform Demo
+
+**What This Demo Covers**
+
+This demonstration shows how Red Hat OpenShift accelerates deployment cycles:
+
+* Self-service developer platform capabilities
+* Automated CI/CD pipeline integration
+* Built-in security and compliance features
+* Business ROI and cost reduction metrics
+```
+
+❌ **WRONG - Learner language**:
+```asciidoc
+= OpenShift Platform Demo
+
+**What You'll Learn**
+
+In this workshop, you will learn how to:
+* Deploy applications to OpenShift
+* Create CI/CD pipelines
+* Configure security policies
+```
+
+**For 01-overview.adoc (Presenter Prep - if generating first demo)**:
+
+✅ **CORRECT - Full business context for presenters**:
+```asciidoc
+= Demo Overview and Presenter Preparation
+
+== Background
+
+ACME inc is a retail company facing Black Friday deadlines with 10-week deployment cycles.
+They need to accelerate feature delivery to remain competitive.
+
+== Problem Breakdown
+
+**Challenge 1: Slow deployment cycles** - Manual processes take 8-10 weeks
+**Challenge 2: Security vulnerabilities** - 200+ CVEs discovered monthly
+**Challenge 3: Infrastructure costs** - $2M annually on underutilized servers
+
+== Solution Overview
+
+Red Hat OpenShift provides self-service platform with automated security.
+
+== Business Benefits
+
+* 95% faster deployments (10 weeks → 30 minutes)
+* 80% reduction in security vulnerabilities
+* 60% lower infrastructure costs
+
+== Common Customer Questions
+
+**"How does this work with our existing tools?"**
+→ Emphasize Jenkins integration path and existing tool enhancement
+```
+
+**Key Rules**:
+1. index.adoc → Use "What This Demo Covers" (NOT "What You'll Learn")
+2. index.adoc → Keep it brief (navigation hub)
+3. index.adoc → No detailed problem statements
+4. 01-overview.adoc → Complete business context for presenter preparation
+5. 01-overview.adoc → Include all business benefits and customer Q&A
+6. Never use "you will learn", "hands-on", "exercises" in demos
 
 **CRITICAL: Demo Talk Track Separation**:
 Demo modules MUST separate presenter guidance from technical steps:
@@ -801,7 +1058,7 @@ OpenShift reduces deployment time from weeks to minutes through self-service dev
   * Container image is built
   * Application deploys in ~2 minutes
 
-image::deployment-progress.png[align="center",width=700,title="Deployment in Progress"]
+image::deployment-progress.png[Deployment in Progress,link=self,window=blank,align="center",width=700,title="Deployment in Progress"]
 
 * **Business Value Callout**: "What used to take your team 6-8 weeks just happened in 2 minutes. Developers can now deploy independently without waiting for infrastructure teams."
 
@@ -922,40 +1179,113 @@ I'll automatically add the module to `content/modules/ROOT/nav.adoc` - this is R
 - ✅ Give clear next steps for presenters
 - ✅ Keep output concise (under 5000 tokens)
 
-### Step 12: Offer to Generate Conclusion Module (Optional)
+### Step 12: Generate Conclusion Module (MANDATORY)
 
-**After delivering all demo modules, ask if user wants a conclusion module:**
+**After delivering the final module, ask if this is the last module:**
 
 ```
-Q: Would you like me to generate a conclusion module to wrap up the demo?
+Q: Is this the last module of your demo?
 
-This adds a final module that:
-- Summarizes key business value demonstrated
-- Recaps ROI and competitive advantages
-- Provides clear call-to-action for audience
-- Lists next steps (workshops, POC, technical sessions)
+If YES, I will now generate the mandatory conclusion module that includes:
+- Business impact recap and ROI summary
+- Competitive advantages demonstrated
+- ALL REFERENCES used across the entire demo
+- Next steps for evaluation, pilot, and production
+- Call-to-action for technical teams and decision makers
+- Q&A guidance
 
-Options:
-1. Yes, generate conclusion module
-2. No, I'll create it later
-3. No, demo is complete without it
+If NO, you can continue creating more modules, and I'll generate the conclusion when you're done.
 
-Your choice? [1/2/3]
+Is this your last module? [Yes/No]
 ```
 
-**If user chooses option 1 (Yes)**:
+**If user answers YES (this is the last module)**:
 
-1. Detect highest module number (e.g., if last module is 05-module-03, conclusion will be 06-conclusion.adoc)
-2. Generate conclusion module using the embedded template below
-3. Customize the template with Know/Show structure:
+1. Read ALL previous modules to extract:
+   - All business value points and ROI metrics
+   - All references cited in each module
+   - Key technical capabilities demonstrated
+   - Competitive differentiation points
+
+2. Ask about references:
+
+   **First, extract all references from previous modules:**
+   - Read all module files (index.adoc, 01-overview.adoc, 02-details.adoc, 03-module-01-*.adoc, etc.)
+   - Extract all external links found in the content
+   - Identify reference materials provided during module creation (Step 3 question 2)
+   - Compile a comprehensive list with:
+     - URL
+     - Link text/title
+     - Which module(s) referenced it
+
+   **Then ask the user:**
+   ```
+   Q: How would you like to handle references in the conclusion?
+
+   I found these references used across your demo modules:
+   1. https://www.redhat.com/... [Red Hat OpenShift Platform] - Used in: Modules 1, 3
+   2. https://docs.redhat.com/... [Product Documentation] - Used in: Module 2
+   3. https://customers.redhat.com/... [Customer Success Story] - Used in: Module 1
+   {{ additional_references_if_found }}
+
+   Options:
+   1. Use these references as-is (I'll organize them by category)
+   2. Let me provide additional references to include
+   3. Let me curate the reference list (add/remove specific items)
+
+   Your choice? [1/2/3]
+   ```
+
+   **If option 1**: Use extracted references, organize by category
+
+   **If option 2**: Ask user to provide additional references:
+   ```
+   Q: Please provide additional references to include in the conclusion.
+
+   Format: URL and description, one per line
+   Example:
+   https://www.redhat.com/... - Red Hat solution brief
+   https://customers.redhat.com/... - Customer case study
+
+   Your additional references:
+   ```
+
+   **If option 3**: Ask user which references to keep/remove/add:
+   ```
+   Q: Let's curate the reference list.
+
+   Current references:
+   {{ numbered_list_of_references }}
+
+   Options:
+   - Type numbers to REMOVE (e.g., "3, 5, 7")
+   - Type "add" to add new references
+   - Type "done" when finished
+
+   Your action:
+   ```
+
+3. Detect highest module number (e.g., if last module is 05-module-03, conclusion will be 06-conclusion.adoc)
+
+4. Generate conclusion module using the embedded template below
+
+5. Customize the template with Know/Show structure:
    - File: `0X-conclusion.adoc` (where X = next sequential number)
    - **Know**: Business impact recap, ROI summary, competitive advantages
    - **Show**: Demo capabilities recap, technical highlights
    - Next steps: Workshops, POC, deep dives
+   - **References**: Consolidated references from all modules (REQUIRED)
    - Call to action for decision makers and technical teams
    - Q&A guidance with common questions
-4. Update nav.adoc with conclusion entry at the end
-5. Provide brief confirmation
+
+6. Update nav.adoc with conclusion entry at the end
+
+7. Provide brief confirmation
+
+**If user answers NO (more modules to come)**:
+- Note that conclusion will be generated after the last module
+- User can invoke /create-demo again to add more modules
+- When adding the final module, this question will be asked again
 
 **Embedded Demo Conclusion Template**:
 ```asciidoc
@@ -1119,6 +1449,39 @@ Based on this demo, assess:
 * **Authority**: Who else needs to be involved in the decision?
 * **Need**: Is this a critical priority or nice-to-have?
 
+== References
+
+**CRITICAL**: This section consolidates ALL references used across the entire demo.
+
+Read all previous modules and extract every reference cited, then organize them by category:
+
+=== Product Documentation
+
+* link:{{ product_docs_url }}[{{ product_name }} Documentation^] - Used in: Modules {{ modules_list }}
+* link:{{ feature_docs_url }}[{{ feature_name }} Guide^] - Used in: Modules {{ modules_list }}
+
+=== Red Hat Resources
+
+* link:{{ redhat_resource_1 }}[{{ resource_title_1 }}^] - Used in: Module {{ module_number }}
+* link:{{ solution_brief_url }}[{{ solution_brief_title }}^] - Used in: Module {{ module_number }}
+
+=== Customer Success Stories
+
+* link:{{ customer_story_1 }}[{{ customer_name_1 }} Case Study^] - Used in: Module {{ module_number }}
+* link:{{ customer_story_2 }}[{{ customer_name_2 }} Success Story^] - Used in: Module {{ module_number }}
+
+=== Industry Research and Analysis
+
+* link:{{ analyst_report_url }}[{{ analyst_report_title }}^] - Market research
+* link:{{ industry_study_url }}[{{ study_title }}^] - Industry benchmarks
+
+**Guidelines for References section**:
+- Group references by category (Product Docs, Red Hat Resources, Customer Stories, Research)
+- Include which module(s) used each reference
+- ALL external links must use `^` caret to open in new tab
+- Provide brief context for each reference (what it covers)
+- Ensure ALL references from ALL modules are included
+
 == Thank You
 
 Thank you for your time and attention. We're excited to help you {{ primary_value_proposition }}.
@@ -1141,18 +1504,18 @@ Thank you for your time and attention. We're excited to help you {{ primary_valu
 - Title: `= Demo Conclusion and Next Steps`
 - Nav entry: `* xref:0X-conclusion.adoc[Conclusion and Next Steps]`
 
-**Content to Include**:
+**Content to Include** (ALL REQUIRED):
 - ✅ **Know**: Business impact recap, ROI metrics, competitive advantages
 - ✅ **Show**: Demo capabilities summary, technical highlights
 - ✅ "Next Steps for Your Organization" - Evaluation path, pilot, production
 - ✅ "Resources" - Documentation, workshops, community
 - ✅ "Call to Action" - Tailored for technical teams vs decision makers
 - ✅ "Q&A Guidance" - Common questions with suggested answers
+- ✅ **"References"** - Consolidate ALL references from ALL modules (MANDATORY)
+- ✅ "Presenter Action Items" - Follow-up guidance for sales engineers
 - ✅ "Thank You" - Contact information and closing
 
-**If user chooses option 2 or 3**:
-- Skip conclusion generation
-- Note in summary that user can add conclusion later using the template
+**CRITICAL**: The References section MUST include every reference used across all demo modules, organized by category (Product Docs, Red Hat Resources, Customer Stories, Research).
 
 ## Example Usage
 
@@ -1298,7 +1661,7 @@ Example output:
 === Know
 _TechCorp's data scientists wait weeks for infrastructure, delaying critical AI initiatives._
 
-image::ai-platform-architecture.png[align="center",width=800,title="Red Hat OpenShift AI Platform Architecture"]
+image::ai-platform-architecture.png[Red Hat OpenShift AI Platform Architecture,link=self,window=blank,align="center",width=800,title="Red Hat OpenShift AI Platform Architecture"]
 
 **Current Challenge:**
 * 2-3 weeks to provision ML infrastructure

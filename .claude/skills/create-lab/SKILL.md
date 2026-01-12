@@ -681,6 +681,29 @@ Now for this specific module:
    - I'll save them to `content/modules/ROOT/assets/images/`
    - And reference them properly in AsciiDoc
 
+9. **Troubleshooting section** (optional):
+   ```
+   Q: Would you like to include a troubleshooting section in this module?
+
+   A troubleshooting section helps learners solve common issues they may encounter.
+
+   Options:
+   1. Yes, include troubleshooting (Recommended for production workshops)
+   2. No, skip it for now (I'll add it later if needed)
+
+   Your choice? [1/2]
+   ```
+
+   **When to recommend "Yes"**:
+   - Production-ready workshops
+   - Complex technical modules with many potential failure points
+   - Modules involving external dependencies (registries, APIs, networks)
+
+   **When "No" is acceptable**:
+   - Simple introductory modules
+   - Proof-of-concept content
+   - Modules with very straightforward steps
+
 ### Step 4: Get UserInfo Variables (if applicable)
 
 If UserInfo variables weren't already provided in Step 2.5 or Step 3, I'll ask for them now.
@@ -763,12 +786,20 @@ If you provided visual assets or code:
 
 **Required for every image**:
 1. **Meaningful alt text** (for accessibility)
-2. **Width guidance** (500-800px typical)
-3. **Descriptive filename** (no generic names like "image1.png")
+2. **Clickable link** (`link=self,window=blank` - ALWAYS required)
+3. **Width guidance** (500-800px typical)
+4. **Descriptive filename** (no generic names like "image1.png")
 
 **AsciiDoc syntax** (REQUIRED):
 ```asciidoc
-image::pipeline-execution-1.png[Tekton pipeline showing three tasks executing in sequence,width=700,title="Pipeline Execution in Progress"]
+image::pipeline-execution-1.png[Tekton pipeline showing three tasks executing in sequence,link=self,window=blank,width=700,title="Pipeline Execution in Progress"]
+```
+
+**CRITICAL**: **ALWAYS** include `link=self,window=blank` to make images clickable. This allows learners to see full resolution without losing their place in the workshop.
+
+**Optional - Center alignment**:
+```asciidoc
+image::architecture-diagram.png[Architecture overview,link=self,window=blank,align="center",width=800,title="System Architecture"]
 ```
 
 **Placeholders**:
@@ -776,7 +807,7 @@ image::pipeline-execution-1.png[Tekton pipeline showing three tasks executing in
 - Example placeholder:
   ```asciidoc
   // TODO: Add screenshot
-  image::create-task-screenshot.png[OpenShift console showing task creation form,width=600,title="Creating a Tekton Task"]
+  image::create-task-screenshot.png[OpenShift console showing task creation form,link=self,window=blank,width=600,title="Creating a Tekton Task"]
   ```
 
 **Assets Needed list**:
@@ -805,6 +836,19 @@ At end of module, include:
 - Command outputs: `oc-get-pods-output.png`, `build-logs.png`
 - Step-by-step: `step-1-create-task.png`, `step-2-run-pipeline.png`
 
+**Clickable Images (Links)**:
+If an image should be clickable and link to external content, use `^` caret to open in new tab:
+
+```asciidoc
+// Using image macro with link attribute
+image::architecture-diagram.png[Architecture,600,link=https://docs.redhat.com/architecture^]
+
+// Using link macro around image
+link:https://docs.redhat.com/architecture^[image:architecture-diagram.png[Architecture,600]]
+```
+
+**Critical**: Clickable images linking to external URLs MUST use `^` caret to open in new tab, just like text links.
+
 ### Step 6: Fetch and Analyze References
 
 Based on your references, I'll:
@@ -824,15 +868,11 @@ Based on your references, I'll:
   - Choose based on version relevance
   - Note the decision in module
 
-**References Used Section**:
-- Add at end of each module: "## References"
-- List all references used with purpose:
-  ```asciidoc
-  == References
-
-  * link:https://docs.openshift.com/...[OpenShift Pipelines documentation^] - Pipeline syntax and examples
-  * link:https://tekton.dev/...[Tekton documentation^] - Task definitions
-  ```
+**Reference Tracking** (for conclusion generation):
+- Track all references used across all modules
+- Store reference URLs, titles, and which modules used them
+- References will be consolidated in the conclusion module, NOT in individual modules
+- Each module can cite sources inline (e.g., "According to the Red Hat documentation...") but the formal References section will only appear in the conclusion
 
 **IMPORTANT: External Link Format**:
 - ALL external links MUST use `^` caret to open in new tab
@@ -951,6 +991,178 @@ Click on the next section to begin the workshop.
 
 I'll create a complete module with:
 
+**CRITICAL: Image Syntax Enforcement**:
+When generating ANY image reference in the module content, you MUST include `link=self,window=blank`:
+
+✅ **CORRECT - Always use this format**:
+```asciidoc
+image::filename.png[Description,link=self,window=blank,width=700]
+image::pipeline-view.png[Pipeline Execution,link=self,window=blank,width=700,title="Pipeline Running"]
+```
+
+❌ **WRONG - Never generate images without link parameter**:
+```asciidoc
+image::filename.png[Description,width=700]
+image::pipeline-view.png[Pipeline Execution,width=700]
+```
+
+**Why**: This makes images clickable to open full-size in new tab, preventing learners from losing their place in the workshop.
+
+**CRITICAL: AsciiDoc List Formatting Enforcement**:
+When generating ANY list in the module content, you MUST include blank lines before and after the list:
+
+✅ **CORRECT - Always use proper spacing**:
+```asciidoc
+**Learning objectives:**
+
+* Understand how Tekton tasks work
+* Create and execute pipelines
+* Troubleshoot failed runs
+
+By the end of this module...
+```
+
+❌ **WRONG - Text runs together when rendered**:
+```asciidoc
+**Learning objectives:**
+* Understand how Tekton tasks work
+* Create and execute pipelines
+* Troubleshoot failed runs
+By the end of this module...
+```
+
+**Required blank lines**:
+1. Blank line after bold heading (`**Text:**`) or colon (`:`)
+2. Blank line before first list item
+3. Blank line after last list item (before next content)
+
+**Why**: Without blank lines, Showroom renders lists as plain text, causing content to run together and become unreadable.
+
+**CRITICAL: Content Originality - No Plagiarism**:
+All generated content MUST be original. Never copy from external sources without proper attribution.
+
+✅ **CORRECT - Original with attribution**:
+```asciidoc
+According to link:https://kubernetes.io/docs/...[Kubernetes documentation^],
+Kubernetes is "an open-source system for automating deployment." Red Hat OpenShift
+extends Kubernetes with enterprise features including integrated CI/CD and security.
+```
+
+❌ **WRONG - Copied without attribution**:
+```asciidoc
+Kubernetes is an open-source system for automating deployment, scaling,
+and management of containerized applications.
+```
+
+**Prohibited**:
+- Copying documentation verbatim from external sources
+- Slightly rewording existing tutorials
+- Presenting others' examples as original work
+
+**Required**:
+- Write original explanations
+- Add Red Hat-specific context
+- Use proper attribution with quotes and links
+
+**CRITICAL: No Em Dashes**:
+Never use em dashes (—). Use commas, periods, or en dashes (–) instead.
+
+✅ **CORRECT**:
+```asciidoc
+OpenShift, Red Hat's platform, simplifies deployments.
+The process is simple. Just follow these steps.
+2020–2025 (en dash for ranges)
+```
+
+❌ **WRONG - Em dash used**:
+```asciidoc
+OpenShift—Red Hat's platform—simplifies deployments.
+The process is simple—just follow these steps.
+```
+
+**Why**: Follows Red Hat Corporate Style Guide and improves readability.
+
+**CRITICAL: External Links Must Open in New Tab**:
+All external links MUST use `^` caret to open in new tab, preventing learners from losing their place.
+
+✅ **CORRECT - External links with caret**:
+```asciidoc
+According to link:https://docs.redhat.com/...[Red Hat Documentation^], OpenShift provides...
+See the link:https://www.redhat.com/guides[Getting Started Guide^] for more details.
+```
+
+❌ **WRONG - Missing caret**:
+```asciidoc
+According to link:https://docs.redhat.com/...[Red Hat Documentation], OpenShift provides...
+See the link:https://www.redhat.com/guides[Getting Started Guide] for more details.
+```
+
+**Internal links (NO caret)**:
+```asciidoc
+✅ CORRECT - Internal navigation without caret:
+Navigate to xref:04-module-02.adoc[Next Module] to continue.
+See xref:02-details.adoc#prerequisites[Prerequisites] section.
+```
+
+**Why**: External links without caret replace current tab, causing learners to lose their place in the workshop. Internal xrefs should NOT use caret to keep flow within the workshop.
+
+**CRITICAL: Bullets vs Numbers - Knowledge vs Tasks**:
+Knowledge/information sections use bullets (*). Task/step sections use numbers (.).
+
+✅ **CORRECT - Bullets for knowledge, numbers for tasks**:
+```asciidoc
+== Learning Objectives
+
+By the end of this module, you will understand:
+
+* How Tekton tasks encapsulate CI/CD steps
+* The relationship between tasks and pipelines
+* Best practices for pipeline design
+
+== Exercise 1: Create Your First Pipeline
+
+Follow these steps:
+
+. Open the OpenShift Console at {openshift_console_url}
+. Navigate to Pipelines → Create Pipeline
+. Enter the pipeline name: my-first-pipeline
+. Add a task from the catalog
+. Click Create
+
+=== Verify
+
+Check that your pipeline was created successfully:
+
+* Pipeline appears in the list
+* Status shows "Not started"
+* All tasks are configured correctly
+```
+
+❌ **WRONG - Mixed up bullets and numbers**:
+```asciidoc
+== Exercise 1: Create Your First Pipeline
+
+Follow these steps:
+
+* Open the OpenShift Console  ← WRONG (should be numbers)
+* Navigate to Pipelines
+* Click Create
+
+=== Verify
+
+. Pipeline appears in the list  ← WRONG (should be bullets)
+. Status shows "Not started"
+```
+
+**Rule**:
+- Learning objectives → Use bullets (*) for concepts to understand
+- Exercise steps → Use numbers (.) for sequential actions
+- Verification → Use bullets (*) for success indicators
+- Prerequisites → Use bullets (*) for requirements list
+- Benefits/features → Use bullets (*) for information points
+
+**Why**: Bullets indicate information to absorb; numbers indicate sequential actions to perform.
+
 **Required Structure**:
 - Learning objectives (3-4 items)
 - Business introduction with scenario
@@ -958,10 +1170,11 @@ I'll create a complete module with:
 - Step-by-step instructions with commands
 - **Verification checkpoints** (REQUIRED - see below)
 - Image placeholders
-- **Troubleshooting section** (REQUIRED - see below)
+- **Troubleshooting section** (OPTIONAL - if user requested in Step 3, see below)
 - **Learning outcomes checkpoint** (REQUIRED - see below)
 - Module summary
-- **References section** (REQUIRED)
+
+**Note**: References are NOT included in individual modules. All references will be consolidated in the mandatory conclusion module.
 
 **Mandatory: Verification Checkpoints**:
 Each major step must include:
@@ -985,8 +1198,8 @@ my-app-xxxxx-xxxxx      1/1     Running   0          2m
 ✓ READY shows 1/1
 ```
 
-**Mandatory: Troubleshooting Section**:
-Every module must include:
+**Optional: Troubleshooting Section (If Requested)**:
+If the user requested troubleshooting in Step 3, include this section:
 ```asciidoc
 == Troubleshooting
 
@@ -1006,6 +1219,13 @@ Every module must include:
 . Verify OpenShift CLI installed: `oc version`
 . Expected version: {ocp_version}
 ```
+
+**Guidelines for troubleshooting section**:
+- Include 3-5 common issues specific to the module's technology
+- Provide clear, actionable solutions
+- Use real commands and expected outputs
+- Tailor scenarios to the module's exercises
+- If user declined troubleshooting, skip this section entirely
 
 **Mandatory: Learning Outcomes Checkpoint**:
 Every module must include a learning confirmation (not just technical validation):
@@ -1061,9 +1281,9 @@ oc delete project my-project
 2. **Completeness**:
    - ✓ All required sections present (see Step 8)
    - ✓ Verification checkpoints after major steps
-   - ✓ Troubleshooting section with 3+ scenarios
+   - ✓ Troubleshooting section with 3+ scenarios (if user requested)
    - ✓ Learning outcomes section
-   - ✓ References section
+   - ✓ No References section in module (references go in conclusion)
 
 3. **Navigation**:
    - ✓ nav.adoc will be updated in Step 10
@@ -1142,7 +1362,7 @@ I'll automatically update `content/modules/ROOT/nav.adoc` - this is REQUIRED for
 - Learning objectives: 4 items
 - Exercises: 3
 - Verification checkpoints: 3
-- Troubleshooting scenarios: 5
+- Troubleshooting scenarios: 5 (if included)
 - Learning outcomes: 4 items
 
 **Assets**:
@@ -1172,37 +1392,109 @@ I'll automatically update `content/modules/ROOT/nav.adoc` - this is REQUIRED for
 - ✅ Give clear next steps
 - ✅ Keep output concise (under 5000 tokens)
 
-### Step 12: Offer to Generate Conclusion Module (Optional)
+### Step 12: Generate Conclusion Module (MANDATORY)
 
-**After delivering all modules, ask if user wants a conclusion module:**
+**After delivering the final module, ask if this is the last module:**
 
 ```
-Q: Would you like me to generate a conclusion module to wrap up the workshop?
+Q: Is this the last module of your workshop?
 
-This adds a final module that:
-- Summarizes what learners accomplished
-- Lists key takeaways
-- Provides next steps and resources
-- Suggests related workshops and certification paths
+If YES, I will now generate the mandatory conclusion module that includes:
+- Summary of what learners accomplished
+- Key takeaways from all modules
+- ALL REFERENCES used across the entire workshop
+- Next steps and resources
+- Related workshops and certification paths
 
-Options:
-1. Yes, generate conclusion module
-2. No, I'll create it later
-3. No, workshop is complete without it
+If NO, you can continue creating more modules, and I'll generate the conclusion when you're done.
 
-Your choice? [1/2/3]
+Is this your last module? [Yes/No]
 ```
 
-**If user chooses option 1 (Yes)**:
+**If user answers YES (this is the last module)**:
 
-1. Detect highest module number (e.g., if last module is 07-module-05, conclusion will be 08-conclusion.adoc)
-2. Generate conclusion module using the embedded template below
-3. Customize the template by:
+1. Read ALL previous modules to extract:
+   - All learning outcomes from each module
+   - All references cited in each module
+   - Key concepts and skills taught
+   - Technologies and products covered
+
+2. Ask about references:
+
+   **First, extract all references from previous modules:**
+   - Read all module files (index.adoc, 01-overview.adoc, 02-details.adoc, 03-module-01-*.adoc, etc.)
+   - Extract all external links found in the content
+   - Identify reference materials provided during module creation (Step 3 question 2)
+   - Compile a comprehensive list with:
+     - URL
+     - Link text/title
+     - Which module(s) referenced it
+
+   **Then ask the user:**
+   ```
+   Q: How would you like to handle references in the conclusion?
+
+   I found these references used across your modules:
+   1. https://docs.openshift.com/container-platform/4.18/... [OpenShift Documentation] - Used in: Modules 1, 3
+   2. https://tekton.dev/docs/pipelines/ [Tekton Pipelines] - Used in: Module 2
+   3. https://developers.redhat.com/... [Developer Guide] - Used in: Module 1
+   {{ additional_references_if_found }}
+
+   Options:
+   1. Use these references as-is (I'll organize them by category)
+   2. Let me provide additional references to include
+   3. Let me curate the reference list (add/remove specific items)
+
+   Your choice? [1/2/3]
+   ```
+
+   **If option 1**: Use extracted references, organize by category
+
+   **If option 2**: Ask user to provide additional references:
+   ```
+   Q: Please provide additional references to include in the conclusion.
+
+   Format: URL and description, one per line
+   Example:
+   https://docs.redhat.com/... - OpenShift documentation
+   https://developers.redhat.com/... - Developer guides
+
+   Your additional references:
+   ```
+
+   **If option 3**: Ask user which references to keep/remove/add:
+   ```
+   Q: Let's curate the reference list.
+
+   Current references:
+   {{ numbered_list_of_references }}
+
+   Options:
+   - Type numbers to REMOVE (e.g., "3, 5, 7")
+   - Type "add" to add new references
+   - Type "done" when finished
+
+   Your action:
+   ```
+
+3. Detect highest module number (e.g., if last module is 07-module-05, conclusion will be 08-conclusion.adoc)
+
+4. Generate conclusion module using the embedded template below
+
+5. Customize the template by:
    - Extracting all learning outcomes from previous modules
    - Listing 3-5 key takeaways from the workshop
+   - **Using the curated reference list from step 2** (REQUIRED)
    - Providing next steps (related workshops, docs, practice projects)
-4. Update nav.adoc with conclusion entry at the end
-5. Provide brief confirmation
+
+6. Update nav.adoc with conclusion entry at the end
+
+7. Provide brief confirmation
+
+**If user answers NO (more modules to come)**:
+- Note that conclusion will be generated after the last module
+- User can invoke /create-lab again to add more modules
+- When adding the final module, this question will be asked again
 
 **Embedded Conclusion Template**:
 ```asciidoc
@@ -1256,6 +1548,39 @@ Put your new skills to work:
 . **{{ project_idea_2 }}**: {{ project_description_2 }}
 . **{{ project_idea_3 }}**: {{ project_description_3 }}
 
+== References
+
+**CRITICAL**: This section consolidates ALL references used across the entire workshop.
+
+Read all previous modules and extract every reference cited, then organize them by category:
+
+=== Official Documentation
+
+* link:{{ docs_url_1 }}[{{ product_name }} Documentation^] - Used in: Modules {{ modules_list }}
+* link:{{ docs_url_2 }}[{{ feature_name }} Guide^] - Used in: Modules {{ modules_list }}
+
+=== Red Hat Resources
+
+* link:{{ redhat_resource_1 }}[{{ resource_title_1 }}^] - Used in: Module {{ module_number }}
+* link:{{ redhat_resource_2 }}[{{ resource_title_2 }}^] - Used in: Module {{ module_number }}
+
+=== Community and Open Source
+
+* link:{{ community_url_1 }}[{{ community_resource_1 }}^] - Used in: Module {{ module_number }}
+* link:{{ community_url_2 }}[{{ community_resource_2 }}^] - Used in: Module {{ module_number }}
+
+=== Additional Reading
+
+* link:{{ additional_url_1 }}[{{ additional_title_1 }}^] - Background information
+* link:{{ additional_url_2 }}[{{ additional_title_2 }}^] - Advanced topics
+
+**Guidelines for References section**:
+- Group references by category (Official Docs, Red Hat Resources, Community, etc.)
+- Include which module(s) used each reference
+- ALL external links must use `^` caret to open in new tab
+- Provide brief context for each reference (what it covers)
+- Ensure ALL references from ALL modules are included
+
 == Share Your Feedback
 
 Help us improve this workshop:
@@ -1284,15 +1609,15 @@ Keep building, keep learning! 🚀
 - Title: `= Conclusion and Next Steps`
 - Nav entry: `* xref:0X-conclusion.adoc[Conclusion and Next Steps]`
 
-**Content to Include**:
+**Content to Include** (ALL REQUIRED):
 - ✅ "What You've Learned" - Extract from all module learning outcomes
 - ✅ "Key Takeaways" - 3-5 most important concepts
 - ✅ "Next Steps" - Related workshops, documentation, practice projects
+- ✅ **"References"** - Consolidate ALL references from ALL modules (MANDATORY)
+- ✅ "Share Your Feedback" - Feedback prompts
 - ✅ "Thank You" - Closing message
 
-**If user chooses option 2 or 3**:
-- Skip conclusion generation
-- Note in summary that user can add conclusion later using the template
+**CRITICAL**: The References section MUST include every reference used across all modules, organized by category.
 
 ## Example Usage
 
@@ -1511,7 +1836,7 @@ Skill: Perfect! Processing...
 
 [Generates module with:]
 - Architecture diagram referenced:
-  image::security-architecture.png[align="center",width=800,title="Container Security Architecture"]
+  image::security-architecture.png[Container Security Architecture,link=self,window=blank,align="center",width=800,title="Container Security Architecture"]
 
 - Code blocks formatted:
   [source,dockerfile]
