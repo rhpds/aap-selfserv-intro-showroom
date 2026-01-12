@@ -76,7 +76,7 @@ Repeat the same process for assiging roles by adding the following roles:
 
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Inventory`
 
-For `Inventory`, select the follwoing 3 inventories and click `Next`.
+For `Inventory`, select the following 3 inventories and click `Next`.
 
 * `AWS Inventory`
 * `Azure Inventory`
@@ -130,7 +130,7 @@ While still on the `rhel-team` page, assign the following `Users` to the `rhel-t
 
 * Click on the `Users` tab, and select `+Assign users` -> select the `rheluser1`, and click `Assign users`.
 
-== Verify Your RBAC Configuration
+== Verify your RBAC configuration
 
 Before proceeding to the Portal configuration, confirm your AAP RBAC is correctly set up:
 
@@ -200,9 +200,9 @@ Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage u
 
 === Log in to the `Self-Service portal` as `{aap_admin_username}`
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self-Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self-Service Portal on a regular configurable interval. 
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self-Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self-Service Portal on a regular interval (configurable in the Self-Service Portal Helm chart via the `sync.interval` parameter).
 
-At any time as an administrator you can use the `Sync now` button to synchronize Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self-Service Portal.
+At any time as an administrator you can use the `Sync now` button to trigger an immediate synchronization of Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self-Service Portal.
 
 image::ssapadmin.png[Self-Service Portal administrator user can see all the job templates,link=self,window=blank]
 
@@ -252,7 +252,7 @@ The final view of this section should look like this:
 
 image::final-rbac-roles.png[Final view of the RBAC roles,link=self,window=blank]
 
-== Verify Your Portal RBAC Configuration
+== Verify your Portal RBAC configuration
 
 Before testing with user personas, confirm your Portal RBAC policies are correctly configured:
 
@@ -303,14 +303,7 @@ Click on `saa-portal-rhel-team` → Review configuration:
 
 You're now ready to test the Portal with different user personas in Module 2!
 
-== References
-
-* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6[Red Hat Ansible Automation Platform 2.6 Documentation^]
-* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-role-based-access-control[Ansible Automation Platform RBAC Documentation^]
-* link:https://docs.redhat.com/en/documentation/red_hat_self-service_automation_portal[Red Hat Self-Service Automation Portal Documentation^]
-* link:https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/administration_guide_for_red_hat_developer_hub/rhdh-rbac[Red Hat Developer Hub RBAC Framework Documentation^]
-
-== Learning Outcomes
+== Learning outcomes
 
 By completing this module, you should now understand:
 

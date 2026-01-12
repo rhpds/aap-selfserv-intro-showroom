@@ -1,6 +1,6 @@
-= Workshop Details
+= Workshop details
 
-== Technical Requirements
+== Technical requirements
 
 This workshop requires access to the following components:
 
@@ -10,7 +10,7 @@ This workshop requires access to the following components:
 
 All components are pre-deployed in your workshop environment. You will receive access credentials and URLs to each system.
 
-== Verify Your Environment
+== Verify your environment
 
 Before starting the workshop modules, confirm your environment is ready:
 
@@ -45,7 +45,7 @@ In AAP, navigate to: **Automation Execution → Job Templates**
 If any verification fails, contact your workshop facilitator before proceeding to Module 1.
 ====
 
-== Environment Details
+== Environment details
 
 === Ansible Automation Platform
 
@@ -77,9 +77,9 @@ Your OpenShift cluster hosts:
 
 You have access to the OpenShift console but won't need to interact with it directly in this workshop.
 
-== Important Notes
+== Important notes
 
-=== Browser Best Practices
+=== Browser best practices
 
 [IMPORTANT]
 ====
@@ -90,7 +90,7 @@ You have access to the OpenShift console but won't need to interact with it dire
 * This prevents browser session conflicts
 ====
 
-=== Access Information
+=== Access information
 
 **System URLs:**
 
@@ -124,7 +124,7 @@ You have access to the OpenShift console but won't need to interact with it dire
 |Testing RHEL automation access
 |===
 
-== Authors and Contributors
+== Authors and contributors
 
 This workshop was developed by the Red Hat Technical Marketing team to demonstrate Self-Service Automation Portal capabilities and best practices for broadening automation adoption.
 

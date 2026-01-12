@@ -1,8 +1,8 @@
 = Workshop Overview
 
-== Business Scenario
+== Business scenario
 
-You're a platform administrator at a growing organization that has invested in Ansible Automation Platform (AAP). Your team has built powerful automation workflows, but you're facing a critical challenge: adoption is slow, and onboarding new users to automation is difficult.
+You're a platform administrator at a growing organization that has invested in Ansible Automation Platform (AAP). Your team has built automation workflows, but you're facing a critical challenge: adoption is slow, and onboarding new users to automation is difficult.
 
 Your organization has subject matter experts (SMEs) across many IT domains—cloud administrators, network engineers, and Linux system administrators. They're experts in their fields, but not all of them are automation savvy. They don't want to learn Ansible playbooks or navigate complex automation interfaces. They just want a simple, secure way to run automation as part of their day-to-day tasks.
 
@@ -29,7 +29,7 @@ Self-Service Automation Portal is a simple, focused interface built for one purp
 
 Red Hat Self-Service Automation Portal gives control back to the automation team to provide a self-service experience that broadens who can automate and increases platform usage.
 
-== Learning Objectives
+== Learning objectives
 
 By the end of this workshop, you will be able to:
 
@@ -40,7 +40,7 @@ By the end of this workshop, you will be able to:
 * **Modify job template surveys** in AAP and see the changes automatically reflected in the Self-Service Portal
 * **Import and launch custom dynamic templates** to provide advanced automation experiences beyond standard surveys
 
-== Module Breakdown
+== Module breakdown
 
 === Module 1: Configure Ansible Automation Platform for Self-Service Portal
 
@@ -99,7 +99,7 @@ By the end of this workshop, you will be able to:
 * Enhanced survey on `Linux/RHEL START Service on RHEL` job template
 * Custom dynamic template: `⏰ Manage RHEL Time Servers`
 
-== Expected Outcomes
+== Expected outcomes
 
 After completing this workshop, you will:
 
@@ -109,7 +109,7 @@ After completing this workshop, you will:
 * Be ready to deploy Self-Service Automation Portal in your own organization
 * Have a proven strategy for broadening automation adoption
 
-== Target Audience and Prerequisites
+== Target audience and prerequisites
 
 This workshop is designed for:
 

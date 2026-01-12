@@ -10,7 +10,7 @@ In this hands-on workshop, you will enable self-service automation for teams acr
 
 == The challenge
 
-Your organization has invested in Ansible Automation Platform and built powerful automation, but adoption is slow. Subject matter experts in cloud, network, and Linux domains want to run automation as part of their daily work, but they don't want to learn Ansible or navigate complex interfaces.
+Your organization has invested in Ansible Automation Platform and built automation workflows, but adoption is slow. Subject matter experts in cloud, network, and Linux domains want to run automation as part of their daily work, but they don't want to learn Ansible or navigate complex interfaces.
 
 **Self-Service Automation Portal** solves this by providing a simple, secure interface that maintains governance through RBAC while broadening who can use automation.
 

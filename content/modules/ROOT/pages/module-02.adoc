@@ -13,7 +13,7 @@ By the end of this module, you'll be able to:
 In the first part of this workshop, we configured Ansible Automation Platform for Self-Service Portal and configured RBAC in AAP 2.6 that will be used for Self-Service Portal.
 In this part of the workshop, we will test the Self-Service Automation Portal with the different user personas we created in the previous section.
 
-The 3 users personas we will test for are, a Cloud Administrator, a Network Administrator, and a RHEL Administrator, all with different experties, but with limited knowledge of automation and Ansible Automation Platform. They just need to be able to run automation jobs thare are relevant to their IT domains.
+The 3 user personas we will test are a Cloud Administrator, a Network Administrator, and a Red Hat Enterprise Linux (RHEL) Administrator, all with different expertise but with limited knowledge of automation and Ansible Automation Platform. They just need to be able to run automation jobs that are relevant to their IT domains.
 
 |===
 |**User**|**Password**
@@ -69,7 +69,7 @@ Click **View Job Details** to see:
 
 [NOTE]
 ====
-**Key learning**: Notice how you can execute powerful cloud automation without knowing Ansible syntax or accessing the full AAP interface. This is the self-service experience that broadens automation adoption.
+**Key learning**: Notice how you can execute cloud automation without knowing Ansible syntax or accessing the full AAP interface. This is the self-service experience that broadens automation adoption.
 ====
 
 [#networkuser1]
@@ -90,12 +90,7 @@ image::rheluser1.png[Self-Service Portal rheluser1 user can see the RHEL job tem
 
 Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
-== References
-
-* link:https://docs.redhat.com/en/documentation/red_hat_self-service_automation_portal[Red Hat Self-Service Automation Portal Documentation^]
-* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-role-based-access-control[Ansible Automation Platform RBAC Documentation^]
-
-== Learning Outcomes
+== Learning outcomes
 
 By completing this module, you should now understand:
 

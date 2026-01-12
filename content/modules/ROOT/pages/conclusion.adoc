@@ -1,8 +1,8 @@
-= Workshop Conclusion
+= Workshop conclusion
 
 Congratulations! You've successfully completed the Introduction to Ansible Automation Platform Self-Service Automation Portal workshop.
 
-== What You Accomplished
+== What you accomplished
 
 Over the past two hours, you've built a complete self-service automation solution that enables non-automation experts across your organization to run automation safely and effectively.
 
@@ -31,7 +31,7 @@ You enhanced the self-service experience with dynamic content:
 * Imported a custom dynamic template from a Git repository
 * Launched sophisticated automation with advanced options beyond standard surveys
 
-== Learning Outcomes
+== Learning outcomes
 
 By completing this workshop, you should now understand:
 
@@ -46,9 +46,9 @@ By completing this workshop, you should now understand:
 * **What custom dynamic templates are** - Git-backed templates that provide sophisticated, enterprise-ready automation experiences beyond what surveys can offer
 * **How to import and use custom templates** - Loading templates from Git repositories and providing advanced options, conditional logic, and rich user interfaces
 
-== Key Takeaways
+== Key takeaways
 
-=== Technical Skills Gained
+=== Technical skills gained
 
 * **RBAC Configuration Expertise** - You now understand how to implement least-privilege access control across AAP and Self-Service Portal, ensuring users see only the automation they're authorized to execute
 
@@ -58,7 +58,7 @@ By completing this workshop, you should now understand:
 
 * **Team-Based Permissions** - You understand how to organize users into teams and grant permissions based on IT domain expertise, not automation knowledge
 
-=== Business Value Delivered
+=== Business value delivered
 
 By implementing Self-Service Automation Portal, you've addressed critical organizational challenges:
 
@@ -72,7 +72,7 @@ By implementing Self-Service Automation Portal, you've addressed critical organi
 
 * **Scalable Access Model** - The team-based permission structure scales as your organization grows, making it easy to onboard new users
 
-== Architecture Summary
+== Architecture summary
 
 Your Self-Service Automation Portal deployment consists of:
 
@@ -83,9 +83,9 @@ Your Self-Service Automation Portal deployment consists of:
 
 All of this is deployed on **Red Hat OpenShift Container Platform**, providing a secure, scalable, enterprise-ready foundation.
 
-== Next Steps
+== Next steps
 
-=== Immediate Actions
+=== Immediate actions
 
 **1. Plan Your Production Deployment**
 
@@ -124,7 +124,7 @@ Define policies for automation access:
 
 == References
 
-**Product Documentation**
+**Product documentation**
 
 * link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6[Red Hat Ansible Automation Platform 2.6 Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-role-based-access-control[Ansible Automation Platform RBAC Documentation^]
@@ -134,14 +134,14 @@ Define policies for automation access:
 * link:https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/administration_guide_for_red_hat_developer_hub/rhdh-rbac[Red Hat Developer Hub RBAC Framework Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_openshift_container_platform/[Red Hat OpenShift Container Platform Documentation^]
 
-**Community Resources**
+**Community resources**
 
 * link:https://www.ansible.com/community[Ansible Community^]
 * link:https://www.redhat.com/en/technologies/management/ansible[Red Hat Ansible Automation Platform Product Page^]
 
-=== Learning Resources
+=== Learning resources
 
-**Continue Your Learning**
+**Continue your learning**
 
 Explore related workshops:
 
@@ -152,20 +152,20 @@ Explore related workshops:
 
 === Connect with Red Hat
 
-**Get Support**
+**Get support**
 
 * link:https://access.redhat.com/support[Red Hat Support Portal^]
 * Your Red Hat account team
 
-**Explore More**
+**Explore more**
 
 * link:https://www.redhat.com/en/technologies/management/ansible/trial[Try Ansible Automation Platform^]
 * link:https://developers.redhat.com/[Red Hat Developer Program^]
 * link:https://demo.redhat.com/[Red Hat Demo Platform^] - Access more workshops and demos
 
-== Final Thoughts
+== Final thoughts
 
-You've successfully built a self-service automation solution that empowers subject matter experts across your organization. By combining Ansible Automation Platform's powerful automation capabilities with Self-Service Portal's intuitive interface, you've created a system that:
+You've successfully built a self-service automation solution that empowers subject matter experts across your organization. By combining Ansible Automation Platform's automation capabilities with Self-Service Portal's intuitive interface, you've created a system that:
 
 * **Scales automation adoption** beyond the automation team
 * **Maintains governance** through proper RBAC
@@ -176,7 +176,7 @@ The skills you've learned in this workshop provide the foundation for transformi
 
 **Thank you for attending this workshop!** We hope you found it valuable and are excited to bring Self-Service Automation Portal to your organization.
 
-== Workshop Feedback
+== Workshop feedback
 
 Your feedback helps us improve this workshop for future participants. Please share your thoughts on:
 
