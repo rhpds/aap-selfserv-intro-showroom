@@ -81,13 +81,13 @@ Your Self-Service Automation Portal deployment consists of:
 * **RBAC Integration** - Synchronized permissions between AAP and the portal ensuring consistent access control
 * **Dynamic Content** - Job templates with surveys and custom templates from Git repositories for flexible user experiences
 
-All of this is deployed on **Red Hat OpenShift Container Platform**, providing a secure, scalable, enterprise-ready foundation.
+All of this is deployed on **Red Hat OpenShift Container Platform**, providing enterprise infrastructure with built-in security and high availability.
 
 == Next steps
 
 === Immediate actions
 
-**1. Plan Your Production Deployment**
+==== Plan your production deployment
 
 Consider your organization's needs:
 
@@ -96,7 +96,7 @@ Consider your organization's needs:
 * What governance and approval workflows are required?
 * How will you organize teams and permissions?
 
-**2. Identify Pilot Users**
+==== Identify pilot users
 
 Select a small group of subject matter experts to pilot the portal:
 
@@ -104,16 +104,16 @@ Select a small group of subject matter experts to pilot the portal:
 * Include users with varying levels of automation experience
 * Gather feedback on the user experience and automation needs
 
-**3. Build Your Automation Library**
+==== Build your automation library
 
 Expand the automation available through the portal:
 
 * Identify common manual tasks that could be automated
 * Create job templates with appropriate surveys for user input
-* Develop custom dynamic templates for complex workflows
+* Develop custom dynamic templates for multi-step workflows
 * Document automation use cases and expected outcomes
 
-**4. Establish Governance**
+==== Establish governance
 
 Define policies for automation access:
 

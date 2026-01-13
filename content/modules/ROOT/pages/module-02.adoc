@@ -29,34 +29,34 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
 
-image::clouduser1.png[Self-Service Portal clouduser1 user can see the Cloud job templates,link=self,window=blank]
+image::clouduser1.png[Screenshot of Self-Service Portal logged in as clouduser1 showing only Cloud/AWS job templates filtered by RBAC permissions]
 
 === Test cloud automation execution
 
 Let's run a cloud job template to validate permissions:
 
-**1. Select a job template to run:**
+==== Select a job template to run
 
 Scroll through the available templates and click **Start** on any `Cloud/AWS` job template (example: `Cloud/AWS Check Region Connectivity`)
 
-**2. Review the job launch form:**
+==== Review the job launch form
 
 Notice you can see and select:
 - ✅ **Inventory**: AWS Inventory (you have "Use" permission)
 - ✅ **Credentials**: AWS Credential (you have "Use" permission)
 - ❌ **Other credentials**: Network or GCP credentials may NOT be visible (correctly restricted by RBAC)
 
-**3. Launch the job:**
+==== Launch the job
 
 Click **Next** → **Create** to launch the automation job
 
-**4. Monitor job execution:**
+==== Monitor job execution
 
 You'll see the job progress in the Portal. The job will connect to AWS and execute the automation.
 
 ✅ **Success indicator**: Job completes with status "Successful" (green)
 
-**5. Review job output:**
+==== Review job output
 
 Click **View Job Details** to see:
 - Execution time
@@ -77,7 +77,7 @@ Click **View Job Details** to see:
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
 
-image::networkuser1.png[Self-Service Portal networkuser1 user can see the Network job templates,link=self,window=blank]
+image::networkuser1.png[Screenshot of Self-Service Portal logged in as networkuser1 showing only Network automation job templates filtered by RBAC permissions]
 
 Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
@@ -86,7 +86,7 @@ Take a moment and run some of the network job templates to see the results. Noti
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
-image::rheluser1.png[Self-Service Portal rheluser1 user can see the RHEL job templates,link=self,window=blank]
+image::rheluser1.png[Screenshot of Self-Service Portal logged in as rheluser1 showing RHEL and select cloud provisioning job templates filtered by RBAC permissions]
 
 Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 

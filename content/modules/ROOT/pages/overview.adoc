@@ -107,7 +107,7 @@ After completing this workshop, you will:
 * Be confident configuring RBAC across AAP and Self-Service Portal
 * Know how to customize the user experience with surveys and dynamic templates
 * Be ready to deploy Self-Service Automation Portal in your own organization
-* Have a proven strategy for broadening automation adoption
+* Understand how to broaden automation adoption across your organization
 
 == Target audience and prerequisites
 

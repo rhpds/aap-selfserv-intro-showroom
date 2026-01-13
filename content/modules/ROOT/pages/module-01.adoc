@@ -26,10 +26,10 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 [#aaprbac]
 == Configuring RBAC in AAP 2.6 that will be used for Self-Service Portal
 
-=== What is Role-Based Access Control (RBAC) in AAP
+=== What is role-based access control (RBAC) in AAP
 Ansible Automation Platform (AAP) uses Role-Based Access Control (RBAC) to manage user access to automation resources, ensuring governance, security, and compliance across an enterprise. RBAC is primarily configured within the Automation Controller, the platform's control plane and web UI. 
 
-==== **Key Concepts of AAP RBAC**
+==== **Key concepts of AAP RBAC**
 
 RBAC in AAP operates on the principle of least privilege, meaning users are granted only the permissions necessary to perform their specific job functions. This is managed through a hierarchy of users, teams, and organizations, which are assigned specific roles and permissions to various automation objects. 
 
@@ -55,22 +55,22 @@ Expand the `Access Management` menu on the left.
 
 Create each team as follows and click `Create team` to save the team(s).
 
-image::createteam.png[Create a team in Ansible Automation Platform,link=self,window=blank]
+image::createteam.png[Screenshot of Ansible Automation Platform Create Team dialog with Name field, Organization dropdown, and blue Create Team button]
 
 Now that you have created the teams, you will assign roles and users to the teams.
 
 Starting with the `cloud-team`:
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles`
 
-image::assignroles.png[Assign roles to the teams in Ansible Automation Platform,link=self,window=blank]
+image::assignroles.png[Screenshot showing Roles tab with Assign roles button to configure team permissions in Ansible Automation Platform]
 
 . In the `Assign roles` step one, select `Job Template` as the resource type, and click `Next`.
 . In step 2, select all the job templates that begin with `Cloud/AWS`, and click `Next`.
 . In step 3, select the role to apply, please select `Job Template Execute`, and click `Next`.
 . In step 4, review your work, and click `Finish`.
 
-image::selectjobtemplates.png[Select job templates to assign to the team in Ansible Automation Platform,link=self,window=blank]
-image::finish1strole.png[Finish assigning roles to the team in Ansible Automation Platform,link=self,window=blank]
+image::selectjobtemplates.png[Screenshot of resource selection interface showing multiple Cloud/AWS job templates available for team assignment]
+image::finish1strole.png[Screenshot of role assignment review screen with Finish button to complete job template permissions configuration]
 
 Repeat the same process for assiging roles by adding the following roles:
 
@@ -84,7 +84,7 @@ For `Inventory`, select the following 3 inventories and click `Next`.
 
 * `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-image::assigninventoryrole.png[Assign inventory use role to the cloud-team,link=self,window=blank]
+image::assigninventoryrole.png[Screenshot showing inventory selection with AWS, Azure, and GCP inventories being assigned Use permission for cloud-team]
 
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Credential`
 
@@ -96,13 +96,13 @@ For `Credential`, select the following 3 credentials and click `Next`.
 
 * `Next` -> select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
-image::assigncredentialrole.png[Assign credential use role to the cloud-team,link=self,window=blank]
+image::assigncredentialrole.png[Screenshot displaying credential selection with AWS, Azure, and RHEL SSH credentials being assigned Use permission]
 
 While still on the `cloud-team` page, assign the following `Users` to the `cloud-team`:
 
 * Click on the `Users` tab, and select `+Assign users` -> select the `clouduser1`, and click `Assign users`.
 
-image::assignuserrole.png[Assign users to the cloud-team,link=self,window=blank]
+image::assignuserrole.png[Screenshot of Users tab showing Assign users interface with clouduser1 being added to cloud-team]
 
 **Repeat the same process for role and user assignmens to the `network-team` and `rhel-team` teams.**
 
@@ -184,11 +184,11 @@ What you need to do is configure RBAC in Self-Service portal to allow the Portal
 [#ssprbac]
 == Configuring RBAC in the Self-Service Automation Portal
 
-=== What is Role-Based Access Control (RBAC) in Self-Service Automation Portal
+=== What is role-based access control (RBAC) in Self-Service Automation Portal
 
 Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage user authorizations and permissions within the portal. It is built on top of the Red Hat Developer Hub Permissions framework and uses an administrator role to control who can perform actions and access specific resources.
 
-==== **Supported Permissions**
+==== **Supported permissions**
 
 * **The RBAC system defines permissions across different functional areas:** 
 
@@ -204,7 +204,7 @@ Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aa
 
 At any time as an administrator you can use the `Sync now` button to trigger an immediate synchronization of Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self-Service Portal.
 
-image::ssapadmin.png[Self-Service Portal administrator user can see all the job templates,link=self,window=blank]
+image::ssapadmin.png[Screenshot of Self-Service Portal home page showing administrator view with all available job templates from Cloud, Network, and RHEL categories]
 
 === Configure RBAC in the Self Service Automation Portal
 
@@ -212,7 +212,7 @@ Now let's configure RBAC in the Self Service Automation Portal to allow the Port
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `saa-portal-rhel-team`
 
-image::ssaprbac.png[Self-Service Portal administrator RBAC policy,link=self,window=blank]
+image::ssaprbac.png[Screenshot showing Administration menu with RBAC option for creating permission policies in Self-Service Portal]
 
 ==== Create the `ssa-portal-users` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
@@ -225,7 +225,7 @@ image::ssaprbac.png[Self-Service Portal administrator RBAC policy,link=self,wind
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
 
-image::ssa-portal-users-role.png[Self-Service Portal administrator RBAC role for Cloud and Network teams,link=self,window=blank]
+image::ssa-portal-users-role.png[Screenshot of RBAC role creation showing ssa-portal-users policy with cloud-team and network-team assigned catalog and scaffolder permissions]
 
 ==== Create the `saa-portal-rhel-team` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
@@ -245,12 +245,12 @@ image::ssa-portal-users-role.png[Self-Service Portal administrator RBAC role for
 . Review your work, and click on `Create` to save the role.
 .. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directy from a Git repository. (more on this later)
 
-image::rolecondition.png[Adding a condition to the RBAC role,link=self,window=blank]
-image::saa-portal-rhel-team-role.png[Self-Service Portal administrator RBAC role for RHEL team,link=self,window=blank]
+image::rolecondition.png[Screenshot showing conditional RBAC configuration with Not HAS_METADATA rule where key is tags and value is custom]
+image::saa-portal-rhel-team-role.png[Screenshot of saa-portal-rhel-team policy configuration with rhel-team assigned permissions and conditional rule excluding custom tagged templates]
 
 The final view of this section should look like this:
 
-image::final-rbac-roles.png[Final view of the RBAC roles,link=self,window=blank]
+image::final-rbac-roles.png[Screenshot showing completed RBAC configuration with both ssa-portal-users and saa-portal-rhel-team policies listed in Administration RBAC view]
 
 == Verify your Portal RBAC configuration
 
