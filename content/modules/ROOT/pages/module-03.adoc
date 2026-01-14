@@ -32,7 +32,7 @@ Log in to the link:{aap_controller_url}[Ansible Automation Platform^] with the `
 
 * Select the job template `Linux/RHEL START Service on RHEL`.
 
-image::survey1.png[AAP Job Template Editor for 'Linux/RHEL START Service on RHEL': Navigation tabs at top show Details, Access, Jobs, Schedules, Surveys, and Notifications. Click 'Surveys' tab to view and manage survey questions. Blue '+Create survey question' button in Surveys section starts workflow to add new survey question for user input collection when launching this job template]
+image::survey1.png[AAP Job Template Editor for 'Linux/RHEL START Service on RHEL': Navigation tabs at top show Details, Access, Jobs, Schedules, Surveys, and Notifications. Click 'Surveys' tab to view and manage survey questions. Blue '+Create survey question' button in Surveys section starts workflow to add new survey question for user input collection when launching this job template,link=self,window=blank]
 
 * Click on the `Surveys` tab.
 
@@ -46,7 +46,7 @@ image::survey1.png[AAP Job Template Editor for 'Linux/RHEL START Service on RHEL
 
 ** Scroll down and click on `Create survey question` to save the survey question.
 
-image::survey2.png[Survey Question Creation Form: (1) Question field - enter text 'Do you want to ENABLE the service (starts after a reboot)?' exactly as shown, (2) Answer variable name field - enter 'enable_service' with no spaces (this becomes the Ansible variable name), (3) Answer type dropdown - select 'Multiple Choice (single select)' from available options, (4) Scroll down to see additional fields for multiple choice options, (5) Blue 'Create survey question' button at bottom saves the question. After saving, this question appears in job template survey list and will prompt users for input when launching the job]
+image::survey2.png[Survey Question Creation Form: (1) Question field - enter text 'Do you want to ENABLE the service (starts after a reboot)?' exactly as shown, (2) Answer variable name field - enter 'enable_service' with no spaces (this becomes the Ansible variable name), (3) Answer type dropdown - select 'Multiple Choice (single select)' from available options, (4) Scroll down to see additional fields for multiple choice options, (5) Blue 'Create survey question' button at bottom saves the question. After saving, this question appears in job template survey list and will prompt users for input when launching the job,link=self,window=blank]
 
 ** You will now see the 3 survey questions in the job template.
 
@@ -58,7 +58,7 @@ Modifications to the job template are automatically synchronized to the Self-Ser
 
 ** When prompted for the AAP synchronization options, select `Job Templates` and click on `Ok`.
 
-image::jtsync.png[Self-Service Portal Sync Dialog: After clicking 'Sync now' button in top menu area, dialog appears asking 'What would you like to synchronize?' with checkboxes for different sync options including 'Organizations', 'Users', 'Teams', and 'Job Templates'. Select 'Job Templates' checkbox to synchronize only job template changes from AAP. Blue 'Ok' button at bottom starts synchronization process which takes a few seconds. Success message appears when sync completes]
+image::jtsync.png[Self-Service Portal Sync Dialog: After clicking 'Sync now' button in top menu area, dialog appears asking 'What would you like to synchronize?' with checkboxes for different sync options including 'Organizations', 'Users', 'Teams', and 'Job Templates'. Select 'Job Templates' checkbox to synchronize only job template changes from AAP. Blue 'Ok' button at bottom starts synchronization process which takes a few seconds. Success message appears when sync completes,link=self,window=blank]
 
 * Log out of the `Self-Service portal` as `{aap_admin_username}`.
 
@@ -66,7 +66,7 @@ image::jtsync.png[Self-Service Portal Sync Dialog: After clicking 'Sync now' but
 
 ** Run the job template `Linux/RHEL START Service on RHEL` by cliking `Start` on that job template tile.
 
-image::survey3.png[Job Template Launch Form as rheluser1: Portal shows 'Linux/RHEL START Service on RHEL' template launch wizard. Survey questions section displays the newly added question 'Do you want to ENABLE the service (starts after a reboot)?' with dropdown or radio button options for user selection. Additional existing survey questions also visible. Form shows Next button to proceed through wizard and Create button on final step to launch the job with selected survey answers]
+image::survey3.png[Job Template Launch Form as rheluser1: Portal shows 'Linux/RHEL START Service on RHEL' template launch wizard. Survey questions section displays the newly added question 'Do you want to ENABLE the service (starts after a reboot)?' with dropdown or radio button options for user selection. Additional existing survey questions also visible. Form shows Next button to proceed through wizard and Create button on final step to launch the job with selected survey answers,link=self,window=blank]
 
 ** You will see the survey question `Do you want to ENABLE the service (starts after a reboot)?` in the job template.
 
@@ -93,7 +93,7 @@ Let's go ahead and import a custom dynamic template.
 https://raw.githubusercontent.com/ansible-tmm/ssap-lab/main/customtemplate/rhel_dynamic.yml
 ----
 
-image::custom1.png[Add Template Interface in Self-Service Portal: Dialog shows 'Select URL' option selected. Text input field labeled 'Repository URL' expects Git repository URL for custom template YAML file. Paste the GitHub raw content URL (https://raw.githubusercontent.com/...) into this field. Blue 'Analyze' button at bottom right processes the template URL and validates YAML structure before import]
+image::custom1.png[Add Template Interface in Self-Service Portal: Dialog shows 'Select URL' option selected. Text input field labeled 'Repository URL' expects Git repository URL for custom template YAML file. Paste the GitHub raw content URL (https://raw.githubusercontent.com/...) into this field. Blue 'Analyze' button at bottom right processes the template URL and validates YAML structure before import,link=self,window=blank]
 
 ** Select `Analyze` to analyze the custom dynamic template.
 
@@ -101,11 +101,11 @@ image::custom1.png[Add Template Interface in Self-Service Portal: Dialog shows '
 
 ** Click on `Import` to import the custom dynamic template.
 
-image::custom2.png[Custom Template Review Screen: Displays parsed YAML template details including: (1) Template name 'Manage RHEL Time Servers', (2) Metadata section showing template description and tags, (3) Parameters section listing input fields users will see (inventory selection, time server addresses, advanced options), (4) Steps section showing workflow actions including launching AAP job template 'RHEL / Update RHEL Time Servers'. Review all details for accuracy. Blue 'Import' button at bottom right adds this template to Portal catalog]
+image::custom2.png[Custom Template Review Screen: Displays parsed YAML template details including: (1) Template name 'Manage RHEL Time Servers', (2) Metadata section showing template description and tags, (3) Parameters section listing input fields users will see (inventory selection, time server addresses, advanced options), (4) Steps section showing workflow actions including launching AAP job template 'RHEL / Update RHEL Time Servers'. Review all details for accuracy. Blue 'Import' button at bottom right adds this template to Portal catalog,link=self,window=blank]
 
 ** When you see `Step 4 Finish` the custom dynamic template will be imported successfully.
 
-image::custom3.png[Import Success Screen: 'Step 4 Finish' heading with green checkmark icon. Success message states 'Template has been imported successfully' or similar confirmation. Template name 'Manage RHEL Time Servers' appears with imported status. Close or Done button returns to templates catalog where newly imported custom template now appears in template list]
+image::custom3.png[Import Success Screen: 'Step 4 Finish' heading with green checkmark icon. Success message states 'Template has been imported successfully' or similar confirmation. Template name 'Manage RHEL Time Servers' appears with imported status. Close or Done button returns to templates catalog where newly imported custom template now appears in template list,link=self,window=blank]
 
 ** You will now see the custom dynamic template in the Templates list with a title of "Manage RHEL Time Servers" (may include clock emoji icon in the UI)
 
@@ -114,7 +114,7 @@ image::custom3.png[Import Success Screen: 'Step 4 Finish' heading with green che
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates and the new custom dynamic template you imported titled "Manage RHEL Time Servers"
 
-image::custom4.png[Portal Template Catalog as rheluser1: Template tiles display showing mix of standard RHEL job templates (red tiles) like 'Linux/RHEL START Service', 'Linux/RHEL Package Management', alongside newly imported custom dynamic template 'Manage RHEL Time Servers' tile. Custom template tile may have distinctive styling or icon to indicate it is a dynamic template from Git repository rather than standard AAP job template. All tiles show blue Start button to launch]
+image::custom4.png[Portal Template Catalog as rheluser1: Template tiles display showing mix of standard RHEL job templates (red tiles) like 'Linux/RHEL START Service', 'Linux/RHEL Package Management', alongside newly imported custom dynamic template 'Manage RHEL Time Servers' tile. Custom template tile may have distinctive styling or icon to indicate it is a dynamic template from Git repository rather than standard AAP job template. All tiles show blue Start button to launch,link=self,window=blank]
 
 This custom template, is backed by another job template in Ansible Automation Platform. If you look at the URL of the yaml template you imported you will see the job template it is launching. In that yaml template there's a section that looks like this:
 
@@ -136,7 +136,7 @@ So this custom template is launching the job template `RHEL / Update RHEL Time S
 * Enable the `Show Advanced Options?` checkbox. Notice this provides many more options to the user.
 * Select the options you like. Then advance to the last step and click on `Create` to run the custom dynamic template automation job.
 
-image::custom5.png[Custom Template Launch Wizard: Multi-step form for 'Manage RHEL Time Servers' showing: (1) Inventory selection dropdown to choose target RHEL systems, (2) Time server configuration fields for NTP/chrony server addresses, (3) 'Show Advanced Options?' checkbox which when enabled reveals additional parameters like timezone settings, service restart options, and validation steps. Form has Previous/Next buttons for navigation and blue Create button on final step to execute the custom template workflow which triggers the backing AAP job template with all selected parameters]
+image::custom5.png[Custom Template Launch Wizard: Multi-step form for 'Manage RHEL Time Servers' showing: (1) Inventory selection dropdown to choose target RHEL systems, (2) Time server configuration fields for NTP/chrony server addresses, (3) 'Show Advanced Options?' checkbox which when enabled reveals additional parameters like timezone settings, service restart options, and validation steps. Form has Previous/Next buttons for navigation and blue Create button on final step to execute the custom template workflow which triggers the backing AAP job template with all selected parameters,link=self,window=blank]
 
 As you can see, custom dynamic templates provide a lot of flexibility to the user.
 

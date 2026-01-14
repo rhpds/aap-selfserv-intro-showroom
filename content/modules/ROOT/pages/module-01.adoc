@@ -55,22 +55,22 @@ Expand the `Access Management` menu on the left.
 
 Create each team as follows and click `Create team` to save the team(s).
 
-image::createteam.png[Create Team dialog showing: Name field (text input for team name like 'cloud-team'), Organization dropdown (defaults to 'Default'), and blue 'Create team' button to confirm. Form expects team name to identify IT domain such as cloud, network, or rhel]
+image::createteam.png[Create Team dialog showing: Name field (text input for team name like 'cloud-team'), Organization dropdown (defaults to 'Default'), and blue 'Create team' button to confirm. Form expects team name to identify IT domain such as cloud, network, or rhel,link=self,window=blank]
 
 Now that you have created the teams, you will assign roles and users to the teams.
 
 Starting with the `cloud-team`:
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles`
 
-image::assignroles.png[Roles tab for cloud-team showing list of currently assigned roles (initially empty) and blue 'Assign roles' button in top right to add new permissions. Click this button to start the multi-step role assignment workflow for job templates, inventories, and credentials]
+image::assignroles.png[Roles tab for cloud-team showing list of currently assigned roles (initially empty) and blue 'Assign roles' button in top right to add new permissions. Click this button to start the multi-step role assignment workflow for job templates, inventories, and credentials,link=self,window=blank]
 
 . In the `Assign roles` step one, select `Job Template` as the resource type, and click `Next`.
 . In step 2, select all the job templates that begin with `Cloud/AWS`, and click `Next`.
 . In step 3, select the role to apply, please select `Job Template Execute`, and click `Next`.
 . In step 4, review your work, and click `Finish`.
 
-image::selectjobtemplates.png[Resource Selection step showing checkboxes next to multiple Cloud/AWS job templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance'. Select all templates starting with 'Cloud/AWS' by clicking their checkboxes. Blue 'Next' button at bottom right proceeds to role selection]
-image::finish1strole.png[Review screen displaying summary of role assignment: Resource type shows 'Job Template', selected resources list all Cloud/AWS templates, and Role shows 'Job Template Execute' permission. Blue 'Finish' button at bottom right completes the assignment and returns to cloud-team Roles tab]
+image::selectjobtemplates.png[Resource Selection step showing checkboxes next to multiple Cloud/AWS job templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance'. Select all templates starting with 'Cloud/AWS' by clicking their checkboxes. Blue 'Next' button at bottom right proceeds to role selection,link=self,window=blank]
+image::finish1strole.png[Review screen displaying summary of role assignment: Resource type shows 'Job Template', selected resources list all Cloud/AWS templates, and Role shows 'Job Template Execute' permission. Blue 'Finish' button at bottom right completes the assignment and returns to cloud-team Roles tab,link=self,window=blank]
 
 Repeat the same process for assiging roles by adding the following roles:
 
@@ -84,7 +84,7 @@ For `Inventory`, select the following 3 inventories and click `Next`.
 
 * `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-image::assigninventoryrole.png[Inventory selection screen showing checkboxes for 'AWS Inventory', 'Azure Inventory', and 'GCP Inventory'. Select all three by clicking their checkboxes. This grants cloud-team Use permission to reference these inventories when launching job templates. Next button proceeds to role selection where you will choose 'Inventory Use']
+image::assigninventoryrole.png[Inventory selection screen showing checkboxes for 'AWS Inventory', 'Azure Inventory', and 'GCP Inventory'. Select all three by clicking their checkboxes. This grants cloud-team Use permission to reference these inventories when launching job templates. Next button proceeds to role selection where you will choose 'Inventory Use',link=self,window=blank]
 
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Credential`
 
@@ -96,13 +96,13 @@ For `Credential`, select the following 3 credentials and click `Next`.
 
 * `Next` -> select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
-image::assigncredentialrole.png[Credential selection screen showing checkboxes for 'AWS Credential', 'Azure Credential', and 'RHEL - SSH Credentials'. Select all three to grant cloud-team Use permission for these credentials when running automation. Next button proceeds to role selection where you will choose 'Credential Use']
+image::assigncredentialrole.png[Credential selection screen showing checkboxes for 'AWS Credential', 'Azure Credential', and 'RHEL - SSH Credentials'. Select all three to grant cloud-team Use permission for these credentials when running automation. Next button proceeds to role selection where you will choose 'Credential Use',link=self,window=blank]
 
 While still on the `cloud-team` page, assign the following `Users` to the `cloud-team`:
 
 * Click on the `Users` tab, and select `+Assign users` -> select the `clouduser1`, and click `Assign users`.
 
-image::assignuserrole.png[Users tab for cloud-team showing current team members list (initially empty) and blue 'Assign users' button in top right. Click button to open user selection dialog where you can select 'clouduser1' from available users and click 'Assign users' to add them to cloud-team]
+image::assignuserrole.png[Users tab for cloud-team showing current team members list (initially empty) and blue 'Assign users' button in top right. Click button to open user selection dialog where you can select 'clouduser1' from available users and click 'Assign users' to add them to cloud-team,link=self,window=blank]
 
 **Repeat the same process for role and user assignmens to the `network-team` and `rhel-team` teams.**
 
@@ -207,7 +207,7 @@ Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aa
 
 At any time as an administrator you can use the `Sync now` button to trigger an immediate synchronization of Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self-Service Portal.
 
-image::ssapadmin.png[Self-Service Portal home page as admin user: Top header shows 'Self-Service Portal' title and logged-in username. Left navigation includes Administration and Catalog menu items. Main content area displays job template tiles grouped by category - Cloud/AWS templates shown with blue styling, Network templates with green, RHEL templates with red. Each tile shows template name and blue 'Start' button. Administrator sees all approximately 15 templates. Non-admin users will see only templates authorized by RBAC policies]
+image::ssapadmin.png[Self-Service Portal home page as admin user: Top header shows 'Self-Service Portal' title and logged-in username. Left navigation includes Administration and Catalog menu items. Main content area displays job template tiles grouped by category - Cloud/AWS templates shown with blue styling, Network templates with green, RHEL templates with red. Each tile shows template name and blue 'Start' button. Administrator sees all approximately 15 templates. Non-admin users will see only templates authorized by RBAC policies,link=self,window=blank]
 
 === Configure RBAC in the Self Service Automation Portal
 
@@ -215,7 +215,7 @@ Now let's configure RBAC in the Self Service Automation Portal to allow the Port
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `saa-portal-rhel-team`
 
-image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administration' in bottom left corner to expand menu showing options including 'RBAC', 'Plugins', and 'Settings'. Click 'RBAC' to navigate to RBAC policies page. On RBAC page, blue 'Create' button in top right area starts the policy creation workflow for new RBAC roles like ssa-portal-users and saa-portal-rhel-team]
+image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administration' in bottom left corner to expand menu showing options including 'RBAC', 'Plugins', and 'Settings'. Click 'RBAC' to navigate to RBAC policies page. On RBAC page, blue 'Create' button in top right area starts the policy creation workflow for new RBAC roles like ssa-portal-users and saa-portal-rhel-team,link=self,window=blank]
 
 ==== Create the `ssa-portal-users` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
@@ -228,7 +228,7 @@ image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administrati
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
 
-image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users: Name field shows 'ssa-portal-users', Description shows 'Role for Cloud and Network teams'. Users and groups section displays 'cloud-team' and 'network-team' selected. Permission policies section shows Catalog plugin expanded with 'catalog.entity.read' checked, and Scaffolder plugin expanded with all permissions checked except 'scaffolder.template.management'. Blue Create button at bottom saves the policy]
+image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users: Name field shows 'ssa-portal-users', Description shows 'Role for Cloud and Network teams'. Users and groups section displays 'cloud-team' and 'network-team' selected. Permission policies section shows Catalog plugin expanded with 'catalog.entity.read' checked, and Scaffolder plugin expanded with all permissions checked except 'scaffolder.template.management'. Blue Create button at bottom saves the policy,link=self,window=blank]
 
 ==== Create the `saa-portal-rhel-team` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
@@ -248,12 +248,12 @@ image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users:
 . Review your work, and click on `Create` to save the role.
 .. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directy from a Git repository. (more on this later)
 
-image::rolecondition.png[Conditional RBAC configuration interface for catalog.entity.read permission: Click checkmark icon in Actions column to open condition builder. Builder shows: (1) Condition type dropdown with 'Not' selected, (2) Rule dropdown with 'HAS_METADATA' selected, (3) Key field containing 'tags', (4) Value field containing 'custom'. Green checkmark appears when condition is valid. This configuration means rhel-team will see all templates EXCEPT those tagged with metadata key 'tags' and value 'custom', effectively hiding custom dynamic templates]
-image::saa-portal-rhel-team-role.png[RBAC role creation for saa-portal-rhel-team showing: Name field with 'saa-portal-rhel-team', Description 'Role for RHEL team', Users and groups showing 'rhel-team' selected. Catalog permissions show 'catalog.entity.read' with conditional rule icon indicating 'Not HAS_METADATA tags=custom' condition is applied. Scaffolder plugin shows all permissions checked except 'scaffolder.template.management'. This policy allows rhel-team to see RHEL templates but excludes custom tagged templates]
+image::rolecondition.png[Conditional RBAC configuration interface for catalog.entity.read permission: Click checkmark icon in Actions column to open condition builder. Builder shows: (1) Condition type dropdown with 'Not' selected, (2) Rule dropdown with 'HAS_METADATA' selected, (3) Key field containing 'tags', (4) Value field containing 'custom'. Green checkmark appears when condition is valid. This configuration means rhel-team will see all templates EXCEPT those tagged with metadata key 'tags' and value 'custom', effectively hiding custom dynamic templates,link=self,window=blank]
+image::saa-portal-rhel-team-role.png[RBAC role creation for saa-portal-rhel-team showing: Name field with 'saa-portal-rhel-team', Description 'Role for RHEL team', Users and groups showing 'rhel-team' selected. Catalog permissions show 'catalog.entity.read' with conditional rule icon indicating 'Not HAS_METADATA tags=custom' condition is applied. Scaffolder plugin shows all permissions checked except 'scaffolder.template.management'. This policy allows rhel-team to see RHEL templates but excludes custom tagged templates,link=self,window=blank]
 
 The final view of this section should look like this:
 
-image::final-rbac-roles.png[RBAC policies list showing two completed policies: 'ssa-portal-users' with description 'Role for Cloud and Network teams' assigned to 2 groups (cloud-team, network-team), and 'saa-portal-rhel-team' with description 'Role for RHEL team' assigned to 1 group (rhel-team) with conditional rule indicated. Both policies show catalog and scaffolder permissions configured. This view confirms successful RBAC configuration for all three teams]
+image::final-rbac-roles.png[RBAC policies list showing two completed policies: 'ssa-portal-users' with description 'Role for Cloud and Network teams' assigned to 2 groups (cloud-team, network-team), and 'saa-portal-rhel-team' with description 'Role for RHEL team' assigned to 1 group (rhel-team) with conditional rule indicated. Both policies show catalog and scaffolder permissions configured. This view confirms successful RBAC configuration for all three teams,link=self,window=blank]
 
 == Verify your Portal RBAC configuration
 

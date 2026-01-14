@@ -29,7 +29,7 @@ NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platfo
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
 
-image::clouduser1.png[Self-Service Portal as clouduser1: Portal header shows logged-in user is 'clouduser1'. Template area displays ONLY Cloud/AWS templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance' shown as blue tiles. Network and RHEL templates are NOT visible - correctly filtered by RBAC. When launching jobs, only AWS Inventory and AWS Credential available to select, other inventories and credentials not shown]
+image::clouduser1.png[Self-Service Portal as clouduser1: Portal header shows logged-in user is 'clouduser1'. Template area displays ONLY Cloud/AWS templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance' shown as blue tiles. Network and RHEL templates are NOT visible - correctly filtered by RBAC. When launching jobs, only AWS Inventory and AWS Credential available to select, other inventories and credentials not shown,link=self,window=blank]
 
 === Test cloud automation execution
 
@@ -78,7 +78,7 @@ Click **View Job Details** to see:
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
 
-image::networkuser1.png[Self-Service Portal as networkuser1: Header shows 'networkuser1' logged in. Template area displays ONLY Network job templates such as 'Network/Configure Switch', 'Network/Update Firewall Rules' shown as green tiles. Cloud and RHEL templates are NOT visible - correctly filtered by team-based RBAC. When launching network jobs, user can select Network Inventory and Network Credential, while cloud and RHEL resources remain hidden]
+image::networkuser1.png[Self-Service Portal as networkuser1: Header shows 'networkuser1' logged in. Template area displays ONLY Network job templates such as 'Network/Configure Switch', 'Network/Update Firewall Rules' shown as green tiles. Cloud and RHEL templates are NOT visible - correctly filtered by team-based RBAC. When launching network jobs, user can select Network Inventory and Network Credential, while cloud and RHEL resources remain hidden,link=self,window=blank]
 
 Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
@@ -87,7 +87,7 @@ Take a moment and run some of the network job templates to see the results. Noti
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
-image::rheluser1.png[Self-Service Portal as rheluser1: Header shows 'rheluser1' logged in. Template area displays RHEL job templates like 'Linux/RHEL START Service', 'Linux/RHEL Package Management' shown as red tiles, PLUS select cloud provisioning templates 'Cloud/AWS Create RHEL9 instance' and 'Cloud/AWS Create RHEL10 instance' shown as blue tiles. This demonstrates rhel-team has access to RHEL automation plus specific cloud instance creation for RHEL servers. Network templates and other cloud templates NOT visible]
+image::rheluser1.png[Self-Service Portal as rheluser1: Header shows 'rheluser1' logged in. Template area displays RHEL job templates like 'Linux/RHEL START Service', 'Linux/RHEL Package Management' shown as red tiles, PLUS select cloud provisioning templates 'Cloud/AWS Create RHEL9 instance' and 'Cloud/AWS Create RHEL10 instance' shown as blue tiles. This demonstrates rhel-team has access to RHEL automation plus specific cloud instance creation for RHEL servers. Network templates and other cloud templates NOT visible,link=self,window=blank]
 
 Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 

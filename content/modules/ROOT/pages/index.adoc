@@ -2,7 +2,7 @@
 
 Welcome to the {lab_name} workshop!
 
-image::aap-logo.png[Ansible Automation Platform logo with Red Hat branding,55%,55%]
+image::aap-logo.png[Ansible Automation Platform logo with Red Hat branding,55%,55%,link=self,window=blank]
 
 == What you'll learn
 
