@@ -6,13 +6,13 @@ image::aap-logo.png[Ansible Automation Platform logo with Red Hat branding,55%,5
 
 == What you'll learn
 
-In this hands-on workshop, you will enable self-service automation for teams across your organization using Red Hat's Self-Service Automation Portal. You'll configure role-based access control, test different user personas, and create custom automation templates—all without requiring users to become Ansible experts.
+In this hands-on workshop, you will enable self-service automation for teams across your organization using Red Hat Ansible Automation Platform's Self-Service Automation Portal. You'll configure role-based access control (RBAC), test different user personas, and create custom automation templates—all without requiring users to become Ansible experts.
 
 == The challenge
 
 Your organization has invested in Ansible Automation Platform and built automation workflows, but adoption is slow. Subject matter experts in cloud, network, and Linux domains want to run automation as part of their daily work, but they don't want to learn Ansible or navigate complex interfaces.
 
-**Self-Service Automation Portal** solves this by providing a simple, secure interface that maintains governance through RBAC while broadening who can use automation.
+**Self-Service Automation Portal, part of Ansible Automation Platform** solves this by providing a simple, secure interface that maintains governance through RBAC while broadening who can use automation.
 
 == Workshop structure
 
