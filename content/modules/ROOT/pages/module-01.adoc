@@ -55,6 +55,8 @@ Expand the `Access Management` menu on the left.
 
 Create each team as follows and click `Create team` to save the team(s).
 
+* **Be sure to select the `Default` organization.**
+
 image::createteam.png[Create Team dialog showing: Name field (text input for team name like 'cloud-team'), Organization dropdown (defaults to 'Default'), and blue 'Create team' button to confirm. Form expects team name to identify IT domain such as cloud, network, or rhel,link=self,window=blank]
 
 Now that you have created the teams, you will assign roles and users to the teams.
@@ -70,6 +72,7 @@ image::assignroles.png[Roles tab for cloud-team showing list of currently assign
 . In step 4, review your work, and click `Finish`.
 
 image::selectjobtemplates.png[Resource Selection step showing checkboxes next to multiple Cloud/AWS job templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance'. Select all templates starting with 'Cloud/AWS' by clicking their checkboxes. Blue 'Next' button at bottom right proceeds to role selection,link=self,window=blank]
+
 image::finish1strole.png[Review screen displaying summary of role assignment: Resource type shows 'Job Template', selected resources list all Cloud/AWS templates, and Role shows 'Job Template Execute' permission. Blue 'Finish' button at bottom right completes the assignment and returns to cloud-team Roles tab,link=self,window=blank]
 
 Repeat the same process for assiging roles by adding the following roles:
@@ -205,6 +208,8 @@ Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage u
 
 Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self-Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self-Service Portal on a regular interval (configurable in the Self-Service Portal Helm chart via the `sync.interval` parameter).
 
+NOTE: Self-service portal has a default synchronization schedule of 60 minutes.
+
 At any time as an administrator you can use the `Sync now` button to trigger an immediate synchronization of Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self-Service Portal.
 
 image::ssapadmin.png[Self-Service Portal home page as admin user: Top header shows 'Self-Service Portal' title and logged-in username. Left navigation includes Administration and Catalog menu items. Main content area displays job template tiles grouped by category - Cloud/AWS templates shown with blue styling, Network templates with green, RHEL templates with red. Each tile shows template name and blue 'Start' button. Administrator sees all approximately 15 templates. Non-admin users will see only templates authorized by RBAC policies,link=self,window=blank]
@@ -254,6 +259,8 @@ image::saa-portal-rhel-team-role.png[RBAC role creation for saa-portal-rhel-team
 The final view of this section should look like this:
 
 image::final-rbac-roles.png[RBAC policies list showing two completed policies: 'ssa-portal-users' with description 'Role for Cloud and Network teams' assigned to 2 groups (cloud-team, network-team), and 'saa-portal-rhel-team' with description 'Role for RHEL team' assigned to 1 group (rhel-team) with conditional rule indicated. Both policies show catalog and scaffolder permissions configured. This view confirms successful RBAC configuration for all three teams,link=self,window=blank]
+
+NOTE: Form more details on how to create RBAC roles and permissions, please refer to the link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/latest/html/installing_self-service_automation_portal/self-service-accessing-deployment_aap-self-service-install#self-service-initial-rbac-setup_self-service-accessing-deployment[Self-Service Portal - RBAC Setup Documentation^].
 
 == Verify your Portal RBAC configuration
 
