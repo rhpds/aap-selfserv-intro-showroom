@@ -37,7 +37,7 @@ Let's run a cloud job template to validate permissions:
 
 ==== Select a job template to run
 
-Scroll through the available templates and click **Start** on any `Cloud/AWS` job template (example: `Cloud/AWS Check Region Connectivity`)
+Scroll through the available templates and click **Start** on any `Cloud/AWS` job template (example: `Cloud/AWS Create VPC`)
 
 ==== Review the job launch form
 

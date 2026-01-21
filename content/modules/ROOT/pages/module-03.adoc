@@ -50,7 +50,7 @@ image::survey2.png[Survey Question Creation Form: (1) Question field - enter tex
 
 ** You will now see the 3 survey questions in the job template.
 
-Modifications to the job template are automatically synchronized to the Self-Service portal on a regular interval (configurable in the Self-Service Portal Helm chart via the `sync.interval` parameter). However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `{aap_admin_username}` user in the Self-Service portal.
+Modifications to the job template are automatically synchronized to the Self-Service portal on a regular interval (configurable in the Self-Service Portal Helm chart). However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `{aap_admin_username}` user in the Self-Service portal.
 
 * Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`. You will see all the job templates.
 
@@ -86,7 +86,7 @@ Let's go ahead and import a custom dynamic template.
 * In the top right corner, click on the `Add Template`.
 
 * You will be prompted to `Select URL`. This will upload the custom dynamic template from a URL.
-** Copy and paste the following URL into the `SelectURL` field.
+** Copy and paste the following URL into the `Select URL` field.
 
 [source,bash,role=execute]
 ----

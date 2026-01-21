@@ -183,7 +183,7 @@ Awesome! You have now configured RBAC in Ansible Automation Platform.
 == Validate content synchronization to Self-Service Portal
 
 Now that you have configured RBAC in Ansible Automation Platform, you will configure RBAC in Self-Service Portal.
-At this point if you log in to the Self-Service Portal as any of the users you created, you will NOT be able to see any job templates - yet.  But as an administrator you will be able to see all the job templates.
+**At this point if you log in to the Self-Service Portal as any of the users you created, you will NOT be able to see any job templates - yet.** But as an administrator you will be able to see all the job templates.
 
 What you need to do is configure RBAC in Self-Service portal to allow the Portal users to see the automation templates they are authorized to execute.  Let's get to this next
 
@@ -206,7 +206,7 @@ Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage u
 
 === Log in to the `Self-Service portal` as `{aap_admin_username}`
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self-Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self-Service Portal on a regular interval (configurable in the Self-Service Portal Helm chart via the `sync.interval` parameter).
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self-Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self-Service Portal on a regular interval (configurable in the Self-Service Portal Helm chart).
 
 NOTE: Self-service portal has a default synchronization schedule of 60 minutes.
 
@@ -251,7 +251,7 @@ image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users:
 . Just below expand the `Scaffolder` plugin and select **ALL** the permissions **but NOT** `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
-.. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directy from a Git repository. (more on this later)
+.. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directly from a Git repository. (more on this later)
 
 image::rolecondition.png[Conditional RBAC configuration interface for catalog.entity.read permission: Click checkmark icon in Actions column to open condition builder. Builder shows: (1) Condition type dropdown with 'Not' selected, (2) Rule dropdown with 'HAS_METADATA' selected, (3) Key field containing 'tags', (4) Value field containing 'custom'. Green checkmark appears when condition is valid. This configuration means rhel-team will see all templates EXCEPT those tagged with metadata key 'tags' and value 'custom', effectively hiding custom dynamic templates,link=self,window=blank]
 image::saa-portal-rhel-team-role.png[RBAC role creation for saa-portal-rhel-team showing: Name field with 'saa-portal-rhel-team', Description 'Role for RHEL team', Users and groups showing 'rhel-team' selected. Catalog permissions show 'catalog.entity.read' with conditional rule icon indicating 'Not HAS_METADATA tags=custom' condition is applied. Scaffolder plugin shows all permissions checked except 'scaffolder.template.management'. This policy allows rhel-team to see RHEL templates but excludes custom tagged templates,link=self,window=blank]
