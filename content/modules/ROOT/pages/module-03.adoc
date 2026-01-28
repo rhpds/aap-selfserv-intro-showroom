@@ -44,6 +44,10 @@ image::survey1.png[AAP Job Template Editor for 'Linux/RHEL START Service on RHEL
 
 ** Change the `Answer type` to `Multiple Choice (single select)`.
 
+** Add the following options:
+**** `Yes` (Check the `Default Option` checkbox)
+**** `No`
+
 ** Scroll down and click on `Create survey question` to save the survey question.
 
 image::survey2.png[Survey Question Creation Form: (1) Question field - enter text 'Do you want to ENABLE the service (starts after a reboot)?' exactly as shown, (2) Answer variable name field - enter 'enable_service' with no spaces (this becomes the Ansible variable name), (3) Answer type dropdown - select 'Multiple Choice (single select)' from available options, (4) Scroll down to see additional fields for multiple choice options, (5) Blue 'Create survey question' button at bottom saves the question. After saving, this question appears in job template survey list and will prompt users for input when launching the job,link=self,window=blank]
