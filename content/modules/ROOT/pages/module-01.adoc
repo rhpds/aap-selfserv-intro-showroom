@@ -218,9 +218,9 @@ image::ssapadmin.png[Self-Service Portal home page as admin user: Top header sho
 
 Now let's configure RBAC in the Self Service Automation Portal to allow the Portal users to see the automation templates they are authorized to execute.
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `saa-portal-rhel-team`
+Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `ssa-portal-rhel-team`
 
-image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administration' in bottom left corner to expand menu showing options including 'RBAC', 'Plugins', and 'Settings'. Click 'RBAC' to navigate to RBAC policies page. On RBAC page, blue 'Create' button in top right area starts the policy creation workflow for new RBAC roles like ssa-portal-users and saa-portal-rhel-team,link=self,window=blank]
+image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administration' in bottom left corner to expand menu showing options including 'RBAC', 'Plugins', and 'Settings'. Click 'RBAC' to navigate to RBAC policies page. On RBAC page, blue 'Create' button in top right area starts the policy creation workflow for new RBAC roles like ssa-portal-users and ssa-portal-rhel-team,link=self,window=blank]
 
 ==== Create the `ssa-portal-users` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
@@ -235,9 +235,9 @@ image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administrati
 
 image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users: Name field shows 'ssa-portal-users', Description shows 'Role for Cloud and Network teams'. Users and groups section displays 'cloud-team' and 'network-team' selected. Permission policies section shows Catalog plugin expanded with 'catalog.entity.read' checked, and Scaffolder plugin expanded with all permissions checked except 'scaffolder.template.management'. Blue Create button at bottom saves the policy,link=self,window=blank]
 
-==== Create the `saa-portal-rhel-team` role.
+==== Create the `ssa-portal-rhel-team` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
-. For the `Name` field, enter `saa-portal-rhel-team`.
+. For the `Name` field, enter `ssa-portal-rhel-team`.
 . For the `Description` field, enter `Role for RHEL team`, and click on `Next`.
 . For the `Add users and groups` field, from the dropdown select `rhel-team`, scroll down and click on `Next`.
 . For the `Add permission policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
@@ -254,11 +254,11 @@ image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users:
 .. You added a condition to the RBAC role to allow the RHEL team to see the RHEL job templates but NOT the custom job template that will later be backed by a custom template imported directly from a Git repository. (more on this later)
 
 image::rolecondition.png[Conditional RBAC configuration interface for catalog.entity.read permission: Click checkmark icon in Actions column to open condition builder. Builder shows: (1) Condition type dropdown with 'Not' selected, (2) Rule dropdown with 'HAS_METADATA' selected, (3) Key field containing 'tags', (4) Value field containing 'custom'. Green checkmark appears when condition is valid. This configuration means rhel-team will see all templates EXCEPT those tagged with metadata key 'tags' and value 'custom', effectively hiding custom dynamic templates,link=self,window=blank]
-image::saa-portal-rhel-team-role.png[RBAC role creation for saa-portal-rhel-team showing: Name field with 'saa-portal-rhel-team', Description 'Role for RHEL team', Users and groups showing 'rhel-team' selected. Catalog permissions show 'catalog.entity.read' with conditional rule icon indicating 'Not HAS_METADATA tags=custom' condition is applied. Scaffolder plugin shows all permissions checked except 'scaffolder.template.management'. This policy allows rhel-team to see RHEL templates but excludes custom tagged templates,link=self,window=blank]
+image::ssa-portal-rhel-team-role.png[RBAC role creation for ssa-portal-rhel-team showing: Name field with 'ssa-portal-rhel-team', Description 'Role for RHEL team', Users and groups showing 'rhel-team' selected. Catalog permissions show 'catalog.entity.read' with conditional rule icon indicating 'Not HAS_METADATA tags=custom' condition is applied. Scaffolder plugin shows all permissions checked except 'scaffolder.template.management'. This policy allows rhel-team to see RHEL templates but excludes custom tagged templates,link=self,window=blank]
 
 The final view of this section should look like this:
 
-image::final-rbac-roles.png[RBAC policies list showing two completed policies: 'ssa-portal-users' with description 'Role for Cloud and Network teams' assigned to 2 groups (cloud-team, network-team), and 'saa-portal-rhel-team' with description 'Role for RHEL team' assigned to 1 group (rhel-team) with conditional rule indicated. Both policies show catalog and scaffolder permissions configured. This view confirms successful RBAC configuration for all three teams,link=self,window=blank]
+image::final-rbac-roles.png[RBAC policies list showing two completed policies: 'ssa-portal-users' with description 'Role for Cloud and Network teams' assigned to 2 groups (cloud-team, network-team), and 'ssa-portal-rhel-team' with description 'Role for RHEL team' assigned to 1 group (rhel-team) with conditional rule indicated. Both policies show catalog and scaffolder permissions configured. This view confirms successful RBAC configuration for all three teams,link=self,window=blank]
 
 NOTE: Form more details on how to create RBAC roles and permissions, please refer to the link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/latest/html/installing_self-service_automation_portal/self-service-accessing-deployment_aap-self-service-install#self-service-initial-rbac-setup_self-service-accessing-deployment[Self-Service Portal - RBAC Setup Documentation^].
 
@@ -273,7 +273,7 @@ In Portal, navigate to: `Administration` → `RBAC`
 ✅ **Expected result**: You should see 2 policies:
 
 - `ssa-portal-users` (for cloud-team and network-team)
-- `saa-portal-rhel-team` (for rhel-team with conditional rule)
+- `ssa-portal-rhel-team` (for rhel-team with conditional rule)
 
 **Verification 2: Validate ssa-portal-users configuration**
 
@@ -285,9 +285,9 @@ Click on `ssa-portal-users` → Review configuration:
 - **Catalog permissions**: `catalog.entity.read` ✓
 - **Scaffolder permissions**: All except `scaffolder.template.management` ✓
 
-**Verification 3: Validate saa-portal-rhel-team conditional rule**
+**Verification 3: Validate ssa-portal-rhel-team conditional rule**
 
-Click on `saa-portal-rhel-team` → Review configuration:
+Click on `ssa-portal-rhel-team` → Review configuration:
 
 ✅ **Expected results**:
 
