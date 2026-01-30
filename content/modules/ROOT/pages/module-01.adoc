@@ -115,7 +115,7 @@ For `network-team`, assign the following:
 
 * For Resource Type: `Inventory`, select the `Network Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: `Credential`, select the `Network Credential` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Credential`, select the `Network Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `network-team` page, assign the following `Users` to the `network-team`:
 
@@ -227,7 +227,7 @@ image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administrati
 . For the `Name` field, enter `ssa-portal-users`.
 . For the `Description` field, enter `Role for Cloud and Network teams`, and click on `Next`.
 . For the `Add users and groups` field, from the dropdown select `cloud-team` and `network-team`, scroll down and click on `Next`.
-. For the `Add permistion policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
+. For the `Add permission policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
 . Just below expand the `Catalog` plugin and select the `catalog.entity.read` permission.
 . Just below expand the `Scaffolder` plugin and select **ALL** the permissions **but NOT** `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.
@@ -240,7 +240,7 @@ image::ssa-portal-users-role.png[RBAC role creation wizard for ssa-portal-users:
 . For the `Name` field, enter `saa-portal-rhel-team`.
 . For the `Description` field, enter `Role for RHEL team`, and click on `Next`.
 . For the `Add users and groups` field, from the dropdown select `rhel-team`, scroll down and click on `Next`.
-. For the `Add permistion policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
+. For the `Add permission policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
 .. Just below expand the `Catalog` plugin and select the `catalog.entity.read` permission. At the very end of that row, click the 2 checkmarks in the `Actions` column to add a condition **at the very end of the row**.
 .. In the `Condition` field, select `Not`, The `Add rule` option will be selected automatically.
 .. In the `Rule` dropdown, select `HAS_METADATA`.
