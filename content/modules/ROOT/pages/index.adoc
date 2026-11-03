@@ -2,7 +2,7 @@
 
 Welcome to the {lab_name} workshop!
 
-image::aap-logo.png[Ansible Automation Platform logo with Red Hat branding,55%,55%,link=self,window=blank]
+image::rh-ansible-automation-platform.png[Ansible Automation Platform logo with Red Hat branding,55%,55%,link=self,window=blank]
 
 == What you'll learn
 
@@ -20,7 +20,7 @@ By the end, you will be able to:
 
 Your organization has invested in Ansible Automation Platform and built automation workflows, but adoption is slow and content sprawl can make that worse. Collections live in **Private Automation Hub**, playbooks and pipelines sit in **Git**, and useful work is often **siloed inside individual teams**. Subject matter experts in cloud, network, and Linux want to use that automation in their day-to-day work, but they should not have to hunt across tools or become platform engineers to do it.
 
-**Automation Portal** gives teams a governed place to **discover** what already exists, **create** what is missing (like execution environments), and **share capability** with the people authorized to use it, while platform owners keep control through AAP identity and RBAC.
+**Automation Portal** gives teams a governed place to **discover** what already exists, **create** what is missing (like execution environments), and **share capability** with the people authorized to use it; while platform owners keep control through AAP identity and RBAC.
 
 == What is Automation Portal?
 
@@ -34,7 +34,9 @@ The portal syncs organizations, users, teams, and templates from AAP and uses si
 
 == Workshop structure
 
-About **3 hours** total (adjust with your facilitator): roughly 15 minutes of intro, then hands-on modules.
+This is approximately a 3-hour workshop.
+
+Roughly 15 minutes of intro, then hands-on modules.
 
 === Module 1: Configure AAP and Automation Portal for governed access
 
