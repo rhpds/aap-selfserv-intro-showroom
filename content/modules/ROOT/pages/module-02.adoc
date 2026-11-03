@@ -1,17 +1,17 @@
-= User Persona Testing in Self-Service Automation Portal
+= User Persona Testing in Automation Portal
 
 == Learning objectives
 
 By the end of this module, you'll be able to:
 
-* Test the Self-Service Automation Portal from different user perspectives
+* Test the Automation Portal from different user perspectives
 * Validate that RBAC policies correctly control what each user can see and execute
 * Understand the self-service experience for non-automation experts
 * Run automation jobs as domain-specific users (cloud, network, RHEL administrators)
 * Verify that users can only access credentials and inventories they're authorized to use
 
-In the first part of this workshop, we configured Ansible Automation Platform for Self-Service Portal and configured RBAC in AAP 2.6 that will be used for Self-Service Portal.
-In this part of the workshop, we will test the Self-Service Automation Portal with the different user personas we created in the previous section.
+In the first part of this workshop, we configured Ansible Automation Platform for Automation Portal and configured RBAC in AAP 2.6 that will be used for Automation Portal.
+In this part of the workshop, we will test the Automation Portal with the different user personas we created in the previous section.
 
 The 3 user personas we will test are a Cloud Administrator, a Network Administrator, and a Red Hat Enterprise Linux (RHEL) Administrator, all with different expertise but with limited knowledge of automation and Ansible Automation Platform. They just need to be able to run automation jobs that are relevant to their IT domains.
 
@@ -22,14 +22,14 @@ The 3 user personas we will test are a Cloud Administrator, a Network Administra
 |**rheluser1**|`{aap_admin_password}` (same as AAP admin password)
 |===
 
-NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Self-Service portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Automation Portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
 
 [#clouduser1]
 == Test as user **clouduser1**
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
+Log in to the link:{self_service_portal_url}[Automation Portal^] as `clouduser1` with password `{aap_admin_password}`. You should see the Cloud job templates.
 
-image::clouduser1.png[Self-Service Portal as clouduser1: Portal header shows logged-in user is 'clouduser1'. Template area displays ONLY Cloud/AWS templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance' shown as blue tiles. Network and RHEL templates are NOT visible - correctly filtered by RBAC. When launching jobs, only AWS Inventory and AWS Credential available to select, other inventories and credentials not shown,link=self,window=blank]
+image::clouduser1.png[Automation Portal as clouduser1: Portal header shows logged-in user is 'clouduser1'. Template area displays ONLY Cloud/AWS templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance' shown as blue tiles. Network and RHEL templates are NOT visible - correctly filtered by RBAC. When launching jobs, only AWS Inventory and AWS Credential available to select, other inventories and credentials not shown,link=self,window=blank]
 
 === Test cloud automation execution
 
@@ -76,18 +76,18 @@ Click **View Job Details** to see:
 [#networkuser1]
 == Test as user **networkuser1**
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
+Log in to the link:{self_service_portal_url}[Automation Portal^] as `networkuser1` with password `{aap_admin_password}`. You should see the Network job templates.
 
-image::networkuser1.png[Self-Service Portal as networkuser1: Header shows 'networkuser1' logged in. Template area displays ONLY Network job templates such as 'Network/Configure Switch', 'Network/Update Firewall Rules' shown as green tiles. Cloud and RHEL templates are NOT visible - correctly filtered by team-based RBAC. When launching network jobs, user can select Network Inventory and Network Credential, while cloud and RHEL resources remain hidden,link=self,window=blank]
+image::networkuser1.png[Automation Portal as networkuser1: Header shows 'networkuser1' logged in. Template area displays ONLY Network job templates such as 'Network/Configure Switch', 'Network/Update Firewall Rules' shown as green tiles. Cloud and RHEL templates are NOT visible - correctly filtered by team-based RBAC. When launching network jobs, user can select Network Inventory and Network Credential, while cloud and RHEL resources remain hidden,link=self,window=blank]
 
 Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
 [#rheluser1]
 == Test as user **rheluser1**
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
+Log in to the link:{self_service_portal_url}[Automation Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
-image::rheluser1.png[Self-Service Portal as rheluser1: Header shows 'rheluser1' logged in. Template area displays RHEL job templates like 'Linux/RHEL START Service', 'Linux/RHEL Package Management' shown as red tiles, PLUS select cloud provisioning templates 'Cloud/AWS Create RHEL9 instance' and 'Cloud/AWS Create RHEL10 instance' shown as blue tiles. This demonstrates rhel-team has access to RHEL automation plus specific cloud instance creation for RHEL servers. Network templates and other cloud templates NOT visible,link=self,window=blank]
+image::rheluser1.png[Automation Portal as rheluser1: Header shows 'rheluser1' logged in. Template area displays RHEL job templates like 'Linux/RHEL START Service', 'Linux/RHEL Package Management' shown as red tiles, PLUS select cloud provisioning templates 'Cloud/AWS Create RHEL9 instance' and 'Cloud/AWS Create RHEL10 instance' shown as blue tiles. This demonstrates rhel-team has access to RHEL automation plus specific cloud instance creation for RHEL servers. Network templates and other cloud templates NOT visible,link=self,window=blank]
 
 Take a moment and run some of the RHEL job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
 
@@ -96,9 +96,9 @@ Take a moment and run some of the RHEL job templates to see the results. Notice 
 By completing this module, you should now understand:
 
 * **How RBAC controls the user experience** - Different users see only the automation they're authorized to access based on team membership and permissions
-* **The self-service portal user perspective** - How non-automation experts experience running automation without needing to understand Ansible or complex platform concepts
+* **The self-service user perspective** - How non-automation experts experience running automation in Automation Portal without needing to understand Ansible or complex platform concepts
 * **How permissions affect automation execution** - Users can select and modify resources (credentials, inventories) they have "use" permissions for, but cannot see resources outside their scope
 * **The value of persona-based access control** - Domain experts (cloud, network, RHEL) can focus on their specific automation needs without being overwhelmed by unrelated templates
 * **Validation of RBAC configuration** - Testing as different users confirms that your permission policies work as intended
 
-You've successfully validated that each user persona sees only their authorized automation templates and can execute jobs with appropriate credentials and inventories. The RBAC configuration you created in Module 1 is working correctly. Let's move on to the next module where you will modify surveys in AAP and see the results in Self-Service Automation Portal, then import a custom dynamic template.
+You've successfully validated that each user persona sees only their authorized automation templates and can execute jobs with appropriate credentials and inventories. The RBAC configuration you created in Module 1 is working correctly. Let's move on to the next module where you will modify surveys in AAP and see the results in Automation Portal, then import a custom dynamic template.

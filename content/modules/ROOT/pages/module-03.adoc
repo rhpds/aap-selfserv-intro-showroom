@@ -6,21 +6,21 @@ By the end of this module, you'll be able to:
 
 * Understand how surveys work in Ansible Automation Platform job templates
 * Modify surveys on job templates to enhance the user experience
-* Trigger synchronization between AAP and Self-Service Portal
+* Trigger synchronization between AAP and Automation Portal
 * Import custom dynamic templates from Git repositories
 * Launch and use custom dynamic templates to provide advanced automation experiences
 * Understand the difference between surveys and custom dynamic templates
 
-In the previous section, you experienced the Self-Service Automation Portal with the different user personas. In this section, you will modify surveys on some job templates. See the results in Self-Service portal. Then you will import a custom dynamic template.
+In the previous section, you experienced the Automation Portal with the different user personas. In this section, you will modify surveys on some job templates. See the results in Automation Portal. Then you will import a custom dynamic template.
 
-NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Self-Service portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Automation Portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
 
 [#surveys]
 == What are surveys in Ansible Automation Platform?
 
 In Ansible Automation Platform (AAP), surveys are interactive forms within Job/Workflow Templates that prompt users for input (like text, choices, passwords, etc.) at launch, capturing these answers as extra variables to dynamically customize automation playbook runs. Surveys are a powerful way to make automation more user-friendly and adaptable without editing code.
 
-== Modify the survey on a job templates. Then see the results in Self-Service portal (auto synchronization)
+== Modify the survey on a job templates. Then see the results in Automation Portal (auto synchronization)
 
 Log in to the link:{aap_controller_url}[Ansible Automation Platform^] with the `{aap_admin_username}` user and password `{aap_admin_password}`.
 
@@ -54,19 +54,19 @@ image::survey2.png[Survey Question Creation Form: (1) Question field - enter tex
 
 ** You will now see the 3 survey questions in the job template.
 
-Modifications to the job template are automatically synchronized to the Self-Service portal on a regular interval (configurable in the Self-Service Portal Helm chart). However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `{aap_admin_username}` user in the Self-Service portal.
+Modifications to the job template are automatically synchronized to the Automation Portal on a regular interval (configurable in the Automation Portal Helm chart). However, you can also trigger an instant synchronization of the job templates manually by clicking on the `Sync now` button while logged in as the `{aap_admin_username}` user in the Automation Portal.
 
-* Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`. You will see all the job templates.
+* Log in to the link:{self_service_portal_url}[Automation Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`. You will see all the job templates.
 
-** Use the `Sync now` button to synchronize the Job Templates from Ansible Automation Platform to the Self Service automation portal. This will take a few seconds to complete.
+** Use the `Sync now` button to synchronize the Job Templates from Ansible Automation Platform to the Automation Portal. This will take a few seconds to complete.
 
 ** When prompted for the AAP synchronization options, select `Job Templates` and click on `Ok`.
 
-image::jtsync.png[Self-Service Portal Sync Dialog: After clicking 'Sync now' button in top menu area, dialog appears asking 'What would you like to synchronize?' with checkboxes for different sync options including 'Organizations', 'Users', 'Teams', and 'Job Templates'. Select 'Job Templates' checkbox to synchronize only job template changes from AAP. Blue 'Ok' button at bottom starts synchronization process which takes a few seconds. Success message appears when sync completes,link=self,window=blank]
+image::jtsync.png[Automation Portal Sync Dialog: After clicking 'Sync now' button in top menu area, dialog appears asking 'What would you like to synchronize?' with checkboxes for different sync options including 'Organizations', 'Users', 'Teams', and 'Job Templates'. Select 'Job Templates' checkbox to synchronize only job template changes from AAP. Blue 'Ok' button at bottom starts synchronization process which takes a few seconds. Success message appears when sync completes,link=self,window=blank]
 
-* Log out of the `Self-Service portal` as `{aap_admin_username}`.
+* Log out of the `Automation Portal` as `{aap_admin_username}`.
 
-* Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
+* Log in to the link:{self_service_portal_url}[Automation Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates.
 
 ** Run the job template `Linux/RHEL START Service on RHEL` by cliking `Start` on that job template tile.
 
@@ -76,16 +76,16 @@ image::survey3.png[Job Template Launch Form as rheluser1: Portal shows 'Linux/RH
 
 ** Select `Next` and click on `Create` to run the automation job.
 
-That was a quick look at how survey modifications to a job template are automatically synchronized to the Self-Service portal. Now let's move on to the next section where you will import a custom dynamic template.
+That was a quick look at how survey modifications to a job template are automatically synchronized to the Automation Portal. Now let's move on to the next section where you will import a custom dynamic template.
 
 [#import]
 == Import a custom dynamic template
 
-Custom dynamic templates are templates that are stored in a Git repository and are imported into the Self-Service portal by an administrator. They are used to create new sophisticated, enterprise-ready templates that provide more advanced options than what surveys can offer.
+Custom dynamic templates are templates that are stored in a Git repository and are imported into the Automation Portal by an administrator. They are used to create new sophisticated, enterprise-ready templates that provide more advanced options than what surveys can offer.
 
 Let's go ahead and import a custom dynamic template.
 
-* Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`.
+* Log in to the link:{self_service_portal_url}[Automation Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`.
 
 * In the top right corner, click on the `Add Template`.
 
@@ -97,7 +97,7 @@ Let's go ahead and import a custom dynamic template.
 https://raw.githubusercontent.com/ansible-tmm/ssap-lab/main/customtemplate/rhel_dynamic.yml
 ----
 
-image::custom1.png[Add Template Interface in Self-Service Portal: Dialog shows 'Select URL' option selected. Text input field labeled 'Repository URL' expects Git repository URL for custom template YAML file. Paste the GitHub raw content URL (https://raw.githubusercontent.com/...) into this field. Blue 'Analyze' button at bottom right processes the template URL and validates YAML structure before import,link=self,window=blank]
+image::custom1.png[Add Template Interface in Automation Portal: Dialog shows 'Select URL' option selected. Text input field labeled 'Repository URL' expects Git repository URL for custom template YAML file. Paste the GitHub raw content URL (https://raw.githubusercontent.com/...) into this field. Blue 'Analyze' button at bottom right processes the template URL and validates YAML structure before import,link=self,window=blank]
 
 ** Select `Analyze` to analyze the custom dynamic template.
 
@@ -114,9 +114,9 @@ image::custom3.png[Import Success Screen: 'Step 4 Finish' heading with green che
 ** You will now see the custom dynamic template in the Templates list with a title of "Manage RHEL Time Servers" (may include clock emoji icon in the UI)
 
 [#launch]
-== Launch the custom dynamic template from the Self-Service portal
+== Launch the custom dynamic template from the Automation Portal
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates and the new custom dynamic template you imported titled "Manage RHEL Time Servers"
+Log in to the link:{self_service_portal_url}[Automation Portal^] as `rheluser1` with password `{aap_admin_password}`. You should see the RHEL job templates and the new custom dynamic template you imported titled "Manage RHEL Time Servers"
 
 image::custom4.png[Portal Template Catalog as rheluser1: Template tiles display showing mix of standard RHEL job templates (red tiles) like 'Linux/RHEL START Service', 'Linux/RHEL Package Management', alongside newly imported custom dynamic template 'Manage RHEL Time Servers' tile. Custom template tile may have distinctive styling or icon to indicate it is a dynamic template from Git repository rather than standard AAP job template. All tiles show blue Start button to launch,link=self,window=blank]
 
@@ -154,4 +154,4 @@ By completing this module, you should now understand:
 * **What custom dynamic templates are** - Git-backed templates that provide sophisticated, enterprise-ready automation experiences beyond what surveys can offer
 * **How to import and use custom templates** - Custom templates can be imported from Git repositories and provide advanced options, conditional logic, and rich user interfaces
 
-You have now completed this module. You've learned how to modify surveys on a job template, synchronize changes to the Self-Service Portal, and import and launch custom dynamic templates from Git repositories.
+You have now completed this module. You've learned how to modify surveys on a job template, synchronize changes to the Automation Portal, and import and launch custom dynamic templates from Git repositories. Next, Module 4 covers **content discovery**, where Automation Portal helps you find Git repositories and collections.

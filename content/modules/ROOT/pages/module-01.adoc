@@ -1,4 +1,4 @@
-= Configure Ansible Automation Platform for Self-Service Portal
+= Configure Ansible Automation Platform for Automation Portal
 
 == Learning objectives
 
@@ -6,10 +6,10 @@ By the end of this module, you'll be able to:
 
 * Configure role-based access control (RBAC) in Ansible Automation Platform 2.6 for team-based permissions
 * Create teams and assign roles to job templates, inventories, and credentials
-* Set up RBAC in Self-Service Automation Portal using the permissions framework
+* Set up RBAC in Automation Portal using the permissions framework
 * Create permission policies for catalog and scaffolder plugins
 * Build conditional RBAC rules for advanced access control scenarios
-* Validate content synchronization between AAP and Self-Service Portal
+* Validate content synchronization between AAP and Automation Portal
 
 == Environment background
 
@@ -17,14 +17,14 @@ In your environment you will have access to the following:
 
 * `Ansible Automation Platform.` It is set up with users, inventories, credentials, a project, and a number of job templates, all of which will be used in this lab.
 
-* `Self-service automation portal.` You will perform the setup in AAP, and in Self-Service Portal to enable different user personas to leverage automation.
+* `Automation Portal.` You will perform the setup in AAP and in Automation Portal to enable different user personas to leverage automation.
 
 * `OpenShift Container Platform.` You will have access but you will not need to use it.
 
-NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Self-Service portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Automation Portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
 
 [#aaprbac]
-== Configuring RBAC in AAP 2.6 that will be used for Self-Service Portal
+== Configuring RBAC in AAP 2.6 that will be used for Automation Portal
 
 === What is role-based access control (RBAC) in AAP
 Ansible Automation Platform (AAP) uses Role-Based Access Control (RBAC) to manage user access to automation resources, ensuring governance, security, and compliance across an enterprise. RBAC is primarily configured within the Automation Controller, the platform's control plane and web UI. 
@@ -180,19 +180,19 @@ For each team, click the `Users` tab:
 Awesome! You have now configured RBAC in Ansible Automation Platform.
 
 [#validate]
-== Validate content synchronization to Self-Service Portal
+== Validate content synchronization to Automation Portal
 
-Now that you have configured RBAC in Ansible Automation Platform, you will configure RBAC in Self-Service Portal.
-**At this point if you log in to the Self-Service Portal as any of the users you created, you will NOT be able to see any job templates - yet.** But as an administrator you will be able to see all the job templates.
+Now that you have configured RBAC in Ansible Automation Platform, you will configure RBAC in Automation Portal.
+**At this point if you log in to the Automation Portal as any of the users you created, you will NOT be able to see any job templates - yet.** But as an administrator you will be able to see all the job templates.
 
-What you need to do is configure RBAC in Self-Service portal to allow the Portal users to see the automation templates they are authorized to execute.  Let's get to this next
+What you need to do is configure RBAC in Automation Portal to allow the Portal users to see the automation templates they are authorized to execute.  Let's get to this next
 
 [#ssprbac]
-== Configuring RBAC in the Self-Service Automation Portal
+== Configuring RBAC in the Automation Portal
 
-=== What is role-based access control (RBAC) in Self-Service Automation Portal
+=== What is role-based access control (RBAC) in Automation Portal
 
-Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage user authorizations and permissions within the portal. It is built on top of the Red Hat Developer Hub Permissions framework and uses an administrator role to control who can perform actions and access specific resources.
+Automation Portal uses Role-Based Access Control (RBAC) to manage user authorizations and permissions within the portal. It is built on top of the Red Hat Developer Hub Permissions framework and uses an administrator role to control who can perform actions and access specific resources.
 
 ==== Supported permissions
 
@@ -204,23 +204,23 @@ Self-Service Automation Portal uses Role-Based Access Control (RBAC) to manage u
 
 * **RBAC Permissions:** **Delegate administrative tasks** with policies like policy.entity.create, policy.entity.update, and policy.entity.delete. (The cloud / network / rhel team users will NOT need this permission.)
 
-=== Log in to the `Self-Service portal` as `{aap_admin_username}`
+=== Log in to the `Automation Portal` as `{aap_admin_username}`
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Self-Service Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Self-Service Portal on a regular interval (configurable in the Self-Service Portal Helm chart).
+Log in to the link:{self_service_portal_url}[Automation Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. When asked to `Authorize Automation Portal?` click `Authorize`. Again, notice that the administrator user can see ALL the job templates. This automatically synchronizes to the Automation Portal on a regular interval (configurable in the Automation Portal Helm chart).
 
-NOTE: Self-service portal has a default synchronization schedule of 60 minutes.
+NOTE: Automation Portal has a default synchronization schedule of 60 minutes.
 
-At any time as an administrator you can use the `Sync now` button to trigger an immediate synchronization of Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Self-Service Portal.
+At any time as an administrator you can use the `Sync now` button to trigger an immediate synchronization of Organizations, Users, Teams, and Job Templates from Ansible Automation Platform to the Automation Portal.
 
-image::ssapadmin.png[Self-Service Portal home page as admin user: Top header shows 'Self-Service Portal' title and logged-in username. Left navigation includes Administration and Catalog menu items. Main content area displays job template tiles grouped by category - Cloud/AWS templates shown with blue styling, Network templates with green, RHEL templates with red. Each tile shows template name and blue 'Start' button. Administrator sees all approximately 15 templates. Non-admin users will see only templates authorized by RBAC policies,link=self,window=blank]
+image::ssapadmin.png[Automation Portal home page as admin user: Top header shows 'Automation Portal' title and logged-in username. Left navigation includes Administration and Catalog menu items. Main content area displays job template tiles grouped by category - Cloud/AWS templates shown with blue styling, Network templates with green, RHEL templates with red. Each tile shows template name and blue 'Start' button. Administrator sees all approximately 15 templates. Non-admin users will see only templates authorized by RBAC policies,link=self,window=blank]
 
-=== Configure RBAC in the Self Service Automation Portal
+=== Configure RBAC in the Automation Portal
 
-Now let's configure RBAC in the Self Service Automation Portal to allow the Portal users to see the automation templates they are authorized to execute.
+Now let's configure RBAC in the Automation Portal to allow the Portal users to see the automation templates they are authorized to execute.
 
-Log in to the link:{self_service_portal_url}[Self-Service Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `ssa-portal-rhel-team`
+Log in to the link:{self_service_portal_url}[Automation Portal^] with the `{aap_admin_username}` user and password `{aap_admin_password}`. You need to create a new RBAC role to allow the Portal users to see the automation templates they are authorized to execute. We will create 2 RBAC roles, `ssa-portal-users` and `ssa-portal-rhel-team`
 
-image::ssaprbac.png[Self-Service Portal Administration menu: Click 'Administration' in bottom left corner to expand menu showing options including 'RBAC', 'Plugins', and 'Settings'. Click 'RBAC' to navigate to RBAC policies page. On RBAC page, blue 'Create' button in top right area starts the policy creation workflow for new RBAC roles like ssa-portal-users and ssa-portal-rhel-team,link=self,window=blank]
+image::ssaprbac.png[Automation Portal Administration menu: Click 'Administration' in bottom left corner to expand menu showing options including 'RBAC', 'Plugins', and 'Settings'. Click 'RBAC' to navigate to RBAC policies page. On RBAC page, blue 'Create' button in top right area starts the policy creation workflow for new RBAC roles like ssa-portal-users and ssa-portal-rhel-team,link=self,window=blank]
 
 ==== Create the `ssa-portal-users` role.
 . In the bottom left corner expand the `Administration` menu and Click on `RBAC`, then click on `Create`.
@@ -260,7 +260,7 @@ The final view of this section should look like this:
 
 image::final-rbac-roles.png[RBAC policies list showing two completed policies: 'ssa-portal-users' with description 'Role for Cloud and Network teams' assigned to 2 groups (cloud-team, network-team), and 'ssa-portal-rhel-team' with description 'Role for RHEL team' assigned to 1 group (rhel-team) with conditional rule indicated. Both policies show catalog and scaffolder permissions configured. This view confirms successful RBAC configuration for all three teams,link=self,window=blank]
 
-NOTE: Form more details on how to create RBAC roles and permissions, please refer to the link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/latest/html/installing_self-service_automation_portal/self-service-accessing-deployment_aap-self-service-install#self-service-initial-rbac-setup_self-service-accessing-deployment[Self-Service Portal - RBAC Setup Documentation^].
+NOTE: Form more details on how to create RBAC roles and permissions, please refer to the link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/latest/html/installing_self-service_automation_portal/self-service-accessing-deployment_aap-self-service-install#self-service-initial-rbac-setup_self-service-accessing-deployment[Automation Portal - RBAC Setup Documentation^].
 
 == Verify your Portal RBAC configuration
 
@@ -322,8 +322,8 @@ By completing this module, you should now understand:
 
 * **How RBAC works in Ansible Automation Platform 2.6** - The relationship between users, teams, organizations, and permissions, and how to implement least-privilege access control
 * **How to configure team-based access control** - Creating teams and assigning specific roles to job templates, inventories, and credentials for different IT domains
-* **How RBAC works in Self-Service Automation Portal** - The permissions framework built on Red Hat Developer Hub and how it controls catalog and scaffolder access
+* **How RBAC works in Automation Portal** - The permissions framework built on Red Hat Developer Hub and how it controls catalog and scaffolder access
 * **How to create permission policies in the portal** - Building roles for different user groups and applying conditional rules for advanced access scenarios
-* **The synchronization relationship between AAP and the portal** - How organizations, users, teams, and job templates automatically sync from AAP to the Self-Service Portal
+* **The synchronization relationship between AAP and the portal** - How organizations, users, teams, and job templates automatically sync from AAP to the Automation Portal
 
-You've successfully configured role-based access control across both Ansible Automation Platform and Self-Service Automation Portal. Your teams now have the proper permissions to access their domain-specific automation. Let's move on to the next module where you will test the Self-Service Automation Portal from different user perspectives.
+You've successfully configured role-based access control across both Ansible Automation Platform and Automation Portal. Your teams now have the proper permissions to access their domain-specific automation. Let's move on to the next module where you will test the Automation Portal from different user perspectives.
