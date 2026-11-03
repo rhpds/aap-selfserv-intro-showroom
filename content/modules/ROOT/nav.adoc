@@ -1,13 +1,11 @@
 * xref:index.adoc[Workshop Home]
 
-* xref:overview.adoc[Workshop Overview]
-
 * xref:details.adoc[Workshop Details]
 
-* xref:module-01.adoc[Module 1: Configure Ansible Automation Platform for Self-Service Portal]
+* xref:module-01.adoc[Module 1: Configure Ansible Automation Platform for Automation Portal]
 ** xref:module-01.adoc#aaprbac[Configuring RBAC in AAP 2.6]
 ** xref:module-01.adoc#validate[Validate content synchronization]
-** xref:module-01.adoc#ssprbac[Configure RBAC in Self-Service Portal]
+** xref:module-01.adoc#ssprbac[Configure RBAC in Automation Portal]
 
 * xref:module-02.adoc[Module 2: User Persona Testing]
 ** xref:module-02.adoc#clouduser1[Test as clouduser1]
@@ -18,5 +16,18 @@
 ** xref:module-03.adoc#surveys[Modify surveys and see synchronization]
 ** xref:module-03.adoc#import[Import a custom dynamic template]
 ** xref:module-03.adoc#launch[Launch the custom template]
+
+* xref:module-04.adoc[Module 4: Content Discovery]
+** xref:module-04.adoc#content-discovery-overview[What is content discovery?]
+** xref:module-04.adoc#repos[Discover Git repositories]
+** xref:module-04.adoc#collections[Discover collections]
+
+* xref:module-05.adoc[Module 5: Build and use an execution environment]
+** xref:module-05.adoc#ee-scenario[Scenario: Network operations needs a standard EE]
+** xref:module-05.adoc#ee-prereqs[Before you start]
+** xref:module-05.adoc#ee-builder[Create the execution environment definition]
+** xref:module-05.adoc#github-build[Review the result in GitHub]
+** xref:module-05.adoc#hub-registry[How the image reaches Private Automation Hub]
+** xref:module-05.adoc#use-ee-on-jt[Use the EE on a job template]
 
 * xref:conclusion.adoc[Workshop Conclusion]

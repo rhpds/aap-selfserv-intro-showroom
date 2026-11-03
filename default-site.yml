@@ -1,6 +1,6 @@
 ---
 site:
-  title: Introduction to Ansible Automation Platform Self-Service Automation portal
+  title: Introduction to Automation Portal
   url: https://rhpds.github.io/aap-selfserv-intro-showroom
   start_page: modules::index.adoc
 

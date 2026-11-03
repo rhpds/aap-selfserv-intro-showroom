@@ -6,37 +6,78 @@ image::aap-logo.png[Ansible Automation Platform logo with Red Hat branding,55%,5
 
 == What you'll learn
 
-In this hands-on workshop, you will enable self-service automation for teams across your organization using Red Hat Ansible Automation Platform's Self-Service Automation Portal. You'll configure role-based access control (RBAC), test different user personas, and create custom automation templates—all without requiring users to become Ansible experts.
+In this hands-on workshop you will use **Automation Portal**, the Ansible Automation Platform experience that helps teams **discover** automation content, **create** assets such as execution environments, and **share** that capability with domain experts under governance. You will configure RBAC, try the portal as different user personas, work with surveys and custom templates, explore **content discovery**, and build an **execution environment**, so more teams can use automation without everyone becoming a platform engineer.
+
+By the end, you will be able to:
+
+* Configure RBAC in AAP and Automation Portal so each domain team sees the right automation
+* Validate portal sync and exercise the catalog as cloud, network, and RHEL personas
+* Improve the launch experience with surveys and a custom dynamic template
+* Use content discovery to browse repositories and collections
+* Build an execution environment in the portal, follow the GitHub build, and use that EE on a job template
 
 == The challenge
 
-Your organization has invested in Ansible Automation Platform and built automation workflows, but adoption is slow. Subject matter experts in cloud, network, and Linux domains want to run automation as part of their daily work, but they don't want to learn Ansible or navigate complex interfaces.
+Your organization has invested in Ansible Automation Platform and built automation workflows, but adoption is slow and content sprawl can make that worse. Collections live in **Private Automation Hub**, playbooks and pipelines sit in **Git**, and useful work is often **siloed inside individual teams**. Subject matter experts in cloud, network, and Linux want to use that automation in their day-to-day work, but they should not have to hunt across tools or become platform engineers to do it.
 
-**Self-Service Automation Portal, part of Ansible Automation Platform** solves this by providing a simple, secure interface that maintains governance through RBAC while broadening who can use automation.
+**Automation Portal** gives teams a governed place to **discover** what already exists, **create** what is missing (like execution environments), and **share capability** with the people authorized to use it, while platform owners keep control through AAP identity and RBAC.
+
+== What is Automation Portal?
+
+Automation Controller remains where you operate and run automation at scale. Automation Portal complements it for adoption by allowing users to find content, build assets with guided tools, and share ready automation with SMEs. In this workshop you will work with these portal capabilities:
+
+* **Content discovery**: Browse collections and Git repositories from Private Automation Hub and your organization in one searchable catalog, so teams see trusted content before they build something new.
+* **Execution Environment Builder**: A guided, visual path to define EEs, generate definition files into Git, and drive builds toward your registry or Hub (generally available with AAP 2.7).
+* **Self-service catalog**: Domain experts launch the automation they are authorized to run (job templates and custom forms) using the same AAP identity, teams, and RBAC.
+
+The portal syncs organizations, users, teams, and templates from AAP and uses single sign-on with AAP credentials. Self-service is how the portal **shares** governed capability with domain teams. Discovery and EE creation are part of that same experience.
 
 == Workshop structure
 
-This is a **2-hour workshop**:
+About **3 hours** total (adjust with your facilitator): roughly 15 minutes of intro, then hands-on modules.
 
-* **15 minutes**: Introduction presentation
-* **105 minutes**: Hands-on exercises across 3 modules
+=== Module 1: Configure AAP and Automation Portal for governed access
 
-|===
-|Module |Duration |Focus
+**Duration**: 35 minutes
 
-|**Module 1**
-|35 minutes
-|Configure RBAC in AAP and Self-Service Portal
+Set up domain teams and permissions in AAP, then portal RBAC policies so catalog access matches those teams, and confirm content sync.
 
-|**Module 2**
-|30 minutes
-|Test as different user personas (cloud, network, RHEL)
+=== Module 2: User persona testing
 
-|**Module 3**
-|40 minutes
-|Modify surveys and import custom dynamic templates
-|===
+**Duration**: 30 minutes
 
-== Let's get started!
+Sign in as cloud, network, and RHEL users. Confirm each persona only sees and can run authorized automation.
 
-Click on **"Workshop Overview"** in the navigation menu to understand the business scenario and learning objectives, or jump directly to **"Module 1"** to start building.
+=== Module 3: Surveys and custom templates
+
+**Duration**: 40 minutes
+
+Change a job template survey in AAP, see it in the portal, then import and launch a custom dynamic template.
+
+=== Module 4: Content discovery
+
+**Duration**: 20 minutes
+
+Browse discoverable Git repositories and collections (including Hub-backed and customer `northwind` content) in the portal catalog.
+
+=== Module 5: Build and use an execution environment
+
+**Duration**: 45 minutes
+
+Use Execution Environment Builder against a lab GitHub repo, review the PR and Actions build, then assign the EE to a Network job template and run it.
+
+== Who this is for
+
+* AAP administrators and platform owners responsible for governance and adoption
+* DevOps / platform engineers enabling other teams to discover, create, and run automation
+* Architects designing how automation reaches domain SMEs
+
+**Prerequisites:**
+
+* **A GitHub account** (required for Module 5). You will join the lab GitHub organization/team and sign in to GitHub from Automation Portal.
+* Basic familiarity with AAP (organizations, users, teams, job templates) and RBAC concepts
+* A modern browser (Chrome, Firefox, or Edge recommended)
+
+== Next steps
+
+Open xref:details.adoc[Workshop Details] to verify URLs and credentials, then start xref:module-01.adoc[Module 1].

@@ -1,16 +1,18 @@
 name: modules
-title: Introduction to Ansible Automation Platform Self-Service Automation portal
+title: Introduction to Automation Portal
 version: master
 nav:
   - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    lab_name: "Introduction to Ansible Automation Platform Self-Service Automation portal"
+    lab_name: "Introduction to Automation Portal"
     release-version: master
     page-pagination: true
     my_var: "foo"
     guid: my-guid
+    # Injected by showroom/userdata when available; used in Module 5 repo examples
+    github_ee_org: AAP-Automation-Portal-Lab
     ssh_user: devops
     ssh_password: devops
     ssh_command: ssh someone@example.com
