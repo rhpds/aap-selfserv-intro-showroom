@@ -91,5 +91,7 @@ Your AAP instance already includes domain inventories, credentials, projects, an
 == Authors & Feedback
 
 Developed by the Red Hat Technical Marketing team to demonstrate Automation Portal capabilities.
+
 For questions or feedback ask your facilitator.
-To report workshop issues or bugs, please link:https://github.com/ansible/workshops/issues/new?title=Issue+with+portal+lab&assignees=amoyament[open an issue on GitHub^].
+
+To report workshop issues or bugs, please link:https://github.com/ansible/workshops/issues/new?title=Issue+with+Automation+Portal+lab&assignees=amoyament[open an issue on GitHub^].
