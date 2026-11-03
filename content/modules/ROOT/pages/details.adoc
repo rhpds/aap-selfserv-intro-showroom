@@ -84,12 +84,12 @@ Your AAP instance already includes domain inventories, credentials, projects, an
 
 [IMPORTANT]
 ====
-When switching users between AAP and Automation Portal:
-
-* Prefer **new-tab** links to the portal (GitHub OAuth in Module 5 cannot run reliably inside the Showroom iframe)
-* Between personas, **log out of both Ansible Automation Platform and Automation Portal** before signing in as the next user.
+* **Switching personas:** Log out of both Ansible Automation Platform and Automation Portal before signing in as the next user.
+* **Opening the portal (especially Module 5):** Use a **new browser tab** for portal links. GitHub OAuth cannot run reliably inside the Showroom iframe.
 ====
 
-== Authors
+== Authors & Feedback
 
-Developed by the Red Hat Technical Marketing team to demonstrate Automation Portal capabilities. Questions or feedback: ask your facilitator.
+Developed by the Red Hat Technical Marketing team to demonstrate Automation Portal capabilities.
+For questions or feedback ask your facilitator.
+To report workshop issues or bugs, please link:https://github.com/ansible/workshops/issues/new?title=Issue+with+portal+lab&assignees=amoyament[open an issue on GitHub^].
