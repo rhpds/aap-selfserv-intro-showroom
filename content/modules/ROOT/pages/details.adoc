@@ -52,25 +52,29 @@ If any check fails, contact your facilitator before Module 1.
 * **Automation Portal**: link:{self_service_portal_url}[Open Automation Portal in a new tab^]
 * **OpenShift Console**: link:{openshift_console_url}[{openshift_console_url}^]
 
-**Users** (password for all listed users: `{aap_admin_password}`):
+**Users:**
 
 |===
-|Role |Username |Use in this workshop
+|Role |Username |Password |Use in this workshop
 
 |Administrator
 |`{aap_admin_username}`
+|`{aap_admin_password}`
 |AAP + portal configuration (Modules 1, 3-5)
 
 |Cloud team
 |`clouduser1`
+|`{aap_admin_password}`
 |Persona testing (Module 2)
 
 |Network team
 |`networkuser1`
+|`{aap_admin_password}`
 |Persona testing (Module 2); EE consumer path (Module 5)
 
 |RHEL team
 |`rheluser1`
+|`{aap_admin_password}`
 |Persona testing (Module 2)
 |===
 

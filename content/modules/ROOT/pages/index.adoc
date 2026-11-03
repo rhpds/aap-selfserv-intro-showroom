@@ -79,7 +79,3 @@ Use Execution Environment Builder against a lab GitHub repo, review the PR and A
 * **A GitHub account** (required for Module 5). You will join the lab GitHub organization/team and sign in to GitHub from Automation Portal.
 * Basic familiarity with AAP (organizations, users, teams, job templates) and RBAC concepts
 * A modern browser (Chrome, Firefox, or Edge recommended)
-
-== Next steps
-
-Open xref:details.adoc[Workshop Details] to verify URLs and credentials, then start xref:module-01.adoc[Module 1].
