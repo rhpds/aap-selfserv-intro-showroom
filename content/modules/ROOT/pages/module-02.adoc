@@ -10,7 +10,7 @@ By the end of this module, you'll be able to:
 * Run automation jobs as domain-specific users (cloud, network, RHEL administrators)
 * Verify that users can only access credentials and inventories they're authorized to use
 
-In the first part of this workshop, we configured Ansible Automation Platform for Automation Portal and configured RBAC in AAP 2.6 that will be used for Automation Portal.
+In the first part of this workshop, we configured Ansible Automation Platform for Automation Portal and configured RBAC in AAP 2.7 that will be used for Automation Portal.
 In this part of the workshop, we will test the Automation Portal with the different user personas we created in the previous section.
 
 The 3 user personas we will test are a Cloud Administrator, a Network Administrator, and a Red Hat Enterprise Linux (RHEL) Administrator, all with different expertise but with limited knowledge of automation and Ansible Automation Platform. They just need to be able to run automation jobs that are relevant to their IT domains.
@@ -22,7 +22,7 @@ The 3 user personas we will test are a Cloud Administrator, a Network Administra
 |**rheluser1**|`{aap_admin_password}` (same as AAP admin password)
 |===
 
-NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Automation Portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
+NOTE: When switching users, **log out of both Ansible Automation Platform and Automation Portal** before signing in as the next user.
 
 [#clouduser1]
 == Test as user **clouduser1**

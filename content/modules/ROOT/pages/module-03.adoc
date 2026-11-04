@@ -13,7 +13,7 @@ By the end of this module, you'll be able to:
 
 In the previous section, you experienced the Automation Portal with the different user personas. In this section, you will modify surveys on some job templates. See the results in Automation Portal. Then you will import a custom dynamic template.
 
-NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Automation Portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
+NOTE: When switching users, **log out of both Ansible Automation Platform and Automation Portal** before signing in as the next user.
 
 [#surveys]
 == What are surveys in Ansible Automation Platform?
