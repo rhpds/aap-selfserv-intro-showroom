@@ -67,13 +67,13 @@ Starting with the `cloud-team`:
 image::assignroles.png[Roles tab for cloud-team showing list of currently assigned roles (initially empty) and blue 'Assign roles' button in top right to add new permissions. Click this button to start the multi-step role assignment workflow for job templates, inventories, and credentials,link=self,window=blank]
 
 . In the `Assign roles` step one, select `Job Template` as the resource type, and click `Next`.
-. In step 2, select all the job templates that begin with `Cloud/AWS` and the **`GitHub Join Lab Team`** template, then click `Next`.
+. In step 2, select all the job templates that begin with `Cloud/AWS`, then click `Next`.
 . In step 3, select the role to apply, please select `Job Template Execute`, and click `Next`.
 . In step 4, review your work, and click `Finish`.
 
-image::selectjobtemplates.png[Resource Selection step showing checkboxes next to multiple Cloud/AWS job templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance'. Select all templates starting with 'Cloud/AWS' by clicking their checkboxes, and also select 'GitHub Join Lab Team'. Blue 'Next' button at bottom right proceeds to role selection,link=self,window=blank]
+image::selectjobtemplates.png[Resource Selection step showing checkboxes next to multiple Cloud/AWS job templates including 'Cloud/AWS Create Instance', 'Cloud/AWS Check Region Connectivity', 'Cloud/AWS Terminate Instance'. Select all templates starting with 'Cloud/AWS' by clicking their checkboxes. Blue 'Next' button at bottom right proceeds to role selection,link=self,window=blank]
 
-image::finish1strole.png[Review screen displaying summary of role assignment: Resource type shows 'Job Template', selected resources list all Cloud/AWS templates plus GitHub Join Lab Team, and Role shows 'Job Template Execute' permission. Blue 'Finish' button at bottom right completes the assignment and returns to cloud-team Roles tab,link=self,window=blank]
+image::finish1strole.png[Review screen displaying summary of role assignment: Resource type shows 'Job Template', selected resources list all Cloud/AWS templates, and Role shows 'Job Template Execute' permission. Blue 'Finish' button at bottom right completes the assignment and returns to cloud-team Roles tab,link=self,window=blank]
 
 Repeat the same process for assiging roles by adding the following roles:
 
@@ -84,11 +84,10 @@ For `Inventory`, select the following inventories and click `Next`.
 * `AWS Inventory`
 * `Azure Inventory`
 * `GCP Inventory`
-* `Demo Inventory`
 
 * `Next` -> select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-image::assigninventoryrole.png[Inventory selection screen showing checkboxes for 'AWS Inventory', 'Azure Inventory', 'GCP Inventory', and 'Demo Inventory'. Select all four by clicking their checkboxes. This grants cloud-team Use permission to reference these inventories when launching job templates. Next button proceeds to role selection where you will choose 'Inventory Use',link=self,window=blank]
+image::assigninventoryrole.png[Inventory selection screen showing checkboxes for 'AWS Inventory', 'Azure Inventory', and 'GCP Inventory'. Select all three by clicking their checkboxes. This grants cloud-team Use permission to reference these inventories when launching job templates. Next button proceeds to role selection where you will choose 'Inventory Use',link=self,window=blank]
 
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: **Automation Execution** `Credential`
 
@@ -112,9 +111,9 @@ image::assignuserrole.png[Users tab for cloud-team showing current team members 
 
 For `network-team`, assign the following:
 
-* For Resource Type: `Job Template`, select all the job templates that begin with `Network/` and the **`GitHub Join Lab Team`** template, then click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Network/`, then click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: `Inventory`, select the `Network Inventory` and `Demo Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Inventory`, select the `Network Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: **Automation Execution** `Credential`, select the `Network Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
@@ -124,9 +123,9 @@ While still on the `network-team` page, assign the following `Users` to the `net
 
 For `rhel-team`, assign the following:
 
-* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, AND add `Cloud/AWS Create RHEL10 instance`, `Cloud/AWS Create RHEL9 instance`, `RHEL / Update RHEL Time Servers`, and **`GitHub Join Lab Team`**, then click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Linux/RHEL`, AND add `Cloud/AWS Create RHEL10 instance`, `Cloud/AWS Create RHEL9 instance`, and `RHEL / Update RHEL Time Servers`, then click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: `Inventory`, select the `RHEL Inventory`, `AWS Inventory`, and `Demo Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Inventory`, select the `RHEL Inventory` and `AWS Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
 * For Resource Type: **Automation Execution** `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
@@ -154,24 +153,24 @@ Click on `cloud-team` → `Roles` tab
 
 ✅ **Expected result**: You should see roles assigned for:
 
-- **Job Templates**: All `Cloud/AWS*` templates and **`GitHub Join Lab Team`** with "Execute" permission
-- **Inventories**: AWS, Azure, GCP, and **Demo Inventory** with "Use" permission
+- **Job Templates**: All `Cloud/AWS*` templates with "Execute" permission
+- **Inventories**: AWS, Azure, and GCP with "Use" permission
 - **Credentials**: AWS, Azure, RHEL SSH with "Use" permission
 
 Click on `network-team` → `Roles` tab
 
 ✅ **Expected result**: You should see roles assigned for:
 
-- **Job Templates**: All `Network/*` templates and **`GitHub Join Lab Team`** with "Execute" permission
-- **Inventories**: Network Inventory and **Demo Inventory** with "Use" permission
+- **Job Templates**: All `Network/*` templates with "Execute" permission
+- **Inventories**: Network Inventory with "Use" permission
 - **Credentials**: Network Credentials with "Use" permission
 
 Click on `rhel-team` → `Roles` tab
 
 ✅ **Expected result**: You should see roles assigned for:
 
-- **Job Templates**: All `Linux/RHEL*` templates, `Cloud/AWS Create RHEL10 instance`, `Cloud/AWS Create RHEL9 instance`, `RHEL / Update RHEL Time Servers`, and **`GitHub Join Lab Team`** with "Execute" permission
-- **Inventories**: RHEL Inventory, AWS Inventory, and **Demo Inventory** with "Use" permission
+- **Job Templates**: All `Linux/RHEL*` templates, `Cloud/AWS Create RHEL10 instance`, `Cloud/AWS Create RHEL9 instance`, and `RHEL / Update RHEL Time Servers` with "Execute" permission
+- **Inventories**: RHEL Inventory and AWS Inventory with "Use" permission
 - **Credentials**: AWS Credential and RHEL - SSH Credentials with "Use" permission
 
 **Verification 3: Confirm user assignments**
