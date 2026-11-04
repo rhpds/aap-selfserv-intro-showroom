@@ -92,8 +92,6 @@ image::assigninventoryrole.png[Inventory selection screen showing checkboxes for
 
 `Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: **Automation Execution** `Credential`
 
-NOTE: The resource type list may show **Credential** under both **Automation Decisions** and **Automation Execution**. Choose the one under **Automation Execution**.
-
 For that credential type, select the following 3 credentials and click `Next`.
 
 * `AWS Credential`
@@ -118,7 +116,7 @@ For `network-team`, assign the following:
 
 * For Resource Type: `Inventory`, select the `Network Inventory` and `Demo Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: **Automation Execution** `Credential` (not Automation Decisions), select the `Network Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: **Automation Execution** `Credential`, select the `Network Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `network-team` page, assign the following `Users` to the `network-team`:
 
@@ -130,7 +128,7 @@ For `rhel-team`, assign the following:
 
 * For Resource Type: `Inventory`, select the `RHEL Inventory`, `AWS Inventory`, and `Demo Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: **Automation Execution** `Credential` (not Automation Decisions), select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: **Automation Execution** `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `rhel-team` page, assign the following `Users` to the `rhel-team`:
 
