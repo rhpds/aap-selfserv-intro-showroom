@@ -1,0 +1,215 @@
+= Build and use an execution environment
+
+== Learning objectives
+
+By the end of this module, you'll be able to:
+
+* Describe why teams need purpose-built **execution environments (EEs)**
+* Use Automation Portal’s **Execution Environment Builder** to create an EE definition
+* Publish the definition to the lab’s **pre-created GitHub repository** and follow the build in GitHub Actions
+* Explain (at a high level) how the repo uses tokens/secrets to push images to **Private Automation Hub**
+* Assign the new EE to a job template in AAP and run automation with it
+
+In Module 4 you discovered collections and Git content in the portal.
+Now you will **package** some of that content into an execution environment the network team can rely on.
+
+NOTE: When switching users, **log out of both Ansible Automation Platform and Automation Portal** before signing in as the next user. Prefer a **new browser tab** for the portal link (especially before GitHub OAuth); you do not need a separate private/incognito window for persona switches.
+
+[#ee-scenario]
+== Scenario: Network operations needs a standard EE
+
+Your **network operations** team is expanding Ansible usage for device onboarding and related jobs.
+They need a consistent runtime that includes:
+
+* Selected **certified** network-oriented collections (for example Cisco IOS related content available in this lab’s Hub)
+* Your organization’s **customer** collection content from content discovery (the `northwind.network` collection)
+* A small set of OS / Python packages the build requires
+* A clear marker in the definition that this EE was produced through **Automation Portal**
+
+Today that work often means hand-editing `execution-environment.yml` files and wiring CI.
+With AAP 2.7, Automation Portal provides a **visual Execution Environment Builder**: choose collections and options, generate the definition into Git, and kick off the build pipeline.
+
+You will:
+
+. Create the EE definition in the portal
+. Land it in the lab GitHub repo (pull request + workflow)
+. Confirm the image path toward Private Automation Hub
+. Point a **Network** job template at the new EE and run it
+
+[#ee-prereqs]
+== Before you start
+
+=== Lab GitHub repository (already created)
+
+This workshop **pre-creates** an EE GitHub repository and Actions configuration for your instance so you do not invent secrets from scratch.
+
+* **Organization**: `AAP-Automation-Portal-Lab`
+* **Repository name pattern**: `{guid}-user1-ee` (your `{guid}` is unique to this lab)
+* Example: if your guid is `26k2w`, the repo resembles `26k2w-user1-ee`
+
+[IMPORTANT]
+====
+In the EE Builder, choose **an existing repository** (the pre-created lab repo).
+Do **not** create a brand-new GitHub repository from the template—the lab repo already has the workflow stub and Hub/registry secrets the build needs.
+====
+
+=== GitHub access for the portal scaffolder
+
+EE Builder uses your **GitHub** identity (OAuth) to open a pull request and dispatch the build workflow.
+
+[IMPORTANT]
+====
+**Before you connect GitHub**, open the portal in a **new browser tab** using this link (it opens outside the Showroom panel):
+
+link:{self_service_portal_url}[Open Automation Portal in a new tab^]
+
+GitHub blocks login inside the embedded Showroom iframe. Complete AAP sign-in and the GitHub authorize step in that new tab only.
+====
+
+* When the portal prompts you to sign in to GitHub (or connect a GitHub account), complete the flow in the **new tab**.
+* Use a GitHub user that can access the `AAP-Automation-Portal-Lab` organization for this lab. If you are not a member yet, run the **GitHub Join Lab Team** job template in AAP (survey: your GitHub username) and accept the org invite email if prompted.
+
+✅ **Expected result**: You can authenticate to GitHub from the portal without errors before starting the EE template.
+
+[#ee-builder]
+== Create the execution environment definition
+
+In the **new browser tab** you opened above, log in to the link:{self_service_portal_url}[Automation Portal^] as `{aap_admin_username}` with password `{aap_admin_password}` (if you are not already signed in).
+
+=== Open Execution Environment Builder
+
+* From the portal, open the **Create** / scaffolder experience and locate the **Execution Environment** template (for example “Create an Execution Environment” / start-from-scratch style template).
+
+* Start the template.
+
+=== Name and describe the EE
+
+Use values that match the network scenario, for example:
+
+* **Name / directory**: `network-ops-ee` (or similar; avoid spaces)
+* **Description**: Something like `Network ops EE for Northwind device automation`
+
+=== Select collections
+
+Using the visual selector and Hub-backed lists where available:
+
+* Add **`northwind.network`** (customer collection from content discovery)
+* Add at least one **certified / Hub** network-related collection available in this lab (for example a Cisco IOS or `ansible.netcommon`-style collection if listed)
+
+[NOTE]
+====
+Exact collection tiles depend on what Hub has synced into this environment.
+Prefer collections you already spotted in Module 4.
+====
+
+=== Add packages (optional but recommended)
+
+If the builder offers system or Python package fields:
+
+* Add a simple, harmless package the lab can resolve (for example `git` as a system package, or a small Python package your facilitator confirms).
+* The goal is to see that the definition captures more than collections alone.
+
+=== Document that Automation Portal created this EE
+
+Add a build step, label, or description field (whatever the form exposes) that records portal provenance, for example:
+
+* A RUN / prepend step or comment such as: `Created with Ansible Automation Platform Automation Portal EE Builder`
+* Or put the same sentence in the EE description if build steps are not shown in this UI build
+
+✅ **Expected result**: Your form includes Northwind + at least one Hub collection, optional packages, and a clear portal provenance note.
+
+=== Publish to the existing lab repository
+
+* When prompted for Git hosting, choose **GitHub**.
+* Select the **existing** repository `{guid}-user1-ee` under `AAP-Automation-Portal-Lab` (do not create a new repo).
+* Complete the remaining prompts (owner, branch / PR behavior) using the defaults recommended by the template unless your facilitator directs otherwise.
+* Submit / create the EE.
+
+✅ **Expected result**: The scaffolder finishes the publish steps and starts (or offers) the EE build workflow. If a step mentions registering a catalog component, that is expected.
+
+[#github-build]
+== Review the result in GitHub
+
+Open the repository in a browser:
+
+`https://github.com/AAP-Automation-Portal-Lab/{guid}-user1-ee`
+
+=== Pull request and definition files
+
+* Open the newest pull request created by the portal (title often references your EE name).
+* Review the changed files. You should see an EE directory (for example `network-ops-ee/`) with definition YAML, plus updates under `.github/workflows/` as provided by the builder.
+
+✅ **Expected result**: The PR shows the EE definition content you configured—not an empty repository.
+
+=== GitHub Actions build
+
+* Open the **Actions** tab for the repository.
+* Find the **Build Execution Environment** (or similarly named) workflow run tied to this EE.
+* Open the run and watch until it completes.
+
+[IMPORTANT]
+====
+Builds can take several minutes (image pull, collection install, push).
+If the run fails, check the job log for Hub authentication or missing collection errors and ask your facilitator—do not invent new registry passwords.
+====
+
+✅ **Success indicator**: The workflow concludes successfully (green).
+
+[#hub-registry]
+== How the image reaches Private Automation Hub (brief)
+
+You do not need to configure secrets in this exercise—they were set when the lab was provisioned—but you should understand the pattern:
+
+* The GitHub repo stores **Actions secrets / variables** used by `ee-build.yml`
+* **Galaxy / Hub tokens** allow the build to pull collections from Private Automation Hub during the image build
+* **Registry username / password** (for this lab, aligned with your AAP admin credentials pattern) allow the workflow to **push** the finished EE image to the Hub registry
+* Organizations can point the same style of workflow at **other registries** (Quay, mirrored registries, etc.) by changing registry URL and credentials—Hub is the default target in this workshop
+
+[NOTE]
+====
+**Key learning**: EE Builder generates the definition and kicks CI; **GitHub Actions + Hub credentials** perform the actual image build and publish.
+Portal makes the path accessible; platform teams still own registry and secret hygiene.
+====
+
+Optionally confirm in AAP / Hub that a new execution environment image or EE entry appeared for your build (name/tag from the template). Refresh if needed—indexing can lag slightly behind a green Actions run.
+
+[#use-ee-on-jt]
+== Use the EE on a job template
+
+Log in to the link:{aap_controller_url}[Ansible Automation Platform^] as `{aap_admin_username}` with password `{aap_admin_password}`.
+
+=== Assign the EE to a Network job template
+
+* Go to `Automation Execution` → `Job Templates`.
+* Open **`Network/Onboard Network Device`** (or another Network job template your facilitator designates).
+* Edit the template.
+* Set **Execution Environment** to the EE you just built (select the image/EE matching your portal build name and tag).
+* Save.
+
+✅ **Expected result**: The job template shows your new EE on the Details view.
+
+=== Run the job
+
+* Launch **`Network/Onboard Network Device`**.
+* Choose the Network inventory / credentials you already used in Module 2 if prompted.
+* Wait for the job to finish.
+
+✅ **Success indicator**: Job status is **Successful**, and the job details show it ran using your new execution environment.
+
+[NOTE]
+====
+**Optional portal check**: In a private browser window, log in to the portal as `networkuser1` and launch the same Network job from the catalog.
+The end user still gets a simple Start experience; the platform team supplied a better runtime underneath.
+====
+
+== Learning outcomes
+
+By completing this module, you should now understand:
+
+* **Why purpose-built EEs matter** - Domain teams need predictable runtimes with the right collections and packages
+* **How EE Builder fits Automation Portal** - Visual selection produces definition files and drives Git-based build flow
+* **How GitHub and Hub connect** - Pre-seeded secrets let Actions pull from Hub and push EE images; other registries are a configuration choice
+* **How EEs connect to self-service** - Job templates (and portal launches) consume the EE you published
+
+You discovered content in Module 4 and packaged it into a runnable EE in Module 5.
+That closes the loop from **discover → create → deploy** for execution environments in Automation Portal.

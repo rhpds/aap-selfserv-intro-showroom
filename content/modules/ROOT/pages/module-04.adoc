@@ -1,0 +1,129 @@
+= Content Discovery
+
+== Learning objectives
+
+By the end of this module, you'll be able to:
+
+* Explain what **content discovery** means in Automation Portal
+* Browse **Git repositories** available to your organization from the portal
+* Explore **collections** in the portal catalog, including filters
+* Distinguish **certified / validated** content from **customer (custom) collections**
+* Explain how content discovery brings Hub and Git content into one searchable catalog for your teams
+
+In Modules 1–3 you focused on **configuring and running** self-service automation: RBAC, personas, surveys, and custom templates.
+Automation Portal also helps teams **find** automation content that is otherwise scattered across Private Automation Hub, Git, and individual teams.
+
+**Content discovery** continuously syncs that content into a single, searchable catalog so users can see what is available to them—with administrators controlling scope, sync, and governance.
+
+NOTE: **FOR BEST RESULTS... When logging in and out of Ansible Automation Platform AND Automation Portal as different users, PLEASE CLOSE AND RE-OPEN YOUR BROWSER IN PRIVATE MODE (New Incognito Window) to ensure you are logged in / logged out as the correct user.**
+
+[#content-discovery-overview]
+== What is content discovery?
+
+Ansible content rarely lives in one place:
+
+* **Private Automation Hub** holds Red Hat **certified** and **validated** collections (and your published customer collections)
+* **GitHub / GitLab** holds playbooks, roles, collections-in-progress, and CI configuration
+* **Individual teams** often know about “their” repos—but others cannot find them
+
+Automation Portal’s content discovery brings those sources into one view so cloud, network, and RHEL teams can browse what the platform already provides—before they ask the automation team for help.
+
+[NOTE]
+====
+**Key idea from the product direction**: Admins choose what is discoverable and how sync runs (schedule or on demand). Governance stays with the AAP / platform team; discovery is the user-facing catalog.
+====
+
+Log in to the link:{self_service_portal_url}[Automation Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`.
+
+[#repos]
+== Discover Git repositories
+
+=== Why repositories appear in the portal
+
+The **Repositories** (Git) area is for **content discovery**, not for building execution environments yet.
+It shows Git repositories that have been made discoverable for your organization—so teams can open source links, see related automation content, and understand what already exists in Git.
+
+=== Browse repositories
+
+* Open the portal navigation and select **Git Repositories** (under content discovery).
+
+* If the catalog shows **No Git repositories found**, click **Sync Now** (top right) and wait for the sync to finish, then refresh the page.
+  Discovery only lists org repositories that look like Ansible collections (they contain a `galaxy.yml`).
+
+* Review the list of repositories available in this lab environment (for example Northwind-oriented repos under the lab GitHub org).
+
+* Open one repository and note what information the portal surfaces (name, source link, or related metadata).
+
+✅ **Expected result**: You can see one or more collection-shaped repositories from the lab organization, not an empty catalog.
+
+[NOTE]
+====
+**What you are not doing yet**: You are not creating an execution environment or pushing EE definition files.
+That comes in the next module. Here you are only learning how the portal helps users **discover** Git-hosted automation content.
+====
+
+Take a minute to click through a few repos and compare what a network-oriented repo shows versus a more general lab content repo, if both are present.
+
+[#collections]
+== Discover collections
+
+Collections package Ansible content (roles, modules, plugins) for reuse.
+In the portal, **Collections** discovery lets users browse what Hub and related sources have made available—including Red Hat content and collections your organization publishes.
+
+=== Open the Collections view
+
+* In the portal, open **Collections**.
+
+* If the list is empty, click **Sync Now** (or the equivalent sync control) so the portal pulls from this instance’s Private Automation Hub (`rh-certified`, `validated`, `community`, and `published`).
+  Customer collections such as `northwind.*` are published into Hub’s **`published`** repository during lab provision.
+
+* Notice that you can browse collections without leaving the portal or logging into Hub separately for a first look.
+
+=== Use filters and search
+
+* Try the available **filters** and/or search box (for example by name, type, or repository/source if offered).
+
+* Filter or search until you can contrast:
+
+** **Certified / Red Hat** style content (for example well-known namespaces such as `amazon.aws`, `cisco.ios`, or other certified collections synced into this lab’s Hub)
+** **Customer / published** collections for this lab (look for the `northwind` namespace—custom collections published for the workshop)
+
+✅ **Expected result**: You can find both Red Hat-oriented collections and at least one `northwind.*` customer collection (for example `northwind.network`, `northwind.platform`, or `northwind.cloud`).
+
+[IMPORTANT]
+====
+If `northwind` collections do not appear, Hub sync or publish for this instance may still be running.
+Wait a minute, refresh the Collections view, or ask your facilitator. Do not skip ahead to Module 5 until you can see custom collections—Module 5 builds on that content.
+====
+
+=== Certified vs custom (why it matters)
+
+|===
+|Kind |Typical source |Why users care
+
+|**Certified / validated**
+|Private Automation Hub remotes (Red Hat content)
+|Supported, curated content for cloud, network, and infrastructure automation
+
+|**Customer / published**
+|Your org’s Hub `published` repo (or Git-backed discovery)
+|Internal standards, Northwind-style domain collections, team-owned content
+|===
+
+[NOTE]
+====
+**Key learning**: Content discovery does not replace Hub or Git.
+It gives SMEs and platform admins a **unified place to see** what automation assets exist so they can choose the right collections and repositories when they build or run automation later.
+====
+
+== Learning outcomes
+
+By completing this module, you should now understand:
+
+* **What content discovery is** - A unified portal catalog over Hub and Git so teams can find automation available to them
+* **How repositories appear in the portal** - Git repos are listed for discovery and navigation, separate from EE Builder
+* **How collections appear in the portal** - Users can browse and filter Hub-backed content, including certified and customer collections
+* **Why custom collections matter** - Organizations publish their own collections (like `northwind.*`) alongside Red Hat content
+
+You’ve explored how Automation Portal surfaces Git repositories and collections.
+Next, you’ll use that idea in a real scenario: the **network team needs a purpose-built execution environment**, and you’ll create it with the portal’s **Execution Environment Builder**, review the GitHub result, and run a job with that EE.

@@ -53,7 +53,7 @@ Click **Next** → **Create** to launch the automation job
 
 ==== Monitor job execution
 
-You'll see the job progress in the Portal. The job will connect to AWS and execute the automation.
+You'll see the job progress in the Portal. While the job runs, the screen shows the job name and a live **elapsed time** (for example, `4 seconds`). Click **Show Logs** at any time to expand the job output; click **Hide Logs** to collapse it again.
 
 ✅ **Success indicator**: Job completes with status "Successful" (green)
 

@@ -246,10 +246,8 @@ image::ssaprbac.png[Automation Portal Administration menu: Click 'Administration
 . For the `Add permission policies` field, from the `Select plugins` dropdown select `Catalog` and `Scaffolder`.
 . Just below expand the `Catalog` plugin and select:
 .. `catalog.entity.read`
-.. `ansible.templates.view` (Use)
-.. `ansible.history.view` (Use)
-+
-The `ansible.*` navigation permissions appear under **Catalog** (not a separate Ansible plugin). Without `ansible.templates.view` and `ansible.history.view`, non-admin users get a 404 when opening Templates or History.
+.. `ansible.templates.view`
+.. `ansible.history.view`
 . Just below expand the `Scaffolder` plugin and select **ALL** the permissions **but NOT** `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.
 . Review your work, and click on `Create` to save the role.
@@ -268,7 +266,7 @@ image::ssa-portal-users-role.png[RBAC role creation wizard for portal-users: Nam
 .. In the `key` field, enter `tags`.
 .. In the `Value` field, enter `custom`, and click on `Save`.
 .. You should see the condition added to the row with a green checkmark at the end.
-.. Still under `Catalog`, also select `ansible.templates.view` (Use) and `ansible.history.view` (Use).
+.. Still under `Catalog`, also select `ansible.templates.view` and `ansible.history.view`.
 
 . Just below expand the `Scaffolder` plugin and select **ALL** the permissions **but NOT** `scaffolder.template.management` permission.
 . Scroll down and click on `Next`.

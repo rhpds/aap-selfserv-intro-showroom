@@ -94,7 +94,7 @@ Let's go ahead and import a custom dynamic template.
 
 [source,bash,role=execute]
 ----
-https://raw.githubusercontent.com/ansible-tmm/ssap-lab/main/customtemplate/rhel_dynamic.yml
+https://raw.githubusercontent.com/ansible-tmm/ssap-lab/fix/realistic-time-server-output/customtemplate/rhel_dynamic.yml
 ----
 
 image::custom1.png[Add Template Interface in Automation Portal: Dialog shows 'Select URL' option selected. Text input field labeled 'Repository URL' expects Git repository URL for custom template YAML file. Paste the GitHub raw content URL (https://raw.githubusercontent.com/...) into this field. Blue 'Analyze' button at bottom right processes the template URL and validates YAML structure before import,link=self,window=blank]
@@ -128,7 +128,7 @@ This custom template, is backed by another job template in Ansible Automation Pl
       name: Update Time Servers
       action: rhaap:launch-job-template
       input:
-        token: ${{ parameters.token }}
+        token: ${{ secrets.aapToken }}
         values:
           template: RHEL / Update RHEL Time Servers
           inventory: ${{ parameters.inventory }}
