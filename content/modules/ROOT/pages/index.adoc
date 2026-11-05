@@ -60,7 +60,7 @@ Change a job template survey in AAP, see it in the portal, then import and launc
 
 **Duration**: 20 minutes
 
-Browse discoverable Git repositories and collections (including Hub-backed and customer `northwind` content) in the portal catalog.
+Browse discoverable Git repositories and collections (including Hub-backed and custom `parasol` content) in the portal catalog.
 
 === Module 5: Build and use an execution environment
 

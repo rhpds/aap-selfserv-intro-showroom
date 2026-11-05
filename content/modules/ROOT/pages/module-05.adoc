@@ -22,7 +22,7 @@ Your **network operations** team is expanding Ansible usage for device onboardin
 They need a consistent runtime that includes:
 
 * Selected **certified** network-oriented collections (for example Cisco IOS related content available in this lab’s Hub)
-* Your organization’s **customer** collection content from content discovery (the `northwind.network` collection)
+* Your organization’s **customer** collection content from content discovery (the `parasol.network` collection)
 * A small set of OS / Python packages the build requires
 * A clear marker in the definition that this EE was produced through **Automation Portal**
 
@@ -50,7 +50,7 @@ This workshop **pre-creates** an EE GitHub repository and Actions configuration 
 [IMPORTANT]
 ====
 In the EE Builder, choose **an existing repository** (the pre-created lab repo).
-Do **not** create a brand-new GitHub repository from the template—the lab repo already has the workflow stub and Hub/registry secrets the build needs.
+Do **not** create a brand-new GitHub repository from the template, the lab repo already has the workflow stub and Hub/registry secrets the build needs.
 ====
 
 === GitHub access for the portal scaffolder
@@ -87,13 +87,13 @@ In the **new browser tab** you opened above, log in to the link:{self_service_po
 Use values that match the network scenario, for example:
 
 * **Name / directory**: `network-ops-ee` (or similar; avoid spaces)
-* **Description**: Something like `Network ops EE for Northwind device automation`
+* **Description**: Something like `Network ops EE for Parasol device automation`
 
 === Select collections
 
 Using the visual selector and Hub-backed lists where available:
 
-* Add **`northwind.network`** (customer collection from content discovery)
+* Add **`parasol.network`** (customer collection from content discovery)
 * Add at least one **certified / Hub** network-related collection available in this lab (for example a Cisco IOS or `ansible.netcommon`-style collection if listed)
 
 [NOTE]
@@ -116,7 +116,7 @@ Add a build step, label, or description field (whatever the form exposes) that r
 * A RUN / prepend step or comment such as: `Created with Ansible Automation Platform Automation Portal EE Builder`
 * Or put the same sentence in the EE description if build steps are not shown in this UI build
 
-✅ **Expected result**: Your form includes Northwind + at least one Hub collection, optional packages, and a clear portal provenance note.
+✅ **Expected result**: Your form includes Parasol + at least one Hub collection, optional packages, and a clear portal provenance note.
 
 === Publish to the existing lab repository
 
@@ -139,7 +139,7 @@ Open the repository in a browser:
 * Open the newest pull request created by the portal (title often references your EE name).
 * Review the changed files. You should see an EE directory (for example `network-ops-ee/`) with definition YAML, plus updates under `.github/workflows/` as provided by the builder.
 
-✅ **Expected result**: The PR shows the EE definition content you configured—not an empty repository.
+✅ **Expected result**: The PR shows the EE definition content you configured, not an empty repository.
 
 === GitHub Actions build
 
@@ -150,7 +150,7 @@ Open the repository in a browser:
 [IMPORTANT]
 ====
 Builds can take several minutes (image pull, collection install, push).
-If the run fails, check the job log for Hub authentication or missing collection errors and ask your facilitator—do not invent new registry passwords.
+If the run fails, check the job log for Hub authentication or missing collection errors and ask your facilitator, do not invent new registry passwords.
 ====
 
 ✅ **Success indicator**: The workflow concludes successfully (green).
@@ -158,12 +158,12 @@ If the run fails, check the job log for Hub authentication or missing collection
 [#hub-registry]
 == How the image reaches Private Automation Hub (brief)
 
-You do not need to configure secrets in this exercise—they were set when the lab was provisioned—but you should understand the pattern:
+You do not need to configure secrets in this exercise, they were set when the lab was provisioned, but you should understand the pattern:
 
 * The GitHub repo stores **Actions secrets / variables** used by `ee-build.yml`
 * **Galaxy / Hub tokens** allow the build to pull collections from Private Automation Hub during the image build
 * **Registry username / password** (for this lab, aligned with your AAP admin credentials pattern) allow the workflow to **push** the finished EE image to the Hub registry
-* Organizations can point the same style of workflow at **other registries** (Quay, mirrored registries, etc.) by changing registry URL and credentials—Hub is the default target in this workshop
+* Organizations can point the same style of workflow at **other registries** (Quay, mirrored registries, etc.) by changing registry URL and credentials, Hub is the default target in this workshop
 
 [NOTE]
 ====
@@ -171,7 +171,7 @@ You do not need to configure secrets in this exercise—they were set when the l
 Portal makes the path accessible; platform teams still own registry and secret hygiene.
 ====
 
-Optionally confirm in AAP / Hub that a new execution environment image or EE entry appeared for your build (name/tag from the template). Refresh if needed—indexing can lag slightly behind a green Actions run.
+Optionally confirm in AAP / Hub that a new execution environment image or EE entry appeared for your build (name/tag from the template). Refresh if needed, indexing can lag slightly behind a green Actions run.
 
 [#use-ee-on-jt]
 == Use the EE on a job template
