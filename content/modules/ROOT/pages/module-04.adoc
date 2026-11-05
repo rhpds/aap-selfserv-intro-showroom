@@ -4,13 +4,13 @@
 
 By the end of this module, you'll be able to:
 
+* Grant **content discovery** permissions through portal RBAC
 * Explain what **content discovery** means in Automation Portal
 * Browse **Git repositories** available to your organization from the portal
 * Explore **collections** in the portal catalog, including filters
-* Distinguish **certified / validated** content from **custom collections**
 
 In Modules 1-3 you focused on **configuring and running** self-service automation with RBAC, personas, surveys, and custom templates.
-In this module, you will see how Automation Portal uses **content discovery** to help teams find automation content that is otherwise scattered across Private Automation Hub, Git, and individual teams.
+In this module, you will unlock content discovery for the cloud and network portal role, then browse Git repositories and collections in the portal catalog.
 
 [#content-discovery-overview]
 == What is content discovery?
@@ -23,9 +23,49 @@ Ansible content rarely lives in one place:
 
 **Content discovery** continuously syncs that content into a single, searchable catalog so users can see what is available to them. Administrators choose what is discoverable and how sync runs (on a schedule or on demand). Governance stays with the AAP / platform team; discovery is the user-facing catalog.
 
-Automation Portal’s content discovery brings those sources into one view so cloud, network, and RHEL teams can browse what the platform already provides, before they ask the automation team for help.
+Automation Portal’s content discovery brings those sources into one view so teams can browse what the platform already provides.
+
+Sidebar items such as **Git Repositories**, **Collections**, and **Execution Environments** only appear for users whose portal role includes those permissions.
+In this module you will grant that access to `portal-users` (cloud and network teams). Leave `portal-rhel-team` unchanged so you can see how RBAC controls who gets content discovery.
+
+[#grant-discovery]
+== Grant content discovery permissions
 
 Log in to the link:{self_service_portal_url}[Automation Portal^] as `{aap_admin_username}` with password `{aap_admin_password}`.
+
+* Expand **Administration** and open **RBAC**.
+
+* In the roles list, find `role:default/portal-users` and click the **Edit** (pencil) action.
+
+image::m04-rbac-roles.png[Automation Portal RBAC All roles list showing portal-users and portal-rhel-team. Edit role action is available on each row.,link=self,window=blank]
+
+* Advance to **Add permission policies** (step 3 of 3).
+
+* Expand the **Catalog** plugin and enable these three **Use** permissions:
+
+** `ansible.git-repositories.view`
+** `ansible.collections.view`
+** `ansible.execution-environments.view`
+
+image::m04-rbac-edit-permissions.png[Edit role Add permission policies step with Catalog expanded. ansible.git-repositories.view, ansible.collections.view, and ansible.execution-environments.view are selected with Use permission.,link=self,window=blank]
+
+* Leave the existing Catalog and Scaffolder permissions as they are.
+
+* Review and save the role.
+
+=== Verify the sidebar as other users
+
+When switching users, **log out of Automation Portal** before signing in as the next user.
+
+* Log in to the link:{self_service_portal_url}[Automation Portal^] as `networkuser1` with password `{aap_admin_password}`.
+  Confirm the sidebar includes **Git Repositories**, **Collections**, and **Execution Environments**.
+
+* Log out, then log in as `rheluser1` with password `{aap_admin_password}`.
+  Confirm those content discovery items are **not** in the sidebar.
+
+* Log out, then log back in as `{aap_admin_username}` with password `{aap_admin_password}` to continue the rest of this module.
+
+✅ **Expected result**: `networkuser1` can see the content discovery sidebar items. `rheluser1` does not.
 
 [#repos]
 == Discover Git repositories
@@ -39,17 +79,17 @@ The **Git Repositories** section of the portal shows Git repos that have been ma
 * If the catalog shows **No Git repositories found**, click **Sync Now** (top right) and wait for the sync to finish, then refresh the page.
   Discovery only lists org repositories that look like Ansible collections (they contain a `galaxy.yml`).
 
-* Review the list of repositories available in this lab environment (for example Parasol-oriented repos under the lab GitHub org).
+* Review the list of repositories available in this lab environment.
 
-image::m04-git-repos.png[PLACEHOLDER: Automation Portal Git Repositories catalog. Left navigation highlights Git Repositories. Main area lists discoverable Git repositories for the lab organization (for example Parasol collection repos), with Sync Now available in the top right if the list is empty. Replace this placeholder with a real screenshot before publish.,link=self,window=blank]
+image::m04-git-repos.png[PLACEHOLDER: Automation Portal Git Repositories catalog. Left navigation highlights Git Repositories. Main area lists discoverable Git repositories for the lab organization, with Sync Now available in the top right if the list is empty. Replace this placeholder with a real screenshot before publish.,link=self,window=blank]
 
-* Open one repository and note what information the portal surfaces (name, source link, or related metadata).
+* Open one repository and note what information the portal surfaces: name, source link, related metadata, and the repository README.
 
-image::m04-git-repo-detail.png[PLACEHOLDER: Automation Portal Git repository detail page after opening one repo from the catalog. Shows repository name, source/Git link, and related metadata for a lab collection repository. Replace this placeholder with a real screenshot before publish.,link=self,window=blank]
+image::m04-git-repo-detail.png[Automation Portal Git repository detail for a lab collection repo. Overview shows the README plus About metadata: description, source link, default branch, and tags.,link=self,window=blank]
 
-✅ **Expected result**: You can see one or more collection-shaped repositories from the lab organization, not an empty catalog.
+✅ **Expected result**: You can see one or more repositories from the lab organization, not an empty catalog.
 
-Take a minute to click through a few repos and compare what a network-oriented repo shows versus a more general lab content repo, if both are present.
+Open a few more repositories and skim each README so you can see how the portal presents different collection content.
 
 [#collections]
 == Discover collections
@@ -61,45 +101,37 @@ In the portal, **Collections** discovery lets users browse what Hub and related 
 
 * In the portal, open **Collections**.
 
-* If the list is empty, click **Sync Now** (or the equivalent sync control) so the portal pulls from this instance’s Private Automation Hub (`rh-certified`, `validated`, `community`, and `published`).
-  Customer collections such as `parasol.*` are published into Hub’s **`published`** repository during lab provision.
+* If the list is empty, click **Sync Now** so the portal pulls collections from this instance’s Private Automation Hub.
+  The first sync can take several minutes while Hub and the portal finish indexing content. Wait for it to complete, then refresh if the list still looks empty.
 
 * Notice that you can browse collections without leaving the portal or logging into Hub separately for a first look.
 
 image::m04-collections.png[PLACEHOLDER: Automation Portal Collections catalog. Left navigation highlights Collections. Main area lists collections synced from Private Automation Hub, with Sync Now available if the list is empty. Replace this placeholder with a real screenshot before publish.,link=self,window=blank]
 
-=== Use filters and search
+=== Use filters, search, and stars
 
-* Try the available **filters** and/or search box (for example by name, type, or repository/source if offered).
+The **Filters** panel on the left includes search, **Personal** (including **Starred**), **My Org**, **Source Type**, **Tags**, and **Show latest version only**.
 
-* Filter or search until you can contrast:
+image::m04-collections-filter.png[Automation Portal Collections Filters panel with search, Personal Starred, My Org, Source Type, Tags, and Show latest version only.,link=self,window=blank]
 
-** **Certified / Red Hat** style content (for example well-known namespaces such as `amazon.aws`, `cisco.ios`, or other certified collections synced into this lab’s Hub)
-** **Customer / published** collections for this lab (look for the `parasol` namespace: custom collections published for the workshop)
+* Try **Source Type**, **Tags**, and the search box to narrow the list.
+  Notice that the catalog can include several kinds of content:
 
-image::m04-collections-filter.png[PLACEHOLDER: Automation Portal Collections view after filtering or searching. Shows contrast between certified/Red Hat collections and customer published parasol.* collections. Replace this placeholder with a real screenshot before publish.,link=self,window=blank]
+** **Certified** collections: Built and supported by Red Hat and partners (for example `amazon.aws`, `cisco.ios`)
+** **Validated** collections: Expert-led roles and playbooks for common operational tasks that you can customize for your environment
+** **Community** collections: Built and maintained by the community (for example `community.general`)
+** **Customer / published** collections: Content your organization publishes (in this lab, the `parasol` namespace)
 
-✅ **Expected result**: You can find both Red Hat-oriented collections and at least one `parasol.*` customer collection (for example `parasol.network`, `parasol.platform`, or `parasol.cloud`).
+* Open a collection you expect to reuse later, **star** it, then return to **Collections** and select **Starred** under **Personal**.
+  Confirm the starred collection appears in that filtered list.
+
+✅ **Expected result**: You can browse certified, validated, and community Hub content, find at least one `parasol.*` customer collection (for example `parasol.network`, `parasol.platform`, or `parasol.cloud`), and filter the catalog down to collections you have starred.
 
 [IMPORTANT]
 ====
 If `parasol` collections do not appear, Hub sync or publish for this instance may still be running.
 Wait a minute, refresh the Collections view, or ask your facilitator. Do not skip ahead to Module 5 until you can see custom collections. Module 5 builds on that content.
 ====
-
-=== Certified vs custom (why it matters)
-
-|===
-|Kind |Typical source |Why users care
-
-|**Certified / validated**
-|Private Automation Hub remotes (Red Hat content)
-|Supported, curated content for cloud, network, and infrastructure automation
-
-|**Customer / published**
-|Your org’s Hub `published` repo (or Git-backed discovery)
-|Internal standards, Parasol-style domain collections, team-owned content
-|===
 
 [NOTE]
 ====
@@ -111,10 +143,10 @@ It gives SMEs and platform admins a **unified place to see** what automation ass
 
 By completing this module, you should now understand:
 
+* **How portal RBAC controls content discovery** - Sidebar items appear only for roles that include the matching view permissions
 * **What content discovery is** - A unified portal catalog over Hub and Git so teams can find automation available to them
 * **How repositories appear in the portal** - Git repos are listed for discovery and navigation, separate from EE Builder
-* **How collections appear in the portal** - Users can browse and filter Hub-backed content, including certified and customer collections
-* **Why custom collections matter** - Organizations publish their own collections (like `parasol.*`) alongside Red Hat content
+* **How collections appear in the portal** - Users can browse and filter Hub-backed content, including certified, validated, community, and customer collections
 
 You’ve explored how Automation Portal surfaces Git repositories and collections.
 Next, you’ll use that idea in a real scenario: the **network team needs a purpose-built execution environment**, and you’ll create it with the portal’s **Execution Environment Builder**, review the GitHub result, and run a job with that EE.
