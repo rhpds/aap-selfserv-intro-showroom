@@ -41,13 +41,11 @@ image::m04-rbac-roles.png[Automation Portal RBAC All roles list showing portal-u
 
 * Advance to **Add permission policies** (step 3 of 3).
 
-* Expand the **Catalog** plugin and enable:
+* Expand the **Catalog** plugin and add these three **Use** permissions:
 
 ** `ansible.git-repositories.view`
 ** `ansible.collections.view`
 ** `ansible.execution-environments.view`
-** `catalog.entity.create` (needed so EE Builder can create Catalog entities)
-** `catalog.location.create` (needed so EE Builder `catalog:register` can add the GitHub Location; entity create alone is not enough)
 
 image::m04-rbac-edit-permissions.png[Edit role Add permission policies step with Catalog expanded. ansible.git-repositories.view, ansible.collections.view, and ansible.execution-environments.view are selected with Use permission.,link=self,window=blank]
 
@@ -122,12 +120,12 @@ image::m04-collections-filter.png[Automation Portal Collections Filters panel wi
 ** **Certified** collections: Built and supported by Red Hat and partners (for example `amazon.aws`, `cisco.ios`)
 ** **Validated** collections: Expert-led roles and playbooks for common operational tasks that you can customize for your environment
 ** **Community** collections: Built and maintained by the community (for example `community.general`)
-** **Customer / published** collections: Content your organization publishes (in this lab, the `parasol` namespace)
+** **Custom / published** collections: Content your organization publishes (in this lab, the `parasol` namespace)
 
 * Open a collection you expect to reuse later, **star** it, then return to **Collections** and select **Starred** under **Personal**.
   Confirm the starred collection appears in that filtered list.
 
-✅ **Expected result**: You can browse certified, validated, and community Hub content, find at least one `parasol.*` customer collection (for example `parasol.network`, `parasol.platform`, or `parasol.cloud`), and filter the catalog down to collections you have starred.
+✅ **Expected result**: You can browse certified, validated, and community Hub content, find at least one `parasol.*` collection (for example `parasol.network`, `parasol.platform`, or `parasol.cloud`), and filter the catalog down to collections you have starred.
 
 [IMPORTANT]
 ====
@@ -148,7 +146,7 @@ By completing this module, you should now understand:
 * **How portal RBAC controls content discovery** - Sidebar items appear only for roles that include the matching view permissions
 * **What content discovery is** - A unified portal catalog over Hub and Git so teams can find automation available to them
 * **How repositories appear in the portal** - Git repos are listed for discovery and navigation, separate from EE Builder
-* **How collections appear in the portal** - Users can browse and filter Hub-backed content, including certified, validated, community, and customer collections
+* **How collections appear in the portal** - Users can browse and filter Hub-backed content, including certified, validated, community, and custom collections
 
 You’ve explored how Automation Portal surfaces Git repositories and collections.
 Next, you’ll use that idea in a real scenario: the **network team needs a purpose-built execution environment**, and you’ll create it with the portal’s **Execution Environment Builder**, review the GitHub result, and run a job with that EE.

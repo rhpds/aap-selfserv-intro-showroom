@@ -1,136 +1,131 @@
 = Workshop conclusion
 
-Congratulations! You've successfully completed the Introduction to Ansible Automation Platform Self-Service Automation Portal workshop.
+Congratulations! You've successfully completed the Introduction to Automation Portal workshop.
 
 == What you accomplished
 
-Over the past two hours, you've built a complete self-service automation solution that enables non-automation experts across your organization to run automation safely and effectively.
+You practiced Automation Portal as a broader Ansible Automation Platform experience: **discover** content across Hub and Git, **create** assets such as execution environments, and **share** governed capability with domain teams through the catalog. Controller remains where you operate automation at scale; the portal helps more people find, build, and use that automation under AAP identity and RBAC.
 
-**Module 1: Configure Ansible Automation Platform for Self-Service Portal**
+**Module 1: Configure Ansible Automation Platform for Automation Portal**
 
-You configured role-based access control across both Ansible Automation Platform and Self-Service Portal:
+You set up governed access across AAP and the portal:
 
-* Created three teams representing different IT domains (cloud, network, RHEL)
-* Assigned granular permissions to job templates, inventories, and credentials
-* Built RBAC policies in the Self-Service Portal with catalog and scaffolder permissions
-* Implemented conditional access rules for advanced scenarios
+* Created three teams for cloud, network, and RHEL domains
+* Assigned permissions to job templates, inventories, and credentials
+* Built portal RBAC policies for catalog and scaffolder access
+* Confirmed content synchronization between AAP and the portal
 
-**Module 2: User Persona Testing in Self-Service Automation Portal**
+**Module 2: User persona testing**
 
-You validated your RBAC configuration by testing as three different user personas:
+You validated that sharing capability works for different SMEs:
 
-* Experienced the portal as a cloud administrator with access to AWS, Azure, and GCP automation
-* Tested as a network administrator with access to network-specific job templates
-* Validated the RHEL administrator experience with Linux automation and select cloud provisioning capabilities
+* Cloud administrator access to AWS, Azure, and GCP automation
+* Network administrator access to network job templates
+* RHEL administrator access to Linux automation and select cloud templates
 
-**Module 3: Surveys and Custom Templates**
+**Module 3: Surveys and custom templates**
 
-You enhanced the self-service experience with dynamic content:
+You improved how shared automation is presented and launched:
 
-* Modified job template surveys in AAP and observed automatic synchronization to the portal
-* Imported a custom dynamic template from a Git repository
-* Launched sophisticated automation with advanced options beyond standard surveys
+* Modified job template surveys in AAP and saw them in the portal
+* Imported a custom dynamic template from Git
+* Launched automation with richer options than a basic survey
+
+**Module 4: Content discovery**
+
+You used the portal to find automation that was previously scattered:
+
+* Browsed discoverable Git repositories
+* Explored collections with filters
+* Distinguished Hub-backed content from custom collections such as `parasol.*`
+
+**Module 5: Build and use an execution environment**
+
+You closed the loop from discovery to a runnable Network job:
+
+* Built an EE as the network automation developer using custom and Hub collections
+* Published to the lab GitHub repository and followed Actions
+* Saw how Hub and registry credentials support the image push
+* Had the platform admin attach the EE to a Network job template
+* Launched the job from the portal catalog as an end user
 
 == Learning outcomes
 
 By completing this workshop, you should now understand:
 
-* **How RBAC works across AAP and Self-Service Portal** - The relationship between users, teams, organizations, and permissions in both systems, and how to implement least-privilege access control
-* **How to configure team-based automation access** - Creating teams and assigning granular permissions to job templates, inventories, and credentials for different IT domains
-* **How to build permission policies in the Self-Service Portal** - Using the Red Hat Developer Hub permissions framework to control catalog and scaffolder access
-* **How to create conditional RBAC rules** - Implementing advanced access control scenarios with metadata-based conditions
-* **How RBAC controls the user experience** - The way different users see only authorized automation based on team membership and permissions
-* **The self-service portal user perspective** - How non-automation experts experience running automation without needing to understand Ansible or complex platform concepts
-* **How synchronization works between AAP and the portal** - Organizations, users, teams, and job templates automatically sync, and how to trigger manual synchronization
-* **How surveys enhance the user experience** - Interactive forms that prompt for input at job launch time, making automation more user-friendly
-* **What custom dynamic templates are** - Git-backed templates that provide sophisticated, enterprise-ready automation experiences beyond what surveys can offer
-* **How to import and use custom templates** - Loading templates from Git repositories and providing advanced options, conditional logic, and rich user interfaces
+* **How Automation Portal fits AAP** for discovery, guided creation (such as EE Builder), and sharing capability with SMEs, while Controller operates automation at scale
+* **How RBAC works across AAP and Automation Portal** for users, teams, organizations, and least-privilege access
+* **How to configure team-based access** so domain experts see the right templates, inventories, and credentials
+* **How portal permission policies** control catalog and scaffolder access
+* **How synchronization works** for organizations, users, teams, and job templates (including manual sync)
+* **How surveys and custom dynamic templates** improve the launch experience for shared automation
+* **What content discovery provides** as a searchable catalog over Hub and Git
+* **How EE Builder fits the portal** from visual definition through GitHub build to use on a job template
 
 == Key takeaways
 
 === Technical skills gained
 
-* **RBAC Configuration Expertise** - You now understand how to implement least-privilege access control across AAP and Self-Service Portal, ensuring users see only the automation they're authorized to execute
-
-* **Synchronization Understanding** - You know how AAP content (organizations, users, teams, job templates) automatically syncs to the Self-Service Portal and how to trigger manual synchronization when needed
-
-* **User Experience Customization** - You can enhance automation with surveys for simple input collection and custom dynamic templates for sophisticated enterprise experiences
-
-* **Team-Based Permissions** - You understand how to organize users into teams and grant permissions based on IT domain expertise, not automation knowledge
+* **Governed access** across AAP and Automation Portal so users see and run only what they are authorized to use
+* **Portal sync** of organizations, users, teams, and job templates from AAP
+* **Share-path UX** with surveys and custom dynamic templates
+* **Content discovery** for repositories and collections without hunting Hub and Git separately
+* **Execution Environment Builder** to generate definitions, land them in GitHub, and wire the image to job templates
+* **Team-based permissions** organized by IT domain
 
 === Business value delivered
 
-By implementing Self-Service Automation Portal, you've addressed critical organizational challenges:
+Automation Portal helps address adoption and sprawl:
 
-* **Broadened Automation Adoption** - Subject matter experts can now run automation without becoming Ansible experts, increasing platform usage and ROI
-
-* **Reduced Automation Team Burden** - Self-service capabilities mean fewer manual requests for the automation team, freeing them to build more valuable automation
-
-* **Maintained Governance and Security** - RBAC ensures users can only access and execute automation appropriate to their role, maintaining compliance and security standards
-
-* **Improved Time to Value** - Domain experts can trigger automation as part of their daily work, reducing delays and manual processes
-
-* **Scalable Access Model** - The team-based permission structure scales as your organization grows, making it easy to onboard new users
+* **Broader adoption** as domain experts can find and use automation without becoming platform engineers
+* **Less content hunting** when Hub collections and Git repositories surface in one catalog
+* **Faster path to reusable assets** such as EEs created with guided tools and published through Git
+* **Governance retained** through AAP identity, teams, and RBAC when capability is shared
+* **Less load on the automation team** when SMEs can launch authorized work themselves
 
 == Architecture summary
 
-Your Self-Service Automation Portal deployment consists of:
+Your lab environment included:
 
-* **Ansible Automation Platform 2.6** - The automation control plane managing credentials, inventories, projects, and job templates
-* **Self-Service Portal** - The user-facing application running on OpenShift, providing a simplified interface for automation execution
-* **RBAC Integration** - Synchronized permissions between AAP and the portal ensuring consistent access control
-* **Dynamic Content** - Job templates with surveys and custom templates from Git repositories for flexible user experiences
-
-All of this is deployed on **Red Hat OpenShift Container Platform**, providing enterprise infrastructure with built-in security and high availability.
+* **Ansible Automation Platform 2.7** as the control plane for credentials, inventories, projects, job templates, and Hub
+* **Automation Portal** for content discovery, EE Builder, and the self-service catalog (synced with AAP)
+* **Private Automation Hub** and the lab **GitHub** organization for collections and EE build repositories
+* **OpenShift** hosting AAP and the portal
 
 == Next steps
 
-=== Immediate actions
+=== Plan what to take back
 
-==== Plan your production deployment
+* Which teams need shared catalog access first, and which templates should they see?
+* Which repositories and collections should content discovery make visible?
+* Where will EE Builder help standardize images for domain teams?
+* What RBAC and review process will you use as the library grows?
 
-Consider your organization's needs:
+=== Identify pilot users
 
-* How many teams and domains will use self-service automation?
-* What job templates should be exposed through the portal?
-* What governance and approval workflows are required?
-* How will you organize teams and permissions?
+Select a small group of SMEs from different domains (cloud, network, Linux, and others). Include people with different automation experience, and gather feedback on discovery, creation, and shared launch.
 
-==== Identify pilot users
+=== Grow the library thoughtfully
 
-Select a small group of subject matter experts to pilot the portal:
+* Automate common manual tasks and expose them through the catalog with clear surveys
+* Keep Hub and Git content discoverable where it helps teams reuse work
+* Document use cases and expected outcomes for shared templates and EEs
 
-* Choose users from different domains (cloud, network, Linux, etc.)
-* Include users with varying levels of automation experience
-* Gather feedback on the user experience and automation needs
+=== Establish governance
 
-==== Build your automation library
-
-Expand the automation available through the portal:
-
-* Identify common manual tasks that could be automated
-* Create job templates with appropriate surveys for user input
-* Develop custom dynamic templates for multi-step workflows
-* Document automation use cases and expected outcomes
-
-==== Establish governance
-
-Define policies for automation access:
-
-* Who approves new automation being added to the portal?
-* How are permissions reviewed and updated?
-* What monitoring and auditing is required?
-* How are incidents and issues handled?
+* Who approves new templates, discovered repos, and EE definitions?
+* How are permissions reviewed?
+* What monitoring and auditing do you need?
 
 == References
 
 **Product documentation**
 
-* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6[Red Hat Ansible Automation Platform 2.6 Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/[Red Hat Ansible Automation Platform Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-role-based-access-control[Ansible Automation Platform RBAC Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-job-templates[Ansible Automation Platform Job Templates Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/automation_controller_user_guide/controller-surveys[Ansible Automation Platform Surveys Documentation^]
-* link:https://docs.redhat.com/en/documentation/red_hat_self-service_automation_portal[Red Hat Self-Service Automation Portal Documentation^]
+* link:https://docs.redhat.com/en/documentation/red_hat_self-service_automation_portal[Red Hat Automation Portal Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/administration_guide_for_red_hat_developer_hub/rhdh-rbac[Red Hat Developer Hub RBAC Framework Documentation^]
 * link:https://docs.redhat.com/en/documentation/red_hat_openshift_container_platform/[Red Hat OpenShift Container Platform Documentation^]
 
@@ -139,11 +134,7 @@ Define policies for automation access:
 * link:https://www.ansible.com/community[Ansible Community^]
 * link:https://www.redhat.com/en/technologies/management/ansible[Red Hat Ansible Automation Platform Product Page^]
 
-=== Learning resources
-
-**Continue your learning**
-
-Explore related workshops:
+=== Continue learning
 
 * Advanced Ansible Automation Platform Administration
 * Building Automation Content Collections
@@ -152,40 +143,28 @@ Explore related workshops:
 
 === Connect with Red Hat
 
-**Get support**
-
 * link:https://access.redhat.com/support[Red Hat Support Portal^]
 * Your Red Hat account team
-
-**Explore more**
-
 * link:https://www.redhat.com/en/technologies/management/ansible/trial[Try Ansible Automation Platform^]
 * link:https://developers.redhat.com/[Red Hat Developer Program^]
-* link:https://demo.redhat.com/[Red Hat Demo Platform^] - Access more workshops and demos
+* link:https://demo.redhat.com/[Red Hat Demo Platform^]
 
 == Final thoughts
 
-You've successfully built a self-service automation solution that empowers subject matter experts across your organization. By combining Ansible Automation Platform's automation capabilities with Self-Service Portal's intuitive interface, you've created a system that:
+You now have hands-on experience with Automation Portal for **discovery**, **creation**, and **sharing** automation capability under AAP governance. Use that to reduce sprawl, help SMEs find and run the right work, and keep platform owners in control of who can do what.
 
-* **Scales automation adoption** beyond the automation team
-* **Maintains governance** through proper RBAC
-* **Reduces manual processes** across IT domains
-* **Delivers value faster** by enabling self-service
-
-The skills you've learned in this workshop provide the foundation for transforming how your organization approaches automation. Whether you're supporting a small team or an enterprise-wide deployment, the principles of team-based permissions, self-service interfaces, and dynamic content apply.
-
-**Thank you for attending this workshop!** We hope you found it valuable and are excited to bring Self-Service Automation Portal to your organization.
+**Thank you for attending this workshop.** We hope you found it valuable and are ready to bring Automation Portal into your organization.
 
 == Workshop feedback
 
-Your feedback helps us improve this workshop for future participants. Please share your thoughts on:
+Your feedback helps us improve this workshop for future participants. Please share:
 
-* What worked well in the workshop?
+* What worked well?
 * What could be improved?
-* What additional topics would you like to see covered?
-* How likely are you to implement Self-Service Portal in your environment?
+* What additional topics would you like covered?
+* How likely are you to implement Automation Portal in your environment?
 
-Please provide your feedback to your workshop facilitator or through the workshop evaluation form.
+Provide feedback to your facilitator or through the workshop evaluation form.
 
 ---
 
