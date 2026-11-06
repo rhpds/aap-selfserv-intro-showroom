@@ -10,7 +10,7 @@ By the end of this module, you'll be able to:
 * Explore **collections** in the portal catalog, including filters
 
 In Modules 1-3 you focused on **configuring and running** self-service automation with RBAC, personas, surveys, and custom templates.
-In this module, you will unlock content discovery for the cloud and network portal role, then browse Git repositories and collections in the portal catalog.
+In this module, you will unlock content discovery for the portal-users role, then browse Git repositories and collections in the portal catalog.
 
 [#content-discovery-overview]
 == What is content discovery?
@@ -26,7 +26,7 @@ Ansible content rarely lives in one place:
 Automation Portal’s content discovery brings those sources into one view so teams can browse what the platform already provides.
 
 Sidebar items such as **Git Repositories**, **Collections**, and **Execution Environments** only appear for users whose portal role includes those permissions.
-In this module you will grant that access to `portal-users` (cloud and network teams). Leave `portal-rhel-team` unchanged so you can see how RBAC controls who gets content discovery.
+In this module you will grant that access to `portal-users`. Leave `portal-rhel-team` unchanged so you can see how RBAC controls who gets content discovery.
 
 [#grant-discovery]
 == Grant content discovery permissions
@@ -41,15 +41,17 @@ image::m04-rbac-roles.png[Automation Portal RBAC All roles list showing portal-u
 
 * Advance to **Add permission policies** (step 3 of 3).
 
-* Expand the **Catalog** plugin and enable these three **Use** permissions:
+* Expand the **Catalog** plugin and enable:
 
 ** `ansible.git-repositories.view`
 ** `ansible.collections.view`
 ** `ansible.execution-environments.view`
+** `catalog.entity.create` (needed so EE Builder can create Catalog entities)
+** `catalog.location.create` (needed so EE Builder `catalog:register` can add the GitHub Location; entity create alone is not enough)
 
 image::m04-rbac-edit-permissions.png[Edit role Add permission policies step with Catalog expanded. ansible.git-repositories.view, ansible.collections.view, and ansible.execution-environments.view are selected with Use permission.,link=self,window=blank]
 
-* Leave the existing Catalog and Scaffolder permissions as they are.
+* Leave the other existing Catalog and Scaffolder permissions as they are.
 
 * Review and save the role.
 

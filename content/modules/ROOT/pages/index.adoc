@@ -14,7 +14,7 @@ By the end, you will be able to:
 * Validate portal sync and exercise the catalog as cloud, network, and RHEL personas
 * Improve the launch experience with surveys and a custom dynamic template
 * Use content discovery to browse repositories and collections
-* Build an execution environment in the portal, follow the GitHub build, and use that EE on a job template
+* Build an execution environment in the portal as a domain developer, attach it to a job template, and run it from the catalog
 
 == The challenge
 
@@ -66,7 +66,7 @@ Browse discoverable Git repositories and collections (including Hub-backed and c
 
 **Duration**: 45 minutes
 
-Use Execution Environment Builder against a lab GitHub repo, review the PR and Actions build, then assign the EE to a Network job template and run it.
+Use Execution Environment Builder to build a custom EE in the portal from discovered collections, then assign the EE to a Network job template and run it.
 
 == Who this is for
 

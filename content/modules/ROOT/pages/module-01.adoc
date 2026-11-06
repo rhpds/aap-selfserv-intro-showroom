@@ -111,11 +111,11 @@ image::assignuserrole.png[Users tab for cloud-team showing current team members 
 
 For `network-team`, assign the following:
 
-* For Resource Type: `Job Template`, select all the job templates that begin with `Network/`, then click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Job Template`, select all the job templates that begin with `Network/` and the `GitHub Join Lab Team` template, then click `Next`. Please select `Job Template Execute` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: `Inventory`, select the `Network Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Inventory`, select the `Network Inventory` and the `Demo Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: **Automation Execution** `Credential`, select the `Network Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: **Automation Execution** `Credential`, select the `Network Credentials` and the `Portal GitHub Token`, then click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `network-team` page, assign the following `Users` to the `network-team`:
 
@@ -161,9 +161,9 @@ Click on `network-team` → `Roles` tab
 
 ✅ **Expected result**: You should see roles assigned for:
 
-- **Job Templates**: All `Network/*` templates with "Execute" permission
-- **Inventories**: Network Inventory with "Use" permission
-- **Credentials**: Network Credentials with "Use" permission
+- **Job Templates**: The `GitHub Join Lab Team` and all `Network/*` templates with "Execute" permission
+- **Inventories**: Network and Demo inventories with "Use" permission
+- **Credentials**: Portal GitHub Token and Network Credentials with "Use" permission
 
 Click on `rhel-team` → `Roles` tab
 

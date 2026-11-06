@@ -11,7 +11,7 @@ asciidoc:
     page-pagination: true
     my_var: "foo"
     guid: my-guid
-    # Injected by showroom/userdata when available; used in Module 5 repo examples
+    openshift_username: user1
     github_ee_org: AAP-Automation-Portal-Lab
     ssh_user: devops
     ssh_password: devops
