@@ -80,7 +80,12 @@ Log in to the link:{self_service_portal_url}[Automation Portal^] as `networkuser
 
 image::networkuser1.png[Automation Portal as networkuser1: Header shows 'networkuser1' logged in. Template area displays ONLY Network job templates such as 'Network/Configure Switch', 'Network/Update Firewall Rules' shown as green tiles. Cloud and RHEL templates are NOT visible - correctly filtered by team-based RBAC. When launching network jobs, user can select Network Inventory and Network Credential, while cloud and RHEL resources remain hidden,link=self,window=blank]
 
-Take a moment and run some of the network job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+Take a moment and run some of the `Network/` job templates to see the results. Notice the user can select / change things like credentials and inventories, as they were granted access to use the credentials and inventories.
+
+[NOTE]
+====
+You may also see **`GitHub Join Lab Team`**. Leave that one alone for now. You will run it later in Module 5 when you join the lab GitHub organization for EE Builder.
+====
 
 [#rheluser1]
 == Test as user **rheluser1**

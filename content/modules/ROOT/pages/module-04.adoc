@@ -104,7 +104,7 @@ In the portal, **Collections** discovery lets users browse what Hub and related 
 * If the list is empty, click **Sync Now** so the portal pulls collections from this instance’s Private Automation Hub.
   The first sync can take several minutes while Hub and the portal finish indexing content. Wait for it to complete, then refresh if the list still looks empty.
 
-* Notice that you can browse collections without leaving the portal or logging into Hub separately for a first look.
+* Notice that you can browse collections without leaving the portal or logging into Hub separately.
 
 image::m04-collections.png[PLACEHOLDER: Automation Portal Collections catalog. Left navigation highlights Collections. Main area lists collections synced from Private Automation Hub, with Sync Now available if the list is empty. Replace this placeholder with a real screenshot before publish.,link=self,window=blank]
 

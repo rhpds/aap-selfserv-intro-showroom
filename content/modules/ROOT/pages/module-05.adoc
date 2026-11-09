@@ -47,13 +47,15 @@ Log in to the link:{self_service_portal_url}[Automation Portal^] as `networkuser
 * Open **`GitHub Join Lab Team`** from the catalog and click **Start**.
 * In the survey, enter your **GitHub username** (login name, not email).
 * Launch the job and wait for it to succeed.
+* Accept the organization / team invite for **`AAP-Automation-Portal-Lab`** before continuing.
+  Until you accept, GitHub OAuth from the portal can fail even if the join job succeeded.
+** Check your email inbox for the GitHub account you used and click **Join @AAP-Automation-Portal-Lab**.
 
-[IMPORTANT]
-====
-Check your email inbox for the GitHub account you used or your GitHub profile under `Organizations`.
-Accept the organization / team invite for `AAP-Automation-Portal-Lab` before continuing.
-Until you accept, GitHub OAuth from the portal can fail even if the join job succeeded.
-====
+image::m05-github-invite-email.png[GitHub organization invitation email for AAP-Automation-Portal-Lab with a Join button.,link=self,window=blank]
+
+** Or open GitHub **Settings → Organizations**, find the pending invite for **`AAP-Automation-Portal-Lab`**, and click **Accept**.
+
+image::m05-github-invite-orgs.png[GitHub Settings Organizations page showing a pending invite for AAP-Automation-Portal-Lab with Accept highlighted.,link=self,window=blank]
 
 ✅ **Expected result**: The join job succeeds, and you have accepted the GitHub org invite.
 
@@ -72,13 +74,16 @@ Because Module 4 granted content discovery permissions to `portal-users`, you sh
 * In the portal sidebar, open **Execution Environments**.
 
 * The **Catalog** tab lists EE definition files already registered for your organization.
+  You should see the sample Parasol EEs (`parasol-cloud-provisioning-ee`, `parasol-linux-patching-ee`, and `parasol-security-scanning-ee`).
+  Your Module 5 build is for Hub and Controller; it does not need a new Catalog entry.
 
+image::m05-ee-catalog.png[Execution Environments Catalog tab listing the three provisioned Parasol EE definitions.,link=self,window=blank]
 
 * Open the **Create** tab.
 
 * On the **Start from scratch** card, click **Start**.
 
-image::m05-ee-create-start.png[Create tab with Start from scratch card and Start button.,link=self,window=blank]
+image::m05-ee-create-start.png[Create tab with Start from scratch card highlighted.,link=self,window=blank]
 
 === Step 1: Base image
 
@@ -141,9 +146,8 @@ image::m05-ee-add-python-pkg.png[Add New Package dialog for a Python package.,li
 
 * Under **System Packages**, click **+ Add Packages Manually**, enter `git`, and add the package.
 
-image::m05-ee-add-system-pkg.png[Add New Package dialog for a system package.,link=self,window=blank]
-
 * Check **Include additional build steps**.
+* Click **Add Build Step**
 * Add a build step with:
 ** **Step Type**: `Prepend Final - Before final image steps`
 ** **Commands**: `RUN echo "Built by network dev with Automation Portal"`
@@ -178,7 +182,7 @@ The lab pre-creates these repositories with the necessary build secrets that wou
 * Select **Private Automation Hub (PAH)** for **Registry**.
 
 * Enter **Image Name**: `parasol/network-ops-ee`
-* Enter **Image Tag**: `1.0.0`
+* Enter **Image Tag**: `latest`
 * Leave **Verify TLS certificates** checked.
 
 * Review the full configuration, then create / submit the EE definition.
@@ -190,12 +194,15 @@ The lab pre-creates these repositories with the necessary build secrets that wou
 
 Stay on the progress page after you submit. When the GitHub steps finish, use the action buttons at the bottom of that page.
 
+image::m05-ee-progress-actions.png[EE Builder progress page with GitHub Pull Request and GitHub EE Build Workflow Run buttons highlighted.,link=self,window=blank]
+
 === Pull request and definition files
 
 * Click **GitHub Pull Request**.
 * Review the changed files. You should see a directory named after your EE (for example `network-ops-ee/`) that includes:
 ** `network-ops-ee.yml` (the EE definition; it is named after the EE, not `execution-environment.yml`)
-** `catalog-info.yaml` (registers the definition in the portal Catalog)
+** `catalog-info.yaml` (Backstage entity metadata for the EE)
+** `README.md`
 ** updates under `.github/workflows/ee-build.yml`
 
 ✅ **Expected result**: The PR shows the EE definition content you configured. The `main` branch still looks nearly empty until you merge.
@@ -206,6 +213,9 @@ Stay on the progress page after you submit. When the GitHub steps finish, use th
 
 * Return to the portal progress page and click **Github EE Build Workflow Run**.
 * Or open the repository **Actions** tab and select the **Execution Environment Build** run.
+
+image::m05-github-actions.png[GitHub Actions tab with the Execution Environment Build workflow run selected.,link=self,window=blank]
+
 * Open the run and watch the job steps as GitHub Actions builds the image, runs its checks, and publishes the EE to Private Automation Hub.
 
 [IMPORTANT]
@@ -255,9 +265,14 @@ image::m05-ee-use-in-controller.png[AAP Automation Content Execution Environment
 === Attach the EE to the Network job template
 
 * Go to **Automation Execution → Templates**.
-* Open **`Network/Onboard Network device`**.
-* Edit the template.
-* Set **Execution Environment** to **`network-ops-ee`**.
+* Find **`Network/Onboard Network device`** and click the edit (pencil) icon.
+
+image::m05-jt-edit.png[Automation Templates list with Network/Onboard Network device selected and Edit template highlighted.,link=self,window=blank]
+
+* Set **Execution environment** to **`network-ops-ee`**.
+
+image::m05-jt-ee-select.png[Edit Network/Onboard Network device form with Execution environment dropdown open and network-ops-ee selected.,link=self,window=blank]
+
 * Save.
 
 
