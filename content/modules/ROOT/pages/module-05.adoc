@@ -20,7 +20,7 @@ You will:
 . Switch to the platform admin to attach the EE to a Network job template in AAP
 . Launch the job from the portal catalog so end users can consume the result
 
-NOTE: When switching users, **log out of both Ansible Automation Platform and Automation Portal** before signing in as the next user. Prefer a **new browser tab** for the portal link (especially before GitHub OAuth).
+NOTE: When switching users, **log out of both Ansible Automation Platform and Automation Portal** before signing in as the next user.
 
 [#ee-scenario]
 == Scenario: Network automation needs a new EE
@@ -62,11 +62,7 @@ image::m05-github-invite-orgs.png[GitHub Settings Organizations page showing a p
 [#ee-builder]
 == Create the execution environment definition
 
-Open the portal in a **new browser tab** (outside the Showroom panel) so GitHub OAuth is not blocked by the iframe:
-
-link:{self_service_portal_url}[Open Automation Portal in a new tab^]
-
-
+Open the link:{self_service_portal_url}[Automation Portal^].
 Because Module 4 granted content discovery permissions to `portal-users`, you should see **Execution Environments** in the sidebar.
 
 === Open the EE catalog, then Create
@@ -157,7 +153,6 @@ image::m05-ee-add-python-pkg.png[Add New Package dialog for a Python package.,li
 
 * Enter **Name**: `network-ops-ee`
 * Enter **Description**: `Network ops EE for Parasol device onboarding`
-* Optionally add **tags** so the team can find this EE in the catalog later.
 
 * Choose **GitHub** as the Git provider and complete GitHub sign-in.
 

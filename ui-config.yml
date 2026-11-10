@@ -11,5 +11,6 @@ tabs:
     url: 'https://${USER}-aap-${USER}-aap.${DOMAIN}'
   - name: Automation Portal
     url: 'https://self-service-rhaap-portal-${USER}-aap-ssap.${DOMAIN}'
+    external: true
   - name: OCP Console
     url: 'https://console-openshift-console.${DOMAIN}'

@@ -89,7 +89,7 @@ For `Inventory`, select the following inventories and click `Next`.
 
 image::assigninventoryrole.png[Inventory selection screen showing checkboxes for 'AWS Inventory', 'Azure Inventory', and 'GCP Inventory'. Select all three by clicking their checkboxes. This grants cloud-team Use permission to reference these inventories when launching job templates. Next button proceeds to role selection where you will choose 'Inventory Use',link=self,window=blank]
 
-`Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: **Automation Execution** `Credential`
+`Access Management` -> `Teams` -> `cloud-team` -> `Roles` -> `+Assign roles` -> Resource Type: `Credential`
 
 For that credential type, select the following 3 credentials and click `Next`.
 
@@ -115,7 +115,7 @@ For `network-team`, assign the following:
 
 * For Resource Type: `Inventory`, select the `Network Inventory` and click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: **Automation Execution** `Credential`, select the `Network Credentials` and the `Portal GitHub Token`, then click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Credential`, select the `Network Credentials` and the `Portal GitHub Token`, then click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `network-team` page, assign the following `Users` to the `network-team`:
 
@@ -127,7 +127,7 @@ For `rhel-team`, assign the following:
 
 * For Resource Type: `Inventory`, select the `RHEL Inventory` and `AWS Inventory`, then click `Next`. Please select `Inventory Use` as the role to apply -> Review your work and click `Finish`
 
-* For Resource Type: **Automation Execution** `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
+* For Resource Type: `Credential`, select the `AWS Credential` AND `RHEL - SSH Credentials` and click `Next`. Please select `Credential Use` as the role to apply -> Review your work and click `Finish`
 
 While still on the `rhel-team` page, assign the following `Users` to the `rhel-team`:
 

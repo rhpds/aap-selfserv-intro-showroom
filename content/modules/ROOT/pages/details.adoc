@@ -27,7 +27,7 @@ Login:
 
 === Automation Portal
 
-Open in a **new browser tab**: link:{self_service_portal_url}[Open Automation Portal^]
+Open link:{self_service_portal_url}[Automation Portal^]
 
 Login with the same admin credentials. Click **Authorize** if prompted.
 
@@ -49,7 +49,7 @@ If any check fails, contact your facilitator before Module 1.
 **URLs:**
 
 * **Ansible Automation Platform**: link:{aap_controller_url}[{aap_controller_url}^]
-* **Automation Portal**: link:{self_service_portal_url}[Open Automation Portal in a new tab^]
+* **Automation Portal**: link:{self_service_portal_url}[Automation Portal^]
 * **OpenShift Console**: link:{openshift_console_url}[{openshift_console_url}^]
 
 **Users:**
@@ -85,7 +85,6 @@ Your AAP instance already includes domain inventories, credentials, projects, an
 [IMPORTANT]
 ====
 * **Switching personas:** Log out of both Ansible Automation Platform and Automation Portal before signing in as the next user.
-* **Opening the portal (especially Module 5):** Use a **new browser tab** for portal links. GitHub OAuth cannot run reliably inside the Showroom iframe.
 ====
 
 == Authors & Feedback
