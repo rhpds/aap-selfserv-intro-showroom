@@ -31,7 +31,7 @@ A **network automation developer** built the playbook for **`Network/Onboard Net
 * **`cisco.ios`** and **`ansible.netcommon`** from Private Automation Hub **`rh-certified`** (Red Hat certified)
 * **`network.acls`** from Private Automation Hub **`validated`** (Ansible validated content)
 * **`community.general`** from Private Automation Hub **`community`**
-* **`parasol.network`** from Private Automation Hub **`published`** (Parasol custom collection from Module 4)
+* **`parasol.network`** from GitHub **`AAP-Automation-Portal-Lab`** (Parasol custom collection you discovered in Module 4)
 * System package **`git`** and Python package **`paramiko`**
 
 With AAP 2.7, Automation Portal provides a **visual Execution Environment Builder** that lets you choose collections and options through a guided point-and-click experience, then generate the definition into Git and kick off the build pipeline.
@@ -99,7 +99,7 @@ For each collection below:
 
 . Search by collection name.
 . Select the collection.
-. Set **Source** to the Private Automation Hub repository listed for that collection.
+. Set **Source** to the source listed for that collection in the table below (Hub or GitHub).
 . For **Version**, select the latest version shown, or leave the version blank so the build uses the latest available.
 . Click **+ Add collection**.
 
@@ -156,7 +156,7 @@ image::m05-ee-add-python-pkg.png[Add New Package dialog for a Python package.,li
 
 * Choose **GitHub** as the Git provider and complete GitHub sign-in.
 
-* Select the GitHub organization **`AAP-Automation-Portal-Lab`**.
+* For **Namespace** select the GitHub organization **`AAP-Automation-Portal-Lab`**.
 
 [NOTE]
 ====
@@ -164,7 +164,7 @@ EEs not created under the lab organization **`AAP-Automation-Portal-Lab`** will 
 Do **not** select any other organization or your personal GitHub namespace.
 ====
 
-* Select the repository **`{guid}-{openshift_username}-ee`**.
+* Enter the **Repository Name**: **`{guid}-{openshift_username}-ee`**.
 
 [NOTE]
 ====
@@ -178,9 +178,10 @@ The lab pre-creates these repositories with the necessary build secrets that wou
 
 * Enter **Image Name**: `parasol/network-ops-ee`
 * Enter **Image Tag**: `latest`
-* Leave **Verify TLS certificates** checked.
+* Leave **Verify TLS certificates** checked
+* Select *Next**
 
-* Review the full configuration, then create / submit the EE definition.
+* Review the full configuration, then select **Create** to kick off the build process.
 
 ✅ **Expected result**: The portal shows a progress view for scaffolding, publishing the pull request, and starting the EE build workflow.
 
