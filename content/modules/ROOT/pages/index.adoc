@@ -34,37 +34,37 @@ The portal syncs organizations, users, teams, and templates from AAP and uses si
 
 == Workshop structure
 
-This is approximately a 3-hour workshop.
+This is approximately a 2-hour workshop.
 
-Roughly 15 minutes of intro, then hands-on modules.
+Roughly 10 minutes of intro, then hands-on modules.
 
 === Module 1: Configure AAP and Automation Portal for governed access
 
-**Duration**: 35 minutes
+**Duration**: 25 minutes
 
 Set up domain teams and permissions in AAP, then portal RBAC policies so catalog access matches those teams, and confirm content sync.
 
 === Module 2: User persona testing
 
-**Duration**: 30 minutes
+**Duration**: 20 minutes
 
 Sign in as cloud, network, and RHEL users. Confirm each persona only sees and can run authorized automation.
 
 === Module 3: Surveys and custom templates
 
-**Duration**: 40 minutes
+**Duration**: 25 minutes
 
 Change a job template survey in AAP, see it in the portal, then import and launch a custom dynamic template.
 
 === Module 4: Content discovery
 
-**Duration**: 20 minutes
+**Duration**: 15 minutes
 
 Browse discoverable Git repositories and collections (including Hub-backed and custom `parasol` content) in the portal catalog.
 
 === Module 5: Build and use an execution environment
 
-**Duration**: 45 minutes
+**Duration**: 35 minutes
 
 Use Execution Environment Builder to build a custom EE in the portal from discovered collections, then assign the EE to a Network job template and run it.
 
