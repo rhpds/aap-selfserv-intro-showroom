@@ -1,4 +1,4 @@
-= Introduction to Ansible Automation Platform Self-Service Automation Portal
+= Introduction to Automation Portal
 
 This showroom provides hands-on experience with Ansible Automation Platform's self-service automation capabilities.
 
