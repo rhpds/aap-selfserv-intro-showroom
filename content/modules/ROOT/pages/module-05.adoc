@@ -179,7 +179,7 @@ The lab pre-creates these repositories with the necessary build secrets that wou
 * Enter **Image Name**: `parasol/network-ops-ee`
 * Enter **Image Tag**: `latest`
 * Leave **Verify TLS certificates** checked
-* Select *Next**
+* Select *Next*
 
 * Review the full configuration, then select **Create** to kick off the build process.
 
