@@ -154,6 +154,8 @@ image::m05-ee-add-python-pkg.png[Add New Package dialog for a Python package.,li
 * Enter **Name**: `network-ops-ee`
 * Enter **Description**: `Network ops EE for Parasol device onboarding`
 
+* Check **Publish to a Git repository**
+
 * Choose **GitHub** as the Git provider and complete GitHub sign-in.
 
 * For **Namespace** select the GitHub organization **`AAP-Automation-Portal-Lab`**.
