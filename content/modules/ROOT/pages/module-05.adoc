@@ -154,6 +154,8 @@ image::m05-ee-add-python-pkg.png[Add New Package dialog for a Python package.,li
 * Enter **Name**: `network-ops-ee`
 * Enter **Description**: `Network ops EE for Parasol device onboarding`
 
+* Check **Publish to a Git repository**
+
 * Choose **GitHub** as the Git provider and complete GitHub sign-in.
 
 * For **Namespace** select the GitHub organization **`AAP-Automation-Portal-Lab`**.
@@ -248,7 +250,7 @@ Log in to the link:{aap_controller_url}[Ansible Automation Platform^] as `{aap_a
 === Add the Hub EE to Controller
 
 * Go to **Automation Content → Execution Environments**.
-* Find **`network-ops-ee`**.
+* Find the **`parasol/network-ops-ee`**.
 * Open the kebab menu and select **Use in Controller**.
 
 image::m05-ee-use-in-controller.png[AAP Automation Content Execution Environments list with network-ops-ee kebab open and Use in Controller selected.,link=self,window=blank]
